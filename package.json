@@ -1,0 +1,25 @@
+{
+  "name": "formed.css",
+  "version": "0.1.0",
+  "description": "Formed solutions visual style and component-based library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/formed-solutions/formed.css.git"
+  },
+  "keywords": [
+    "css",
+    "browser",
+    "ui-components",
+    "formed"
+  ],
+  "author": "Christopher DeFelice",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/formed-solutions/formed.css/issues"
+  },
+  "homepage": "https://github.com/formed-solutions/formed.css#readme"
+}
