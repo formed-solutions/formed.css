@@ -1,0 +1,35 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*.zip
+*~
+
+# OS or Editor folders
+.DS_Store
+._*
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+.idea
+.sass-cache
+*.css.map
+
+# node defaults
+node_modules
+npm-debug.log
+
+# Dev environmnt
+/.tmp
+bower_components
