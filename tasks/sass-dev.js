@@ -28,13 +28,12 @@ const AUTOPREFIXER_BROWSERS = [
   'ios >= 8'
 ];
 
-const sassDev = () => {
+function sassDev() {
   return gulp.src('library/formed.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'nested',
-      precision: 10,
-      includePaths: ['.']
+      precision: 10
     }))
     .on('error', function __error__(error) {
       console.error('Sass error: ', error);
@@ -49,7 +48,7 @@ const sassDev = () => {
     .pipe(gulp.dest('.tmp'))
     .pipe(reload({
       stream: true
-      }));
+    }));
 }
 
 module.exports = sassDev;

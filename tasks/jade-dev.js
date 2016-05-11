@@ -21,7 +21,7 @@ function jadeDev() {
       console.error('jade error: ', error);
       this.emit('end');
     })
-    .pipe(gulp.dest('.tmp'))
+    .pipe(gulp.dest('.tmp'));
 }
 
 module.exports = jadeDev;
