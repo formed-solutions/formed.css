@@ -1,0 +1,130 @@
+/**
+ * Reset/normalize application styles.
+ * All document, body, and grouping content selectors.
+ *
+ * NOTE: No class selectors or any custom attribute selectors belong here.
+ */
+
+/**
+ * 1. Set `html` to occupy entire viewport space.
+ * 2. Declare a root font size.
+ * 3. Avoid touch delay on mobile.
+ */
+
+html {
+  box-sizing: border-box;
+  height: 100%; /* 1 */
+  width: 100%; /* 1 */
+
+  font-size: $font-size-root; /* 2 */
+
+  -ms-touch-action: manipulation; /* 3 */
+  touch-action: manipulation; /* 3 */
+}
+
+/**
+ * Inherit box-sizing for all elements.
+ */
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+/**
+ * 1. Reset margins.
+ * 2. Occupy entire space of parent `html`.
+ * 3. Inherit font-size from parent `html`.
+ */
+
+body {
+  margin: 0; /* 1 */
+  min-height: 100%; /* 2 */
+  width: inherit; /* 2 */
+
+  font-family: $font-family-base;
+  font-size: inherit; /* 3 */
+}
+
+/* Flow content
+   ------------------------------------------------------------------------- */
+
+/**
+ * Set correct display.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * Remove default spacing.
+ */
+
+blockquote,
+dl,
+dd,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+  margin: 0;
+}
+
+address {
+  display: block;
+
+  font-style: normal;
+  line-height: $line-height-base;
+}
+
+/**
+ * Remove spacing b/w table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+
+template, /* 1 */
+[hidden] {
+  display: none;
+}
+
+@import "sectioning-content";
+@import "grouping-content";
+@import "embedded-content";
+@import "interactive-content";
+@import "phrasing-content";
+
+/**
+ * Kill the outline generated when an element has focus and is not accessible
+ * from the keyboard.
+ */
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}

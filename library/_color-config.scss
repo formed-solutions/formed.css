@@ -1,0 +1,167 @@
+// ----------------------------------------------------------------------------
+// Color colors
+// ----------------------------------------------------------------------------
+
+// Dependencies
+
+@import "_functions/_colors";
+
+/// Master weight key for manipulating color weights.
+///
+/// @type map
+/// <name of weight>: <lightness percentage>
+
+$color-weights: (
+  000: 90%,
+  100: 60%,
+  200: 45%,
+  300: 30%,
+  400: 15%,
+  500: 0%,
+  600: -5%,
+  700: -15%,
+  800: -25%,
+  900: -35%
+) !default;
+
+/// Master accent key for manipulating color accents.
+/// @type map
+/// <name of accent>: <saturation percentage> | <lightness percentage>
+
+$color-accents: (
+  "a100": 50% map-get($color-weights, 100),
+  "a200": 80% map-get($color-weights, 200),
+  "a400": 80% map-get($color-weights, 400),
+  "a700": 40% map-get($color-weights, 700)
+) !default;
+
+$color-contrast-dark: #000 !default;
+$color-contrast-light: #fff !default;
+
+$color-primary: #f68d64 !default;
+$color-primary-000: set-color-weight($color-primary, 000) !default;
+$color-primary-100: set-color-weight($color-primary, 100) !default;
+$color-primary-200: set-color-weight($color-primary, 200) !default;
+$color-primary-300: set-color-weight($color-primary, 300) !default;
+$color-primary-400: set-color-weight($color-primary, 400) !default;
+$color-primary-500: set-color-weight($color-primary, 500) !default;
+$color-primary-600: set-color-weight($color-primary, 600) !default;
+$color-primary-700: set-color-weight($color-primary, 700) !default;
+$color-primary-800: set-color-weight($color-primary, 800) !default;
+$color-primary-900: set-color-weight($color-primary, 900) !default;
+$color-primary-a100: set-color-accent($color-primary, "a100") !default;
+$color-primary-a200: set-color-accent($color-primary, "a200") !default;
+$color-primary-a400: set-color-accent($color-primary, "a400") !default;
+$color-primary-a700: set-color-accent($color-primary, "a700") !default;
+
+$color-secondary: #3a5171 !default;
+$color-secondary-000: set-color-weight($color-secondary, 000) !default;
+$color-secondary-100: set-color-weight($color-secondary, 100) !default;
+$color-secondary-200: set-color-weight($color-secondary, 200) !default;
+$color-secondary-300: set-color-weight($color-secondary, 300) !default;
+$color-secondary-400: set-color-weight($color-secondary, 400) !default;
+$color-secondary-500: set-color-weight($color-secondary, 500) !default;
+$color-secondary-600: set-color-weight($color-secondary, 600) !default;
+$color-secondary-700: set-color-weight($color-secondary, 700) !default;
+$color-secondary-800: set-color-weight($color-secondary, 800) !default;
+$color-secondary-900: set-color-weight($color-secondary, 900) !default;
+$color-secondary-a100: set-color-accent($color-secondary, "a100") !default;
+$color-secondary-a200: set-color-accent($color-secondary, "a200") !default;
+$color-secondary-a400: set-color-accent($color-secondary, "a400") !default;
+$color-secondary-a700: set-color-accent($color-secondary, "a700") !default;
+
+$color-red: #bf4536 !default;
+$color-red-000: set-color-weight($color-red, 000) !default;
+$color-red-100: set-color-weight($color-red, 100) !default;
+$color-red-200: set-color-weight($color-red, 200) !default;
+$color-red-300: set-color-weight($color-red, 300) !default;
+$color-red-400: set-color-weight($color-red, 400) !default;
+$color-red-500: set-color-weight($color-red, 500) !default;
+$color-red-600: set-color-weight($color-red, 600) !default;
+$color-red-700: set-color-weight($color-red, 700) !default;
+$color-red-800: set-color-weight($color-red, 800) !default;
+$color-red-900: set-color-weight($color-red, 900) !default;
+$color-red-a100: set-color-accent($color-red, "a100") !default;
+$color-red-a200: set-color-accent($color-red, "a200") !default;
+$color-red-a400: set-color-accent($color-red, "a400") !default;
+$color-red-a700: set-color-accent($color-red, "a700") !default;
+
+$color-blue: #47759f !default;
+$color-blue-000: set-color-weight($color-blue, 000) !default;
+$color-blue-100: set-color-weight($color-blue, 100) !default;
+$color-blue-200: set-color-weight($color-blue, 200) !default;
+$color-blue-300: set-color-weight($color-blue, 300) !default;
+$color-blue-400: set-color-weight($color-blue, 400) !default;
+$color-blue-500: set-color-weight($color-blue, 500) !default;
+$color-blue-600: set-color-weight($color-blue, 600) !default;
+$color-blue-700: set-color-weight($color-blue, 700) !default;
+$color-blue-800: set-color-weight($color-blue, 800) !default;
+$color-blue-900: set-color-weight($color-blue, 900) !default;
+$color-blue-a100: set-color-accent($color-blue, "a100") !default;
+$color-blue-a200: set-color-accent($color-blue, "a200") !default;
+$color-blue-a400: set-color-accent($color-blue, "a400") !default;
+$color-blue-a700: set-color-accent($color-blue, "a700") !default;
+
+$color-green: #44a681 !default;
+$color-green-000: set-color-weight($color-green, 000) !default;
+$color-green-100: set-color-weight($color-green, 100) !default;
+$color-green-200: set-color-weight($color-green, 200) !default;
+$color-green-300: set-color-weight($color-green, 300) !default;
+$color-green-400: set-color-weight($color-green, 400) !default;
+$color-green-500: set-color-weight($color-green, 500) !default;
+$color-green-600: set-color-weight($color-green, 600) !default;
+$color-green-700: set-color-weight($color-green, 700) !default;
+$color-green-800: set-color-weight($color-green, 800) !default;
+$color-green-900: set-color-weight($color-green, 900) !default;
+$color-green-a100: set-color-accent($color-green, "a100") !default;
+$color-green-a200: set-color-accent($color-green, "a200") !default;
+$color-green-a400: set-color-accent($color-green, "a400") !default;
+$color-green-a700: set-color-accent($color-green, "a700") !default;
+
+$color-yellow: #eda85d !default;
+$color-yellow-000: set-color-weight($color-yellow, 000) !default;
+$color-yellow-100: set-color-weight($color-yellow, 100) !default;
+$color-yellow-200: set-color-weight($color-yellow, 200) !default;
+$color-yellow-300: set-color-weight($color-yellow, 300) !default;
+$color-yellow-400: set-color-weight($color-yellow, 400) !default;
+$color-yellow-500: set-color-weight($color-yellow, 500) !default;
+$color-yellow-600: set-color-weight($color-yellow, 600) !default;
+$color-yellow-700: set-color-weight($color-yellow, 700) !default;
+$color-yellow-800: set-color-weight($color-yellow, 800) !default;
+$color-yellow-900: set-color-weight($color-yellow, 900) !default;
+$color-yellow-a100: set-color-accent($color-yellow, "a100") !default;
+$color-yellow-a200: set-color-accent($color-yellow, "a200") !default;
+$color-yellow-a400: set-color-accent($color-yellow, "a400") !default;
+$color-yellow-a700: set-color-accent($color-yellow, "a700") !default;
+
+$color-purple: #988cb2 !default;
+$color-purple-000: set-color-weight($color-purple, 000) !default;
+$color-purple-100: set-color-weight($color-purple, 100) !default;
+$color-purple-200: set-color-weight($color-purple, 200) !default;
+$color-purple-300: set-color-weight($color-purple, 300) !default;
+$color-purple-400: set-color-weight($color-purple, 400) !default;
+$color-purple-500: set-color-weight($color-purple, 500) !default;
+$color-purple-600: set-color-weight($color-purple, 600) !default;
+$color-purple-700: set-color-weight($color-purple, 700) !default;
+$color-purple-800: set-color-weight($color-purple, 800) !default;
+$color-purple-900: set-color-weight($color-purple, 900) !default;
+$color-purple-a100: set-color-accent($color-purple, "a100") !default;
+$color-purple-a200: set-color-accent($color-purple, "a200") !default;
+$color-purple-a400: set-color-accent($color-purple, "a400") !default;
+$color-purple-a700: set-color-accent($color-purple, "a700") !default;
+
+$color-turquoise: #1a9fab !default;
+$color-turquoise-000: set-color-weight($color-turquoise, 000) !default;
+$color-turquoise-100: set-color-weight($color-turquoise, 100) !default;
+$color-turquoise-200: set-color-weight($color-turquoise, 200) !default;
+$color-turquoise-300: set-color-weight($color-turquoise, 300) !default;
+$color-turquoise-400: set-color-weight($color-turquoise, 400) !default;
+$color-turquoise-500: set-color-weight($color-turquoise, 500) !default;
+$color-turquoise-600: set-color-weight($color-turquoise, 600) !default;
+$color-turquoise-700: set-color-weight($color-turquoise, 700) !default;
+$color-turquoise-800: set-color-weight($color-turquoise, 800) !default;
+$color-turquoise-900: set-color-weight($color-turquoise, 900) !default;
+$color-turquoise-a100: set-color-accent($color-turquoise, "a100") !default;
+$color-turquoise-a200: set-color-accent($color-turquoise, "a200") !default;
+$color-turquoise-a400: set-color-accent($color-turquoise, "a400") !default;
+$color-turquoise-a700: set-color-accent($color-turquoise, "a700") !default;

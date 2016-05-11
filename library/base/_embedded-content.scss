@@ -1,0 +1,50 @@
+/**
+ * Embedded (or replaced) content imports another resource not directly in
+ * document.  e.g. `<img src="foo.jpg">`
+ *
+ * Included elements:
+ *   <audio>, <canvas>, <embed>, <iframe>, <img>, <object>, <svg>, <video>.
+ */
+
+/**
+ * Set consistent display for IE 9-.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+/**
+ * Don't display `audio` w/o controls.
+ * Remove excess height in iOS 7-.
+ */
+
+audio:not([controls]) {
+  display: none;
+
+  height: 0;
+}
+
+iframe,
+img {
+  border: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Address overflow not being hidden in IE 9-11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}

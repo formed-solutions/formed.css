@@ -1,0 +1,46 @@
+/**
+ * Grouping content
+ *
+ * Included elements:
+ *   <p>, <hr>, <pre>, <blockquote>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>,
+ *   <figure>, <figcaption>, <div>, <main>.
+ *
+ * Resource:
+ *   https://www.w3.org/TR/html5/grouping-content.html
+ */
+
+// Dependencies
+@import "../config";
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-family-code; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  overflow: visible; /* 2 */
+
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}

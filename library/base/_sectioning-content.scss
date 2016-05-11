@@ -1,0 +1,43 @@
+/**
+ * Elements that create a section in the document outline, by either explicitly
+ * or implicity creating new sections.
+ *
+ * Included elements:
+ *   <h1>, <h2>, <h3>, <h4>, <h5>, <h6>, <article>, <aside>, <nav>, <section>.
+ */
+
+// Dependencies
+@import "../config";
+@import "node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_mixins/headers";
+
+/**
+ * Adjust headers.
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 _rem($spacing-base);
+
+  color: inherit;
+  font-family: inherit;
+  font-weight: 300;
+  line-height: $line-height-headers;
+
+  &,
+  small {
+    line-height: $line-height-headers;
+  }
+
+  small {
+    color: $gray-light;
+    font-size: 0.60em;
+    font-weight: normal;
+  }
+}
+
+@include header-font-sizes;

@@ -1,0 +1,34 @@
+// ----------------------------------------------------------------------------
+// Color functions
+// ----------------------------------------------------------------------------
+
+/// Adjust the weight of the passed in color.  It is done by adjusting
+/// the lightness of the color.
+///
+/// @access public
+/// @param {string} $color - The color to set weight on.
+/// @param {Number} $weight - The weight to set from weights map.
+/// @param {map} $weights [$color-weights] - Contains your weight config.
+/// @return {color}
+
+@function set-color-weight($color, $weight, $weights: $color-weights) {
+  @return scale-color($color, map-get($weights, $weight));
+}
+
+/// Set a accent color from the passed in color.
+///
+/// @access public
+/// @param {string} $color - The color to create accent from.
+/// @param {string} $accent - The accent color weight.
+/// @param {map} $accents [$color-accents] - Mapping for setting accents.
+/// @return {color}
+
+@function set-color-accent($color, $accent, $accents: $color-accents) {
+  $weights: map-get($accents, $accent);
+  $s: nth($weights, 1);
+  $l: nth($weights, 2);
+
+  @return adjust-hue(
+    scale-color($color, $saturation: $s, $lightness: $l),
+    -5deg);
+}

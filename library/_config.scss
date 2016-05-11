@@ -1,0 +1,116 @@
+// Application configuration defaults.
+//
+// Variable anatomy:
+// <component/>-<modifier>-<state>-<property>: value
+
+// Dependencies
+@import "node_modules/underscore.css.scss/scss/addons/font-stacks";
+
+// Application options
+// ----------------------------------------------------------------------------
+
+$has-border-radius: true !default;
+$has-hover-media:   false !default;
+$has-shadows:       true !default;
+$has-transitions:   true !default;
+
+// Colors
+// ----------------------------------------------------------------------------
+
+// Grayscale
+
+$gray-darker:   #222 !default;
+$gray-dark:     #333 !default;
+$gray:          #555 !default;
+$gray-light:    #999 !default;
+$gray-lighter:  #eee !default;
+
+// Palettes and weights
+
+@import "color-config";
+
+// Theming
+
+$theme-primary: $color-secondary-500 !default;
+$theme-primary-dark: $color-secondary-700 !default;
+$theme-accent: $color-turquoise-a200 !default;
+
+$theme-primary-contrast: $color-contrast-light !default;
+$theme-accent-contrast: $color-contrast-light !default;
+
+// Typograpphy
+// ----------------------------------------------------------------------------
+
+// Font sizes
+
+$font-size-root:            16px !default;
+
+$font-size-base:            $font-size-root !default;
+$font-size-large:           ($font-size-root * 1.25) !default;
+$font-size-medium:          ($font-size-root * 0.875) !default;
+$font-size-small:           ($font-size-root * 0.75) !default;
+
+$font-size-h1:              39px !default;
+$font-size-h2:              31px !default;
+$font-size-h3:              25px !default;
+$font-size-h4:              $font-size-large !default;
+$font-size-h5:              $font-size-base !default;
+$font-size-h6:              $font-size-medium !default;
+
+$font-family-base:          $_helvetica !default
+$font-family-code:          $_consolas !default
+$font-family-headers:       inherit !default
+
+$line-height-base:          ($font-size-root * 1.5) !default;
+$line-height-large:         (4 / 3) !default;
+$line-height-headers:       1.1 !default;
+
+// Borders
+// ----------------------------------------------------------------------------
+
+$border-width:        1px !default;
+$border-radius-base:  3px !default;
+$border-radius-large: 5px !default;
+$border-radius-small: 1px !default;
+
+// Links
+// ----------------------------------------------------------------------------
+
+$link-color:                 blue !default
+$link-text-decoration:       none !default
+$link-color-hover:           mix(#000, $link-color, 25%) !default
+$link-color-text-decoration: underline !default
+
+// Spacing
+// ----------------------------------------------------------------------------
+
+$spacing-base:   $line-height-base !default;
+$spacing-small:  ($spacing-base / 4) !default;
+$spacing-medium: ($spacing-base / 2) !default;
+
+// Underscore config
+// ----------------------------------------------------------------------------
+
+// Reset default underscore settings sheet to Formed default config.
+
+// Typography
+// ----------------------------------------------------------------------------
+
+$type-font-size:   $font-size-root;
+$type-line-height: $line-height-base;
+
+// Text
+// ----------------------------------------------------------------------------
+
+// Text importance
+
+// $txt-colors: (
+//   _txtDanger:  $theme-danger,
+//   _txtGuide:   $theme-guide,
+//   _txtInverse: $theme-asphalt,
+//   _txtMuted:   $gray-light,
+//   _txtOrg:     $theme-purple,
+//   _txtSuccess: $theme-success,
+//   _txtTinted:  #ddd,
+//   _txtWarning: $theme-warning
+// ) !default;
