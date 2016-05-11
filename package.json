@@ -32,5 +32,8 @@
     "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^2.0.0-alpha"
+  },
+  "dependencies": {
+    "underscore.css.scss": "^2.9.0"
   }
 }
