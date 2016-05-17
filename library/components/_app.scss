@@ -1,0 +1,200 @@
+/**
+ * Main application layout component.
+ */
+
+// Depnendencies
+
+@import "../config";
+@import "../_mixins/breakpoints";
+@import "../_mixins/transitions";
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+
+/* Main component
+   ------------------------------------------------------------------------- */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+
+  height: 100%;
+  width: 100%;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+/**
+ * Modifier: App takes up entire width and height of body element.
+ */
+
+.App--viewport {
+  position: absolute;
+
+  min-height: 100%;
+
+  .App-container {
+    height: 100%;
+  }
+
+  .App-header,
+  .App-main {
+    @include breakpoint-media-min('md') {
+      margin-left: _rem($app-left-offset);
+      width: calc(100% - #{$app-left-offset});
+    }
+  }
+
+  .App-drawer {
+    @include breakpoint-media-min('md') {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* App container
+   ------------------------------------------------------------------------- */
+
+/**
+ * Child: Inner wrapper for other application main sub-components (children)
+ * e.g. header, main, etc.
+ */
+
+.App-container {
+  width: 100%;
+}
+
+/* App header
+   ------------------------------------------------------------------------- */
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  height: _rem($app-header-height);
+  width: 100%;
+
+  background-color: $app-header-background;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+              0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+  color: #fff;
+
+  @include breakpoint-media-min('md') {
+    height: _rem($app-header-height-md);
+  }
+}
+
+/**
+ * Child: inner wrapper for header sub-components.
+ */
+
+.App-header-inner {
+  @include breakpoint-media-min('md') {
+    padding-left: _rem($spacing-base);
+    padding-right: _rem($spacing-base);
+  }
+
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex-wrap: nowrap;
+
+  height: 100%;
+  padding: 0 _rem($spacing-medium);
+  width: 100%;
+}
+
+/* App title
+   ------------------------------------------------------------------------- */
+
+.App-title {
+  @include breakpoint-media-min('md') {
+    height: _rem($app-header-height-md);
+
+    line-height: _em($app-header-height-md, $app-title-font-size);
+  }
+
+  display: block;
+
+  margin: 0;
+  height: _rem($app-header-height);
+  width: 100%;
+
+  font-size: _rem($app-title-font-size);
+  letter-spacing: 0.01em;
+  line-height: _em($app-header-height, $app-title-font-size);
+}
+
+/* App main
+   ------------------------------------------------------------------------- */
+
+.App-main {
+  display: inline-block;
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+/* App drawer
+   ------------------------------------------------------------------------- */
+
+.App-drawer {
+  @include transition-default(transform);
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  left: 0;
+  overflow: visible;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  transform: translateX($app-drawer-translateX);
+  transform-style: preserve-3d;
+  z-index: 2;
+
+  border-right: 1px solid $app-drawer-border-color;
+  height: 100%;
+  min-height: 100%;
+  width: _rem($app-drawer-width);
+
+  background-color: $app-drawer-background-color;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+              0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+  will-change: transform;
+
+  &.is-active {
+    transform: translateX(0);
+  }
+}
+
+/**
+ * Child: title for drawer sub-component.
+ */
+
+.App-drawer-title {
+  @include breakpoint-media-min('md') {
+    height: _rem($app-header-height-md);
+    padding-left: _rem($spacing-base);
+    padding-right: _rem($spacing-base);
+  }
+
+  align-items: center;
+  display: flex;
+
+  height: _rem($app-header-height);
+  margin: 0;
+  padding: 0 _rem($spacing-medium);
+  width: 100%;
+}

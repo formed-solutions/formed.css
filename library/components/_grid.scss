@@ -1,0 +1,98 @@
+/**
+ * Simplified grid component to easily layout UI for various viewport sizes.
+ */
+
+// Dependencies
+@import "../config";
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+
+/* Grid container
+   ------------------------------------------------------------------------- */
+
+/**
+ * 1. Create a flex container
+ * 2. Rest flex-direction to wrap, default is `unwrap`.
+ * 3. Reset any browser defaults.
+ */
+
+.Grid {
+  display: flex; /* 1 */
+  flex-flow: row wrap; /* 2 */
+
+  margin: 0 -($spacing-medium); /* 3 */
+  padding: 0; /* 4 */
+}
+
+/**
+ * Modifier: Remove gutters.
+ * 1. Turn horizontal margins.
+ * 2. Remove horizontal padding from cells.
+ */
+
+.Grid--gutterless {
+  margin-left: 0; /* 1 */
+  margin-right: 0; /* 1 */
+
+  > .Grid-cell {
+    padding-left: 0; /* 2 */
+    padding-right: 0; /* 2 */
+  }
+}
+
+/**
+ * Modifier: Center align on main axis.
+ */
+
+.Grid--center {
+  justify-content: center;
+}
+
+/**
+ * Modifier: Right align on main axis.
+ */
+
+.Grid--right {
+  justify-content: flex-end;
+}
+
+/**
+ * Modifier: Top align on the cross axis.
+ */
+
+.Grid--top {
+  align-items: flex-start;
+}
+
+/**
+ * Modifier: Middle align on the cross axis.
+ */
+
+.Grid-x-middle {
+  align-items: center;
+}
+
+/**
+ * Modifier: Bottom align on the cross axis.
+ */
+
+.Grid--bottom {
+  align-items: flex-end;
+}
+
+
+/* Grid cell
+   ------------------------------------------------------------------------- */
+
+/**
+ * Child: Individual cells of a `Grid`.
+ * 1. Defaults to full width of parent `Grid`.
+ * 2. Add spacing b/w cells.
+ *
+ * NOTE: Use sizing helpers to alter `width` of individual cells.
+ */
+
+.Grid-cell {
+  flex: 0 0 100%;
+
+  padding: 0 $spacing-medium;
+}

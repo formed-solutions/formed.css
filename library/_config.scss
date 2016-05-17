@@ -5,6 +5,11 @@
 
 // Dependencies
 @import "node_modules/underscore.css.scss/scss/addons/font-stacks";
+@import "node_modules/underscore.css.scss/scss/addons/ratio-variables";
+@import "node_modules/underscore.css.scss/scss/functions/modular-scale";
+
+// Addons
+@import "_addons/easings";
 
 // Application options
 // ----------------------------------------------------------------------------
@@ -18,7 +23,6 @@ $has-transitions:   true !default;
 // ----------------------------------------------------------------------------
 
 // Grayscale
-
 $gray-darker:   #222 !default;
 $gray-dark:     #333 !default;
 $gray:          #555 !default;
@@ -26,12 +30,11 @@ $gray-light:    #999 !default;
 $gray-lighter:  #eee !default;
 
 // Palettes and weights
-
 @import "color-config";
 
 // Theming
-
 $theme-primary: $color-secondary-500 !default;
+$theme-primary-light: $color-secondary-100 !default;
 $theme-primary-dark: $color-secondary-700 !default;
 $theme-accent: $color-turquoise-a200 !default;
 
@@ -41,29 +44,30 @@ $theme-accent-contrast: $color-contrast-light !default;
 // Typograpphy
 // ----------------------------------------------------------------------------
 
+// Resource: http://www.modularscale.com/?16&px&1.25&sass&text
+$font-rhythm: $major-third !default;
+
 // Font sizes
+$font-size-root: 16px !default;
 
-$font-size-root:            16px !default;
+$font-size-base:   $font-size-root !default;
+$font-size-large:  _ms($font-size-root, 1, $font-rhythm) !default;
+$font-size-medium: ceil(_ms($font-size-root, -1, $font-rhythm)) !default;
+$font-size-small:  ceil(_ms($font-size-root, -2, $font-rhythm)) !default;
 
-$font-size-base:            $font-size-root !default;
-$font-size-large:           ($font-size-root * 1.25) !default;
-$font-size-medium:          ($font-size-root * 0.875) !default;
-$font-size-small:           ($font-size-root * 0.75) !default;
+$font-size-h1: _ms($font-size-root, 5, $font-rhythm) !default;
+$font-size-h2: _ms($font-size-root, 4, $font-rhythm) !default;
+$font-size-h3: _ms($font-size-root, 3, $font-rhythm) !default;
+$font-size-h4: _ms($font-size-root, 2, $font-rhythm) !default;
+$font-size-h5: $font-size-large !default;
+$font-size-h6: $font-size-base !default;
 
-$font-size-h1:              39px !default;
-$font-size-h2:              31px !default;
-$font-size-h3:              25px !default;
-$font-size-h4:              $font-size-large !default;
-$font-size-h5:              $font-size-base !default;
-$font-size-h6:              $font-size-medium !default;
+$font-family-base:    $_helvetica !default
+$font-family-code:    $_consolas !default
+$font-family-headers: inherit !default
 
-$font-family-base:          $_helvetica !default
-$font-family-code:          $_consolas !default
-$font-family-headers:       inherit !default
-
-$line-height-base:          ($font-size-root * 1.5) !default;
-$line-height-large:         (4 / 3) !default;
-$line-height-headers:       1.1 !default;
+$line-height-base:    ($font-size-root * 1.5) !default;
+$line-height-headers: 1.1 !default;
 
 // Borders
 // ----------------------------------------------------------------------------
@@ -87,6 +91,72 @@ $link-color-text-decoration: underline !default
 $spacing-base:   $line-height-base !default;
 $spacing-small:  ($spacing-base / 4) !default;
 $spacing-medium: ($spacing-base / 2) !default;
+
+// Breakpoints
+// ----------------------------------------------------------------------------
+
+$breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1400px
+) !default
+
+// Transitions
+// ----------------------------------------------------------------------------
+
+$transition-duration: 0.3s !default;
+
+// Components
+// ----------------------------------------------------------------------------
+
+// App
+$app-header-height: 56px !default;
+$app-header-height-md: 64px !default;
+$app-header-background: $theme-primary !default;
+
+$app-title-font-size: _ms($font-size-root, 2, $font-rhythm) !default;
+
+$app-drawer-width: 280px !default;
+$app-drawer-translateX: -($app-drawer-width) !default;
+$app-drawer-background-color: #fff !default;
+$app-drawer-border-color: $color-grey-100 !default;
+
+$app-left-offset:  $app-drawer-width !default;
+
+// Frame
+$frame-width: 330px !default;
+$frame-height: 200px !default;
+$frame-font-size: inherit !default;
+$frame-title-font-size: ($font-size-root * 1.5) !default;
+$frame-subtitle-font-size: 14px !default;
+$frame-horizontal-padding: 16px !default;
+$frame-vertical-padding: 16px !default;
+
+$frame-hd-perspective-origin-x: 165px !default;
+$frame-hd-perspective-origin-y: 56px !default;
+
+$frame-hd-transform-origin-x: 165px !default;
+$frame-hd-transform-origin-y: 56px !default;
+
+$frame-title-transform-origin-x: 149px !default;
+$frame-title-transform-origin-y: 48px !default;
+
+$frame-supporting-text-font-size: 1rem !default;
+$frame-supporting-text-line-height: 18px !default;
+
+$frame-actions-font-size: 16px !default;
+
+$frame-title-text-font-weight: 300 !default;
+$frame-z-index: 1 !default;
+
+$frame-background-color: #fff !default;
+$frame-text-color:  #000 !default;
+// $frame-image-placeholder-color: $color-accent !default;
+// $frame-supporting-text-text-color: rgba-tpl($color-black, 0.54) !default;
+$frame-border-color: rgba(0,0,0,0.1) !default;
+$frame-subtitle-color: rgba-tpl(#000, 0.54) !default;
 
 // Underscore config
 // ----------------------------------------------------------------------------
