@@ -12,7 +12,7 @@
 /// @return {color}
 
 @function set-color-weight($color, $weight, $weights: $color-weights) {
-  @return scale-color($color, map-get($weights, $weight));
+  @return scale-color($color, $lightness: map-get($weights, $weight));
 }
 
 /// Set a accent color from the passed in color.
