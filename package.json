@@ -34,6 +34,6 @@
     "gulp-sourcemaps": "^2.0.0-alpha"
   },
   "dependencies": {
-    "underscore.css.scss": "^2.9.0"
+    "underscore.css.scss": "^3.0.0"
   }
 }
