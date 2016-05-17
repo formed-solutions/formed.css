@@ -1,0 +1,108 @@
+// ----------------------------------------------------------------------------
+// Mixins: Hover
+//
+// Resources:
+//  - Media Queries Level 4: http://drafts.csswg.org/mediaqueries/#hover
+//  - twb v4
+// ----------------------------------------------------------------------------
+
+@mixin hover {
+  @if $has-hover-media {
+    @media (hover: hover) {
+      &:hover {
+        @content
+      }
+    }
+  }
+
+  @else {
+    &:hover {
+      @content
+    }
+  }
+}
+
+@mixin hover-focus {
+  @if $has-hover-media {
+    @include hover {
+      @content
+    }
+
+    &:focus {
+      @content
+    }
+  }
+
+  @else {
+    &:focus
+    &:hover {
+      @content
+    }
+  }
+}
+
+@mixin elem-hover-focus {
+  @if $has-hover-media {
+    @include hover {
+      @content
+    }
+
+    &,
+    &:focus {
+      @content
+    }
+  }
+
+  @else {
+    &,
+    &:focus,
+    &:hover {
+      @content
+    }
+  }
+}
+
+@mixin hover-focus-active {
+  @if $has-hover-media {
+    @include hover {
+      @content
+    }
+
+    &:active,
+    &:focus {
+      @content
+    }
+  }
+
+  @else {
+    &:active,
+    &:focus,
+    &:hover {
+      @content
+    }
+  }
+}
+
+@mixin elem-hover-focus-active {
+  @if $has-hover-media {
+    @include hover {
+      @content
+    }
+
+    &,
+    &:active,
+    &:focus {
+      @content
+    }
+  }
+
+  @else {
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+      @content
+    }
+  }
+}
+

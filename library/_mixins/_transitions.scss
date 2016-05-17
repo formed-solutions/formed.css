@@ -1,0 +1,13 @@
+// Transition mixins.
+
+@mixin transition($transtion...) {
+  @if $has-transitions {
+    transition: $transition;
+  }
+}
+
+@mixin transition-default($prop, $duration: $transition-duration) {
+  @if $has-transitions {
+    transition: $prop $duration $easeInOutQuart;
+  }
+}

@@ -1,0 +1,52 @@
+// ----------------------------------------------------------------------------
+// Border mixins
+// ----------------------------------------------------------------------------
+
+/// Mixin to add `border-radius` rule to a ruleset based on a
+/// `$has-border-radius` flag.
+///
+/// @access public
+/// @param {Length} $radius [$border-radius-base] - `border-radius` to add.
+/// @example scss - Usage
+///   .foo {
+///     @include border-radius(5px);
+///   }
+///
+/// @example css - CSS output
+///   .foo {
+///     border-radius: 5px;
+///   }
+
+@mixin border-radius($radius: $border-radius-base) {
+  @if $has-border-radius {
+    border-radius: $radius;
+  }
+}
+
+@mixin border-radius-top($radius: $border-radius-base) {
+  @if $has-border-radius {
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+  }
+}
+
+@mixin border-radius-right($radius: $border-radius-base) {
+  @if $has-border-radius {
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+  }
+}
+
+@mixin border-radius-bottom($radius: $border-radius-base) {
+  @if $has-border-radius {
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+}
+
+@mixin border-radius-left($radius: $border-radius-base) {
+  @if $has-border-radius {
+    border-bottom-left-radius: $radius;
+    border-top-left-radius: $radius;
+  }
+}
