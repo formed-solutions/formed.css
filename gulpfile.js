@@ -11,7 +11,7 @@ gulp.task('serve', ['sass:dev', 'jade:dev'], function __serve__() {
   browserSync.init({
     browser: 'google chrome',
     server: {
-      baseDir: ['.tmp']
+      baseDir: ['.tmp', 'src']
     }
   });
 
