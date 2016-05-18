@@ -2,7 +2,7 @@
  * Main application layout component.
  */
 
-// Depnendencies
+// Dependencies
 
 @import "../config";
 @import "../_mixins/breakpoints";
@@ -15,7 +15,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
   position: relative;
 
@@ -43,6 +43,12 @@
     @include breakpoint-media-min('md') {
       margin-left: _rem($app-left-offset);
       width: calc(100% - #{$app-left-offset});
+    }
+  }
+
+  .App-header-menu {
+    @include breakpoint-media-min('md') {
+      display: none;
     }
   }
 
@@ -79,9 +85,9 @@
   width: 100%;
 
   background-color: $app-header-background;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
   color: #fff;
 
@@ -106,8 +112,29 @@
   flex-wrap: nowrap;
 
   height: 100%;
-  padding: 0 _rem($spacing-medium);
+  padding: 0 _rem($spacing-medium) 0 0;
   width: 100%;
+}
+
+/**
+ * Child: menu button to activate `App-drawer`.
+ */
+
+.App-header-menu {
+  display: inline-block;
+
+  border: 0;
+  height: _rem(48);
+  margin: 0;
+  padding: 0;
+  width: _rem(48);
+
+  background-color: transparent;
+
+  color: inherit;
+  text-align: center;
+
+  cursor: pointer;
 }
 
 /* App title
@@ -160,7 +187,7 @@
   top: 0;
   transform: translateX($app-drawer-translateX);
   transform-style: preserve-3d;
-  z-index: 2;
+  z-index: $zindex-drawer;
 
   border-right: 1px solid $app-drawer-border-color;
   height: 100%;
@@ -168,11 +195,12 @@
   width: _rem($app-drawer-width);
 
   background-color: $app-drawer-background-color;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
   will-change: transform;
+  -webkit-overflow-scrolling: touch;
 
   &.is-active {
     transform: translateX(0);
