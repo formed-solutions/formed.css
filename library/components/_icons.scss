@@ -1,0 +1,52 @@
+/**
+ * Icons.
+ */
+
+// Dependencies
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+
+/* Main icon container
+   ------------------------------------------------------------------------- */
+
+.Icon {
+  display: inline-block;
+
+  height: 1rem;
+  width: 1rem;
+
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* Size modifiers
+   ------------------------------------------------------------------------- */
+
+.Icon--sm {
+  height: _rem($font-size-small);
+  width: _rem($font-size-small);
+}
+
+.Icon--md {
+  height: _rem($font-size-medium);
+  width: _rem($font-size-medium);
+}
+
+.Icon--lg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.Icon--2x {
+  height: 2rem;
+  width: 2rem;
+}
+
+.Icon--3x {
+  height: 3rem;
+  width: 3rem;
+}
+
+.Icon--4x {
+  height: 4rem;
+  width: 4rem;
+}
