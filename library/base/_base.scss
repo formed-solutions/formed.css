@@ -5,6 +5,10 @@
  * NOTE: No class selectors or any custom attribute selectors belong here.
  */
 
+// Dependencies
+@import "../_config";
+@import "../vendor/underscore/config";
+
 /**
  * 1. Set `html` to occupy entire viewport space.
  * 2. Declare a root font size.
