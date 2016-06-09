@@ -1,0 +1,150 @@
+/**
+ * Flex helpers
+ */
+
+/* Flex containers
+   ------------------------------------------------------------------------- */
+
+._flexInline {
+  display: inline-flex !important;
+}
+
+/**
+ * Wraps
+ */
+
+._flexWrap {
+  flex-wrap: wrap !important;
+}
+
+._flexWrapNone {
+  flex-wrap: nowrap !important;
+}
+
+._flexWrapReverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+._flexRow {
+  flex-direction: row !important;
+}
+
+._flexRowReverse {
+  flex-direction: row-reverse !important;
+}
+
+/**
+ * Directional
+ */
+
+._flexRow {
+  flex-direction: row !important;
+}
+
+._flexRowReverse {
+  flex-direction: row-reverse !important;
+}
+
+._flexCol {
+  flex-direction: column !important;
+}
+
+._flexColReverse {
+  flex-direction: column-reverse !important;
+}
+
+/**
+ * Alignment on the main axis (horizontal).
+ */
+
+._flexBetween {
+  justify-content: space-between !important;
+}
+
+._flexCenter {
+  justify-content: center !important;
+}
+
+._flexJustify {
+  justify-content: space-around !important;
+}
+
+._flexLeft {
+  justify-content: flex-start !important;
+}
+
+._flexRight {
+  justify-content: flex-end !important;
+}
+
+/**
+ * Alignment on the cross axis (perpendicular).
+ */
+
+._flexBaseline {
+  align-items: baseline !important;
+}
+
+._flexBottom {
+  align-items: flex-end !important;
+}
+
+._flexMiddle {
+  align-items: center !important;
+}
+
+._flexStretch {
+  align-items: stretch !important;
+}
+
+._flexTop {
+  align-items: flex-start !important;
+}
+
+/**
+ * Align a flex container's lines within the flex container when there is
+ * extra space on the cross-axis.
+ */
+
+._flexBaselineContent {
+  align-content: baseline !important;
+}
+
+._flexBottomContent {
+  align-content: flex-end !important;
+}
+
+._flexMiddleContent {
+  align-content: center !important;
+}
+
+._flexStretchContent {
+  align-content: stretch !important;
+}
+
+._flexTopContent {
+  align-content: flex-start !important;
+}
+
+/* Flex items
+   ------------------------------------------------------------------------- */
+
+._flexItemAuto {
+  align-self: auto !important;
+}
+
+._flexItemCenter {
+  align-self: center !important;
+}
+
+._flexItemLeft {
+  align-self: flex-start !important;
+}
+
+._flexItemRight {
+  align-self: flex-end !important;
+}
+
+._flexItemStretch {
+  align-self: stretch !important;
+}
