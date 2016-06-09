@@ -1,0 +1,59 @@
+include mixins
+
+doctype html
+html
+  head
+    title Formed CSS
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(charset="utf-8")
+    meta(name="viewport"
+         content="width=device-width, initial-scale=1")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    link(rel="stylesheet" href="#{urlPrefix}formed.css")
+
+  body
+    include images/icons.svg
+
+    div.App.App--viewport
+      div.App-containe
+        div.App-drawer
+          h1.App-title.App-drawer-title Formed.css
+
+        header.App-header
+          div.App-header-inner
+            button(class="App-header-menu"
+                   type="button")
+              +icon('icon-menu')(class="Icon--lg _textBaseline")
+            h1.App-title Base setup
+
+        main.App-main
+          p Formed visual styleguide and component-based library.
+
+          section(style="width: 80%; margin: 0 auto;")
+            h2 Sectioning Elements
+
+            section
+              h3 Headings
+
+              div.Frame
+                h1._mbm Header 1
+                  small &nbsp;small text
+                h2._mbm Header 2
+                  small &nbsp;small text
+                h3._mbm Header 3
+                  small &nbsp;small text
+                h4._mbm Header 4
+                  small &nbsp;small text
+                h5._mbm Header 5
+                h6._mbm Header
+
+          section(style="width: 80%; margin: 0 auto;")
+            h2 Components
+
+            div(class="_mtl" style="display: flex;")
+              div.Frame
+                div.Frame-hd
+                  h2.Frame-title Frame title
+
+                div.Frame-bd
+                div.Frame-ft
