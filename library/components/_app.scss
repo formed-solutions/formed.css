@@ -5,6 +5,8 @@
 // Dependencies
 
 @import "../config";
+@import "../vendor/underscore/config";
+@import "../_mixins/box-shadows";
 @import "../_mixins/breakpoints";
 @import "../_mixins/transitions";
 @import "../../node_modules/underscore.css.scss/scss/functions/rem";
@@ -30,6 +32,29 @@
  */
 
 .App--viewport {
+  position: absolute;
+
+  min-height: 100%;
+
+  .App-container {
+    height: 100%;
+  }
+
+  .App-header {
+    $shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+             0 2px 2px 0 rgba(0, 0, 0, 0.14),
+             0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    @include box-shadow($shadow)
+
+    background-color: $app-header-background;
+  }
+}
+
+/**
+ * Modifier: App has fixed drawer.
+ */
+
+.App--fixedDrawer {
   position: absolute;
 
   min-height: 100%;
@@ -84,11 +109,6 @@
   height: _rem($app-header-height);
   width: 100%;
 
-  background-color: $app-header-background;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0 2px 2px 0 rgba(0, 0, 0, 0.14),
-              0 1px 5px 0 rgba(0, 0, 0, 0.12);
-
   color: #fff;
 
   @include breakpoint-media-min('md') {
@@ -112,7 +132,8 @@
   flex-wrap: nowrap;
 
   height: 100%;
-  padding: 0 _rem($spacing-medium) 0 0;
+  padding: 0 _rem($spacing-medium);
+  // padding: 0 _rem($spacing-medium) 0 0;
   width: 100%;
 }
 
