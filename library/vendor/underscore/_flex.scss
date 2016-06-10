@@ -5,6 +5,10 @@
 /* Flex containers
    ------------------------------------------------------------------------- */
 
+._flex {
+  display: flex !important;
+}
+
 ._flexInline {
   display: inline-flex !important;
 }
