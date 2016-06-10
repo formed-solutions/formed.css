@@ -32,14 +32,6 @@
  */
 
 .App--viewport {
-  position: absolute;
-
-  min-height: 100%;
-
-  .App-container {
-    height: 100%;
-  }
-
   .App-header {
     $shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
              0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -82,18 +74,6 @@
       transform: translateX(0);
     }
   }
-}
-
-/* App container
-   ------------------------------------------------------------------------- */
-
-/**
- * Child: Inner wrapper for other application main sub-components (children)
- * e.g. header, main, etc.
- */
-
-.App-container {
-  width: 100%;
 }
 
 /* App header
