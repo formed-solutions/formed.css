@@ -1,0 +1,20 @@
+////
+/// Shadow level mixin.
+///
+/// @group mixins
+////
+
+@mixin shadow-level($levels, $level) {
+  @if map-has-key($levels, $level) {
+    $shadows: map-get($levels, $level);
+
+    $shadow1: nth($shadows, 1) rgba(0, 0, 0, 0.2);
+    $shadow2: nth($shadows, 2) rgba(0, 0, 0, 0.14);
+    $shadow3: nth($shadows, 3) rgba(0, 0, 0, 0.12);
+
+    @include box-shadow($shadow1, $shadow2, $shadow3);
+  }
+  @else {
+    @warn "Shadow level `#{$level}` could not be found";
+  }
+}

@@ -1,0 +1,20 @@
+/**
+ * Shadow helpers.
+ */
+
+// Dependencies
+@import "../config";
+@import "../_mixins/box-shadows";
+@import "../_mixins/shadow-level";
+
+// Generate shadow level helpers.
+// Will create a ruleset for each key in the `$shadow` configuretion option.
+// Example:
+// .shadow-1 { box-shadow: ...shadows; }
+// .shadow-2 { box-shadow: ...shadows; }
+
+@for $i from 1 through length($shadows) {
+  .shadow-#{$i} {
+    @include shadow-level($shadows, $i);
+  }
+}
