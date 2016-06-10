@@ -1,0 +1,11 @@
+/**
+ * Background helpers.
+ * Adjust background of a node.  Useful for simple skinning.
+ */
+
+// Dependencies
+@import '../config';
+
+.background-primary {
+  background-color: $theme-primary;
+}
