@@ -9,6 +9,7 @@
 @import "../../../node_modules/underscore.css.scss/scss/layout";
 
 ._layoutAbsolute,
+._layoutAbsoluteViewport,
 ._layoutAbsoluteCenter {
   position: absolute !important;
 }
@@ -29,13 +30,14 @@
 }
 
 ._layoutFixed,
-._layoutViewport,
+._layoutFixedViewport,
 ._layoutFixedCenter {
   backface-visibility: hidden !important;
   position: fixed !important;
 }
 
-._layoutViewport {
+._layoutFixedViewport,
+._layoutAbsoluteViewport {
   bottom: 0 !important;
   left: 0 !important;
   right: 0 !important;
