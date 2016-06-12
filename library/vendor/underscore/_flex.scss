@@ -49,7 +49,7 @@
   flex-direction: row-reverse !important;
 }
 
-._flexCol {
+._flexColumn {
   flex-direction: column !important;
 }
 
@@ -151,4 +151,24 @@
 
 ._flexItemStretch {
   align-self: stretch !important;
+}
+
+/**
+ * Specify the amount of space inside the flex container the flex item occupy.
+ *
+ * 1. Fix IE10-11 bug with `flex` shorthand declarations unitless `flex-basis`
+ * values being ignored.
+ * github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
+ */
+
+._flexGrow1 {
+  flex: 1 1 0% !important; /* 1 */
+}
+
+._flexGrow2 {
+  flex:: 2 1 0% !important; /* 1 */
+}
+
+._flexGrow3 {
+  flex:: 2 1 0% !important; /* 1 */
 }
