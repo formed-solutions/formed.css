@@ -36,10 +36,6 @@
 
   min-height: 100%;
 
-  .App-container {
-    height: 100%;
-  }
-
   .App-header,
   .App-main {
     @include breakpoint-media-min('md') {
@@ -55,11 +51,34 @@
   }
 
   .App-drawer {
+    top: 0;
+
     @include breakpoint-media-min('md') {
       transform: translateX(0);
     }
   }
 }
+
+/**
+ * Modifier: inline drawer with main area.
+ */
+
+.App--inlineDrawer {
+  > .App-drawer {
+    @include breakpoint-media-min('md') {
+      transform: translateX(0);
+    }
+  }
+
+  .App-main {
+    @include breakpoint-media-min('md') {
+      margin-left: _rem($app-left-offset);
+      width: calc(100% - #{$app-left-offset});
+    }
+  }
+}
+
+.App-responsive {}
 
 /* App header
    ------------------------------------------------------------------------- */
@@ -98,7 +117,6 @@
 
   height: 100%;
   padding: 0 _rem($spacing-medium);
-  // padding: 0 _rem($spacing-medium) 0 0;
   width: 100%;
 }
 
@@ -170,7 +188,6 @@
   overflow: visible;
   overflow-y: auto;
   position: absolute;
-  top: 0;
   transform: translateX($app-drawer-translateX);
   transform-style: preserve-3d;
   z-index: $zindex-drawer;
