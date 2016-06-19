@@ -6,8 +6,10 @@
   }
 }
 
-@mixin transition-default($prop, $duration: $transition-duration) {
+@mixin transition-default($prop...) {
   @if $has-transitions {
-    transition: $prop $duration $easeInOutQuart;
+    transition-property: $prop;
+    transition-duration: $transition-duration;
+    transition-timing-function: $easeInOutQuart;
   }
 }

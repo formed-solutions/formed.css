@@ -1,0 +1,102 @@
+/**
+ * Modal component
+ */
+
+// Dependences
+@import '../config';
+@import '../_mixins/breakpoints';
+@import '../_mixins/borders';
+@import '../_mixins/box-shadows';
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+
+/* Main component
+   ------------------------------------------------------------------------- */
+
+.Modal {
+  bottom: 0;
+  display: block;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $zindex-modal;
+
+  background-color: rgba(0, 0, 0, 0.50);
+
+  outline: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/**
+ * Modifier: wider modal dialogs.
+ */
+
+.Modal--lg {
+  .Modal-dialog {
+    @include breakpoint-media-min('md') {
+      margin-left: auto;
+      margin-right: auto;
+      width: _rem(900);
+    }
+  }
+}
+
+/* Modal dialog
+   ------------------------------------------------------------------------- */
+
+/**
+ * Child: dialog sub-component to hold the actual content.
+ */
+
+.Modal-dialog {
+  @include border-radius($border-radius-small);
+  @include box-shadow(0 3px 9px rgba(0, 0, 0, 0.5));
+
+  position: relative;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: _rem($spacing-medium);
+  width: auto;
+
+  background-color: #fff;
+  background-clip: padding-box;
+
+  outline: 0;
+
+  @include breakpoint-media-min('md') {
+    margin: _rem($spacing-base + 6) auto;
+    width: _rem(600);
+  }
+}
+
+/* Modal header
+   ------------------------------------------------------------------------- */
+
+/**
+ * Child: head section of modal.
+ */
+
+.Modal-hd {
+  border-bottom: 1px solid #e5e5e5;
+  min-height: _rem($spacing-medium + $line-height-base);
+  padding: _rem($spacing-medium) _rem($spacing-base);
+}
+
+.Modal-title {
+  margin: 0;
+
+  line-height: $line-height-base;
+}
+
+.Modal-bd {
+  position: relative;
+
+  padding: _rem($spacing-base);
+}
+
+.Modal-ft {
+  border-top: 1px solid #e5e5e5;
+  padding: _rem($spacing-medium) _rem($spacing-base);
+}

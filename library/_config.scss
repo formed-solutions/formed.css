@@ -121,8 +121,9 @@ $transition-duration: 0.3s !default;
 // ----------------------------------------------------------------------------
 
 // Components z-index master list.
-$zindex-drawer: 500 !default;
 $zindex-mask:   400 !default;
+$zindex-drawer: 500 !default;
+$zindex-modal:  600 !default;
 
 // App
 $app-header-height: 56px !default;
@@ -170,3 +171,6 @@ $frame-text-color:  #000 !default;
 // $frame-supporting-text-text-color: rgba-tpl($color-black, 0.54) !default;
 $frame-border-color: rgba(0,0,0,0.1) !default;
 $frame-subtitle-color: rgba-tpl(#000, 0.54) !default;
+
+// Form
+$form-control-height: ($line-height-base + $spacing-medium) !default;

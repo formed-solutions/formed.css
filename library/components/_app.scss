@@ -64,13 +64,25 @@
  */
 
 .App--inlineDrawer {
+  &.has-activeDrawer {
+    & > .App-drawer {
+      transform: translateX(0);
+    }
+  }
+
   > .App-drawer {
     @include breakpoint-media-min('md') {
       transform: translateX(0);
     }
   }
 
-  .App-main {
+  .App-header-menu {
+    @include breakpoint-media-min('md') {
+      display: none;
+    }
+  }
+
+  > .App-main {
     @include breakpoint-media-min('md') {
       margin-left: _rem($app-left-offset);
       width: calc(100% - #{$app-left-offset});
