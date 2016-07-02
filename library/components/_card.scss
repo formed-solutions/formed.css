@@ -1,0 +1,107 @@
+/**
+ * Card component
+ */
+
+// Dependencies
+@import "../config";
+@import "../_mixins/borders";
+@import "../_mixins/shadow-level";
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+
+/* Main component container
+   ------------------------------------------------------------------------- */
+
+.Card {
+  @include border-radius($border-radius-small);
+  @include shadow-level($shadows, 2);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: $frame-z-index;
+
+  box-sizing: box-sizing;
+  min-height: _rem($frame-height);
+  width: _rem($frame-width);
+
+  background-color: $frame-background-color;
+
+  font-weight: 400;
+}
+
+/* Header sub-component
+   ------------------------------------------------------------------------- */
+
+/**
+ * Wrapping element for header of the frame, e.g. header, image, etc.
+ *
+ * Example:
+ *   <div class="Card">
+ *     <div class="Card-hd"></div>
+ *   </div>
+ */
+
+.Card-hd {
+  align-items: center;
+  display: block;
+  display: flex;
+  justify-content: stretch;
+  perspective-origin: $frame-hd-perspective-origin-x $frame-hd-perspective-origin-y;
+  transform-origin: $frame-hd-transform-origin-x $frame-hd-transform-origin-y;
+
+  box-sizing: border-box;
+  padding: _rem($spacing-medium);
+
+  color: #000;
+  line-height: normal;
+}
+
+/* Title sub-component
+   ------------------------------------------------------------------------- */
+
+/**
+ * Provide consistent title styles for use with headers in a frame.
+ *
+ * Example:
+ *   <div class="Card">
+ *     <h2 class="Card-title"></h2>
+ *   </div>
+ */
+
+
+.Card-title {
+  align-self: flex-end;
+  display: block;
+  display: flex;
+  overflow: hidden;
+  transform-origin: $frame-title-transform-origin-x $frame-title-transform-origin-y;
+
+  margin: 0;
+
+  color: inherit;
+  font-size: _rem($frame-title-font-size);
+  font-weight: 300;
+  line-height: normal;
+}
+
+/* Body sub-component
+   ------------------------------------------------------------------------- */
+
+/**
+ * Provide ancillary content.
+ *
+ * Example:
+ *   <div class="Card">
+ *     <div class="Card-bd"></div>
+ *   </div>
+ */
+
+.Card-bd {
+  overflow: hidden;
+
+  box-sizing: border-box;
+  padding: _rem($spacing-medium);
+}
+
+
