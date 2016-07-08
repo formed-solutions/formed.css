@@ -31,6 +31,23 @@
   font-weight: 400;
 }
 
+/**
+ * Modifier: tables in cards.
+ */
+
+.Card--table {
+  border: 1px solid rgba(#000, 0.12);
+
+  .Card-hd {
+    padding: _rem($spacing-base);
+  }
+
+  // Place on table to override any default or component styles.
+  .Card-table {
+    border: none;
+  }
+}
+
 /* Header sub-component
    ------------------------------------------------------------------------- */
 
@@ -52,7 +69,7 @@
   transform-origin: $frame-hd-transform-origin-x $frame-hd-transform-origin-y;
 
   box-sizing: border-box;
-  padding: _rem($spacing-medium);
+  padding: #{_rem($spacing-base)} #{_rem($spacing-base)} #{_rem($spacing-medium)};
 
   color: #000;
   line-height: normal;
@@ -102,7 +119,10 @@
   overflow: hidden;
 
   box-sizing: border-box;
-  padding: _rem($spacing-medium);
+  padding: _rem($spacing-base);
 }
 
+.Card-bd + .Card-bd {
+  padding-top: 0;
+}
 
