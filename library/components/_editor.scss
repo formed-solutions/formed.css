@@ -1,0 +1,157 @@
+/**
+ * Editor component
+ * Input and select text through a common interface with this component.
+ */
+
+// Dependences
+@import '../config';
+@import "../_mixins/transitions";
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+@import "../../node_modules/underscore.css.scss/scss/mixins/placeholder";
+
+/* Main container component
+   ------------------------------------------------------------------------- */
+
+/**
+ * Wrapper for the control.
+ */
+
+.Editor {
+  display: block;
+  position: relative;
+
+  margin: 0;
+  max-width: 100%;
+  padding: _rem($editor-vertical-spacing) 0;
+  width: _rem($editor-width);
+
+  font-size: _rem($editor-font-size);
+}
+
+/**
+ * Modifier: hanging labels.
+ */
+
+.Editor--hangingLabel {
+  .Editor-label {
+    @include transition-default(top, font-size);
+  }
+
+  // State
+  &.is-focused .Editor-label,
+  &.is-answered .Editor-label {
+    top: 0;
+
+    color: $theme-primary;
+    font-size: _rem($editor-label-hanging-font-size);
+  }
+}
+
+/* Editor control
+   ------------------------------------------------------------------------- */
+
+/**
+ * Child: actual control node.
+ */
+
+.Editor-control {
+  display: block;
+
+  border: none;
+  border-bottom: 1px solid $editor-control-border-color;
+  height: _rem($spacing-base);
+  margin: 0;
+  padding: _rem($editor-control-padding) 0;
+  width: $editor-control-width;
+
+  background: none;
+
+  color: inherit;
+  font-family: inherit;
+  font-size: _rem($editor-control-font-size);
+  line-height: normal;
+  text-align: left;
+
+  // Placeholder
+  @include _placeholder {
+    color: $editor-placeholder-color;
+  }
+
+  // State
+  &:focus,
+  .Editor.is-focused & {
+    outline: none;
+  }
+}
+
+textarea.Editor-control {
+  height: auto;
+}
+
+/* Labels
+   ------------------------------------------------------------------------- */
+
+/**
+ * Child: add a label to an editor.
+ */
+
+.Editor-label {
+  bottom: 0;
+  display: block;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: _rem($editor-label-top);
+
+  width: 100%;
+
+  text-align: left;
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  &:after {
+    @include transition-default(width);
+
+    bottom: _rem($editor-label-after-bottom);
+    display: block;
+    left: 0;
+    position: absolute;
+    visibility: hidden;
+
+    height: _rem(2);
+    width: 0;
+
+    background-color: $theme-primary;
+
+    content: "";
+  }
+
+  // State
+  .Editor.is-focused &:after {
+    visibility: visible;
+
+    width: 100%;
+  }
+}
+
+/* Help
+   ------------------------------------------------------------------------- */
+
+/**
+ * Child: add help text for control.
+ */
+
+.Editor-help {
+  display: block;
+  position: absolute;
+
+  margin-top: _rem($spacing-small);
+
+  color: $editor-help-color;
+  font-size: _rem($editor-label-hanging-font-size);
+}
+
+
+

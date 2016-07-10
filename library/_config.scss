@@ -139,38 +139,55 @@ $app-drawer-border-color: $color-grey-100 !default;
 
 $app-left-offset:  $app-drawer-width !default;
 
-// Frame
-$frame-width: 330px !default;
-$frame-height: 200px !default;
-$frame-font-size: inherit !default;
-$frame-title-font-size: ($font-size-root * 1.5) !default;
-$frame-subtitle-font-size: 14px !default;
-$frame-horizontal-padding: 16px !default;
-$frame-vertical-padding: 16px !default;
+// Card
+$card-width: 330px !default;
+$card-height: 200px !default;
+$card-font-size: inherit !default;
+$card-title-font-size: ($font-size-root * 1.5) !default;
+$card-subtitle-font-size: 14px !default;
+$card-horizontal-padding: 16px !default;
+$card-vertical-padding: 16px !default;
 
-$frame-hd-perspective-origin-x: 165px !default;
-$frame-hd-perspective-origin-y: 56px !default;
+$card-hd-perspective-origin-x: 165px !default;
+$card-hd-perspective-origin-y: 56px !default;
 
-$frame-hd-transform-origin-x: 165px !default;
-$frame-hd-transform-origin-y: 56px !default;
+$card-hd-transform-origin-x: 165px !default;
+$card-hd-transform-origin-y: 56px !default;
 
-$frame-title-transform-origin-x: 149px !default;
-$frame-title-transform-origin-y: 48px !default;
+$card-title-transform-origin-x: 149px !default;
+$card-title-transform-origin-y: 48px !default;
 
-$frame-supporting-text-font-size: 1rem !default;
-$frame-supporting-text-line-height: 18px !default;
+$card-supporting-text-font-size: 1rem !default;
+$card-supporting-text-line-height: 18px !default;
 
-$frame-actions-font-size: 16px !default;
+$card-actions-font-size: 16px !default;
 
-$frame-title-text-font-weight: 300 !default;
-$frame-z-index: 1 !default;
+$card-title-text-font-weight: 300 !default;
+$card-z-index: 1 !default;
 
-$frame-background-color: #fff !default;
-$frame-text-color:  #000 !default;
-// $frame-image-placeholder-color: $color-accent !default;
-// $frame-supporting-text-text-color: rgba-tpl($color-black, 0.54) !default;
-$frame-border-color: rgba(0,0,0,0.1) !default;
-$frame-subtitle-color: rgba-tpl(#000, 0.54) !default;
+$card-background-color: #fff !default;
+$card-text-color:  #000 !default;
+// $card-image-placeholder-color: $color-accent !default;
+// $card-supporting-text-text-color: rgba-tpl($color-black, 0.54) !default;
+$card-border-color: rgba(0,0,0,0.1) !default;
+$card-subtitle-color: rgba-tpl(#000, 0.54) !default;
+
+// Editor
+$editor-vertical-spacing:  $spacing-base !default;
+$editor-font-size:         $font-size-base !default;
+$editor-width:             300px !default;
+$editor-placeholder-color: $color-grey-500 !default;
+
+$editor-control-border-color: rgba(#000, 0.12) !default;
+$editor-control-font-size:    $font-size-base !default;
+$editor-control-padding:      4px !default;
+$editor-control-width:        100% !default;
+
+$editor-label-top:               $spacing-base !default;
+$editor-label-after-bottom:      $spacing-base !default;
+$editor-label-hanging-font-size: $font-size-medium !default;
+
+$editor-help-color: $color-grey-800 !default;
 
 // Form
 $form-control-height: ($line-height-base + $spacing-medium) !default;

@@ -28,33 +28,79 @@ html
             h1.App-title Formed.css
 
         main.App-main._pal
-          p Formed visual styleguide and component-based library.
-
-          section
-            h2 Sectioning Elements
+          div._size8of12._centerBox
+            p Formed visual styleguide and component-based library.
 
             section
-              h3 Headings
+              h2 Sectioning Elements
 
-              div.Frame
-                h1._mbm Header 1
-                  small &nbsp;small text
-                h2._mbm Header 2
-                  small &nbsp;small text
-                h3._mbm Header 3
-                  small &nbsp;small text
-                h4._mbm Header 4
-                  small &nbsp;small text
-                h5._mbm Header 5
-                h6._mbm Header
+              section
+                h3 Headings
 
-          section
-            h2 Components
+                div.Frame
+                  h1._mbm Header 1
+                    small &nbsp;small text
+                  h2._mbm Header 2
+                    small &nbsp;small text
+                  h3._mbm Header 3
+                    small &nbsp;small text
+                  h4._mbm Header 4
+                    small &nbsp;small text
+                  h5._mbm Header 5
+                  h6._mbm Header
 
-            div(class="_mtl" style="display: flex;")
-              div.Frame
-                div.Frame-hd
-                  h2.Frame-title Frame title
+            section
+              h2 Components
 
-                div.Frame-bd
-                div.Frame-ft
+              section._mbl
+                h3 Card
+                div(class="_mtl" style="display: flex;")
+                  div.Card
+                    div.Card-hd
+                      h2.Card-title Card title
+
+                    div.Card-bd
+                    div.Card-ft
+
+              section
+                h3 Editor
+
+                div.Editor._mbl.js-editor
+                  input(class="Editor-control"
+                        id="scr"
+                        placeholder="screen reader label"
+                        type="text")
+                  label(class="Editor-label" for="scr")
+                    span._visuallyHidden Editor screen reader
+                  div.Editor-help
+                    | Some help text
+
+                div.Editor.Editor--hangingLabel.js-editor
+                  input(class="Editor-control"
+                        type="text")
+                  label(class="Editor-label") Editor label
+
+                div.Editor.js-editor
+                  textarea(class="Editor-control"
+                           placeholder="Multi line"
+                           rows="5")
+                  label(class="Editor-label" for="multi-line")
+                    span._visuallyHidden Multi line
+
+                script.
+                  var editors = document.querySelectorAll('.js-editor .Editor-control');
+                  var editorList = Array.prototype.slice.call(editors);
+
+                  editorList.forEach(function (editor) {
+                    editor.addEventListener('focus', function (evt) {
+                      evt.target.parentNode.classList.add('is-focused');
+                    });
+
+                    editor.addEventListener('blur', function (evt) {
+                      evt.target.parentNode.classList.remove('is-focused');
+                      evt.target.parentNode
+                        .classList.toggle('is-answered', evt.target.value);
+                    });
+                  });
+
+

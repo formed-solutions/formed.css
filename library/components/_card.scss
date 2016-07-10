@@ -20,13 +20,13 @@
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  z-index: $frame-z-index;
+  z-index: $card-z-index;
 
   box-sizing: box-sizing;
-  min-height: _rem($frame-height);
-  width: _rem($frame-width);
+  min-height: _rem($card-height);
+  width: _rem($card-width);
 
-  background-color: $frame-background-color;
+  background-color: $card-background-color;
 
   font-weight: 400;
 }
@@ -52,7 +52,7 @@
    ------------------------------------------------------------------------- */
 
 /**
- * Wrapping element for header of the frame, e.g. header, image, etc.
+ * Wrapping element for header of the card, e.g. header, image, etc.
  *
  * Example:
  *   <div class="Card">
@@ -65,8 +65,8 @@
   display: block;
   display: flex;
   justify-content: stretch;
-  perspective-origin: $frame-hd-perspective-origin-x $frame-hd-perspective-origin-y;
-  transform-origin: $frame-hd-transform-origin-x $frame-hd-transform-origin-y;
+  perspective-origin: $card-hd-perspective-origin-x $card-hd-perspective-origin-y;
+  transform-origin: $card-hd-transform-origin-x $card-hd-transform-origin-y;
 
   box-sizing: border-box;
   padding: #{_rem($spacing-base)} #{_rem($spacing-base)} #{_rem($spacing-medium)};
@@ -79,7 +79,7 @@
    ------------------------------------------------------------------------- */
 
 /**
- * Provide consistent title styles for use with headers in a frame.
+ * Provide consistent title styles for use with headers in a card.
  *
  * Example:
  *   <div class="Card">
@@ -93,12 +93,12 @@
   display: block;
   display: flex;
   overflow: hidden;
-  transform-origin: $frame-title-transform-origin-x $frame-title-transform-origin-y;
+  transform-origin: $card-title-transform-origin-x $card-title-transform-origin-y;
 
   margin: 0;
 
   color: inherit;
-  font-size: _rem($frame-title-font-size);
+  font-size: _rem($card-title-font-size);
   font-weight: 300;
   line-height: normal;
 }
