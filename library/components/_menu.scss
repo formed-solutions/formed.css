@@ -1,0 +1,96 @@
+/**
+ * Menu component
+ * Display list of items on own surface.
+ */
+
+// Dependencies
+@import '../config';
+@import "../_mixins/borders";
+@import "../_mixins/shadow-level";
+@import "../_mixins/transitions";
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+
+/* Main component
+   ------------------------------------------------------------------------- */
+
+.Menu {
+  position: relative;
+}
+
+/**
+ * Modifier: autocomplete menu.
+ */
+
+.Menu--autocomplete {
+  .Menu-box {
+    overflow-y: auto;
+
+    max-height: _rem(250);
+    min-width: 100%;
+  }
+}
+
+/* Menu box
+   ------------------------------------------------------------------------- */
+
+.Menu-box {
+  @include shadow-level($shadows, 2);
+  @include border-radius($border-radius-small);
+  @include transition-default(transform, opacity);
+
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  transform-origin: 0 0;
+  opacity: 0;
+  will-change: transform;
+  z-index: 0;
+
+  border: 1px solid $color-grey-100;
+  margin: 0;
+  padding: #{_rem($spacing-small)} 0;
+
+  background-color: #fff;
+
+  list-style: none;
+
+  // State
+  .Menu.is-active & {
+    opacity: 1;
+    transform: scale(1);
+    z-index: $zindex-menu;
+  }
+}
+
+/* Menu item
+   ------------------------------------------------------------------------- */
+
+.Menu-item {
+  display: block;
+  overflow: hidden;
+  position: relative;
+
+  border: none;
+  height: _rem($spacing-base * 2);
+  margin: 0;
+  padding: 0 #{_rem($spacing-medium)};
+
+  background-color: transparent;
+
+  color: rgba(#000, 0.87); // $default-item-text-color
+  line-height: _rem($spacing-base * 2);
+  text-align: left;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: $color-grey-200; // $default-item-hover-bg-color;
+  }
+}
+
