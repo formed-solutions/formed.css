@@ -36,7 +36,7 @@ $gray-lighter:  #eee !default;
 $theme-primary: $color-secondary-500 !default;
 $theme-primary-light: $color-secondary-100 !default;
 $theme-primary-dark: $color-secondary-700 !default;
-$theme-accent: $color-turquoise-a200 !default;
+$theme-accent: $color-turquoise-a700 !default;
 
 $theme-primary-contrast: $color-contrast-light !default;
 $theme-accent-contrast: $color-contrast-light !default;
@@ -80,7 +80,7 @@ $border-radius-small:  2px !default;
 // Links
 // ----------------------------------------------------------------------------
 
-$link-color:                 blue !default
+$link-color:                 $theme-accent !default
 $link-text-decoration:       none !default
 $link-color-hover:           mix(#000, $link-color, 25%) !default
 $link-color-text-decoration: underline !default
