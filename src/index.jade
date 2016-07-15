@@ -62,10 +62,10 @@ html
                     div.Card-bd
                     div.Card-ft
 
-              section.Menu.is-active
+              section.Menu.is-active(style="height: 230px")
                 h3 Menu
 
-                ul.Menu-box
+                ul.Menu-box(style="margin-top: 48px;")
                   li.Menu-item Menu item 1
                   li.Menu-item Menu item 2
                   li.Menu-item Menu item 3
@@ -87,6 +87,11 @@ html
                   input(class="Editor-control"
                         type="text")
                   label(class="Editor-label") Editor label
+
+                div.Editor.Editor--lg.Editor--hangingLabel.js-editor
+                  input(class="Editor-control"
+                        type="text")
+                  label(class="Editor-label") Large editors
 
                 div.Editor.js-editor
                   textarea(class="Editor-control"
