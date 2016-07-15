@@ -1,5 +1,7 @@
 /**
  * Card component
+ *
+ * Stability: unstable (1)
  */
 
 // Dependencies
@@ -46,6 +48,16 @@
   .Card-table {
     border: none;
   }
+}
+
+/**
+ * Modifieir: authentication cards.
+ */
+
+.Card--auth {
+  margin: #{_rem($spacing-base)} auto 0;
+  max-width: _rem(455);
+  width: 100%;
 }
 
 /* Header sub-component
