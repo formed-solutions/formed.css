@@ -1,0 +1,34 @@
+/// Modify backgrounds.
+/// @group mixins
+/// @requires {mixin} hover
+/// @requires {variable} $color-contrast-light - Color configuration.
+/// @requires {variable} $color-contrast-dark - Color configuration.
+/// @param {String} $selector - Selector to set declaration to.
+/// @param {Color} $theme - Any CSS accepted color value.
+/// @param {Color} $color-contrast - Adjust text color per background theme.
+
+// Dependencies
+@import "_hover";
+
+@mixin background-mod(
+  $selector,
+  $theme,
+  $color-contrast: $color-contrast-light) {
+  @if variable-exists(color-contrast-light)
+      or variable-exists(color-contrast-dark) {
+    #{$selector} {
+      background-color: $theme !important;
+
+      color: $color-contrast;
+    }
+
+    a#{$selector} {
+      @include hover-focus {
+        background-color: mix($color-contrast-dark, $theme, 10%) !important;
+      }
+    }
+  }
+  @else {
+    @warn 'There is a undefined configuration for $color-contrast-light or $color-contrast-dark';
+  }
+}

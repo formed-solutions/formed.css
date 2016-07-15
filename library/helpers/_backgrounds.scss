@@ -4,8 +4,12 @@
  */
 
 // Dependencies
-@import '../config';
+@import "../config";
+@import "../_mixins/background-mod";
 
-.background-primary {
-  background-color: $theme-primary;
-}
+@include background-mod('.background-primary', $theme-primary);
+@include background-mod('.background-accent', $theme-accent);
+@include background-mod(
+  '.background-faded',
+  $color-grey-000,
+  $color-contrast-dark);
