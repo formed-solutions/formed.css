@@ -1,6 +1,8 @@
 /**
  * Editor component
  * Input and select text through a common interface with this component.
+ *
+ * Stability: unstable (1)
  */
 
 // Dependences
@@ -26,6 +28,33 @@
   width: _rem($editor-width);
 
   font-size: _rem($editor-font-size);
+}
+
+/**
+ * Modifier: large editors.
+ */
+
+.Editor--lg {
+  .Editor-control {
+    height: _rem(32);
+    padding-top: $spacing-small;
+    padding-bottom: $spacing-small;
+
+    font-size: _rem($font-size-large);
+  }
+
+  .Editor-label,
+  &.Editor--hangingLabel .Editor-label {
+    top: _rem($editor-label-top + $editor-control-padding);
+    font-size: _rem($font-size-large);
+  }
+
+  &.Editor--hangingLabel.is-focused,
+  &.Editor--hangingLabel.is-answered {
+    .Editor-label {
+      font-size: _rem($font-size-base);
+    }
+  }
 }
 
 /**
@@ -72,9 +101,11 @@
   line-height: normal;
   text-align: left;
 
-  // Placeholder
   @include _placeholder {
-    color: $editor-placeholder-color;
+    opacity: 0.54;
+
+    font-weight: 200;
+    letter-spacing: 0.01em;
   }
 
   // State
@@ -152,6 +183,3 @@ textarea.Editor-control {
   color: $editor-help-color;
   font-size: _rem($editor-label-hanging-font-size);
 }
-
-
-
