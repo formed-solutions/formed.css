@@ -1,0 +1,46 @@
+/**
+ * Flash component
+ * Display application alerts, notifications.
+ *
+ * Stability: unstable (1)
+ */
+
+// Dependencies
+@import "../config";
+@import "../_mixins/shadow-level";
+@import "node_modules/underscore.css.scss/scss/functions/rem";
+
+/* Main component
+   ------------------------------------------------------------------------- */
+
+.Flash {
+  @include shadow-level($shadows, 2);
+
+  display: block;
+
+  border: none;
+  margin-bottom: _rem($spacing-base);
+  padding: _rem($spacing-medium);
+}
+
+/**
+ * Modifiers: skins.
+ * Provide contextual skin notices.
+ */
+
+$flash-skins: (
+  "danger": $color-red-500,
+  "guide": $color-blue-500,
+  "primary": $theme-primary,
+  "success": $color-green-500
+) !default;
+
+@each $modifier, $theme in $flash-skins {
+  .Flash--#{$modifier} {
+    border-color: $theme;
+
+    background-color: mix(#fff, $theme, 45%);
+
+    color: mix(#000, $theme, 15%);
+  }
+}
