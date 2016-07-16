@@ -116,6 +116,7 @@ $shadows: (
 // ----------------------------------------------------------------------------
 
 $transition-duration: 0.3s !default;
+$transition-timing-function: $easeInOutQuart !default;
 
 // Components
 // ----------------------------------------------------------------------------
@@ -139,6 +140,24 @@ $app-drawer-background-color: #fff !default;
 $app-drawer-border-color: $color-grey-100 !default;
 
 $app-left-offset:  $app-drawer-width !default;
+
+// Button
+$button-radius: $border-radius-small !default;
+$button-padding: 0.4em 0.7em !default;
+$button-disabled-opacity: 0.5 !default;
+
+$button-color: rgba($color-grey-500, 0.25) !default;
+$button-color-alt: #000 !default;
+$button-active-color: rgba($color-grey-500, 0.50) !default;
+$button-hover-color: $button-color !default;
+$button-focus-color: rgba(#000, 0.12) !default;
+$button-font: inherit !default;
+
+$button-primary-color: $theme-primary !default;
+$button-secondary-color: $theme-primary-contrast !default;
+$button-hover-color-alt: $theme-primary !default;
+$button-active-color-alt: $theme-primary !default;
+$button-focus-color-alt: $button-focus-color !default;
 
 // Card
 $card-width: 330px !default;

@@ -1,0 +1,97 @@
+/**
+ * Button component
+ * Best applied to anchor and button elements.
+ *
+ * Stability: unstable (1)
+ */
+
+// Dependencies
+@import "../config";
+@import "../_mixins/hover";
+@import "../_mixins/transitions";
+
+/* Main component
+   ------------------------------------------------------------------------- */
+
+/**
+ * 1. Ensure `box-sizing` is consistent amongst all instances.
+ * 2. Prevent button text from being selected.
+ * 3. Remove underlines from text on state.
+ */
+
+.Button {
+  @include transition(
+    background-color $transition-duration $easeInOutSine,
+    color $transition-duration $transition-timing-function
+  );
+
+  display: inline-block;
+  position: relative;
+
+  border: none;
+  border-radius: $button-radius;
+  box-sizing: border-box; /* 1 */
+  margin: 0;
+  padding: $button-padding;
+
+  background: transparent;
+
+  color: $button-color-alt;
+  font: $button-font;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+  user-select: none; /* 2 */
+  vertical-align: middle;
+
+  &:-moz-focus-innner {
+    border: 0;
+  }
+
+  // State
+  // Placed these includes here as opposed to top of ruleset.  Wanted to keep
+  // all state declaration blocks together.
+  @include hover {
+    background-color: $button-hover-color;
+  }
+
+  @include hover-focus-active {
+    text-decoration: none; /* 3 */
+  }
+
+  &:focus:not(:active) {
+    background-color: $button-focus-color;
+  }
+
+  &:active {
+    background-color: $button-active-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled,
+  &.is-disabled {
+    opacity: $button-disabled-opacity;
+
+    cursor: default;
+  }
+}
+
+/**
+ * Modifier: primary button.
+ */
+
+.Button--primary {
+  color: $button-primary-color;
+}
+
+/**
+ * Modifier: secondary buttons.
+ */
+
+.Button--accent {
+  color: $theme-accent;
+}
