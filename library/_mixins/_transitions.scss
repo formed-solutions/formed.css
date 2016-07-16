@@ -1,6 +1,6 @@
 // Transition mixins.
 
-@mixin transition($transtion...) {
+@mixin transition($transition...) {
   @if $has-transitions {
     transition: $transition;
   }
