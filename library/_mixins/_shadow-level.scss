@@ -2,7 +2,10 @@
 /// Shadow level mixin.
 ///
 /// @group mixins
+/// @require {mixin} box-shadows
 ////
+
+@import "box-shadows";
 
 @mixin shadow-level($levels, $level) {
   @if map-has-key($levels, $level) {
