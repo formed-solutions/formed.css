@@ -8,6 +8,7 @@
 @import "../vendor/underscore/config";
 @import "../_mixins/box-shadows";
 @import "../_mixins/breakpoints";
+@import "../_mixins/hover";
 @import "../_mixins/transitions";
 @import "../../node_modules/underscore.css.scss/scss/functions/rem";
 
@@ -241,3 +242,55 @@
   padding: 0 _rem($spacing-medium);
   width: 100%;
 }
+
+/* App navigation
+   ------------------------------------------------------------------------- */
+
+/**
+ * Child: navigation to route through application.
+ * Regions that might have a `App-nav` can `App-header` and `App-drawer`.
+ */
+
+.App-nav {
+  display: flex;
+  flex-wrap: nowrap;
+
+  box-sizing: border-box;
+
+  .App-header-inner & {
+    height: 100%;
+  }
+}
+
+/**
+ * Child: items in a nav.
+ * Control appearance and layout of items in the nav.
+ */
+
+.App-nav-item {
+  @include transition-default(opacity);
+  @include hover {
+    opacity: 1;
+  }
+
+  opacity: 0.67;
+
+  margin: 0;
+  padding: 0 _rem($spacing-medium);
+
+  color: $app-nav-color;
+  font-weight: 300;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  // Adjust navigation when embedded in a header.
+  .App-header-inner .App-nav & {
+    align-self: center;
+
+    height: _rem($app-header-height);
+
+    line-height: _rem($app-header-height);
+  }
+}
+
