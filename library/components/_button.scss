@@ -9,6 +9,7 @@
 @import "../config";
 @import "../_mixins/hover";
 @import "../_mixins/transitions";
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
 
 /* Main component
    ------------------------------------------------------------------------- */
@@ -20,6 +21,8 @@
  */
 
 .Button {
+  $pv: _rem($button-padding-vertical);
+  $ph: _rem($button-padding-horizontal);
   @include transition(
     background-color $transition-duration $easeInOutSine,
     color $transition-duration $transition-timing-function
@@ -32,7 +35,7 @@
   border-radius: $button-radius;
   box-sizing: border-box; /* 1 */
   margin: 0;
-  padding: $button-padding;
+  padding: #{$pv} #{$ph};
 
   background: transparent;
 
