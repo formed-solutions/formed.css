@@ -9,6 +9,9 @@
 
 @include background-mod('.background-primary', $theme-primary);
 @include background-mod('.background-accent', $theme-accent);
+@include background-mod('.background-success', $color-green-500);
+@include background-mod('.background-danger', $color-red-500);
+@include background-mod('.background-warning', $color-yellow-500);
 @include background-mod(
   '.background-faded',
   $color-grey-000,
