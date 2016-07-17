@@ -81,7 +81,7 @@
   transform-origin: $card-hd-transform-origin-x $card-hd-transform-origin-y;
 
   box-sizing: border-box;
-  padding: #{_rem($spacing-base)} #{_rem($spacing-base)} #{_rem($spacing-medium)};
+  padding: #{_rem($spacing-base)} #{_rem($spacing-medium)} #{_rem($spacing-medium)};
 
   color: #000;
   line-height: normal;
@@ -103,7 +103,6 @@
 .Card-title {
   align-self: flex-end;
   display: block;
-  display: flex;
   overflow: hidden;
   transform-origin: $card-title-transform-origin-x $card-title-transform-origin-y;
 
@@ -113,6 +112,8 @@
   font-size: _rem($card-title-font-size);
   font-weight: 300;
   line-height: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Body sub-component
@@ -131,10 +132,17 @@
   overflow: hidden;
 
   box-sizing: border-box;
-  padding: _rem($spacing-base);
+  padding: #{_rem($spacing-medium)};
 }
 
 .Card-bd + .Card-bd {
   padding-top: 0;
 }
 
+/* Card footer
+   ------------------------------------------------------------------------- */
+
+.Card-ft {
+  border-top: 1px solid $color-grey-100;
+  padding: #{_rem($spacing-small)} #{_rem($spacing-medium)};
+}
