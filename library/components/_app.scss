@@ -132,7 +132,7 @@
 
   &.has-header-menu {
     @include breakpoint-media-max('md') {
-      padding-left: _rem($spacing-small);
+      padding-left: _rem($spacing-medium);
     }
   }
 }
@@ -243,7 +243,7 @@
 
   height: _rem($app-header-height);
   margin: 0;
-  padding: 0 _rem($spacing-medium);
+  padding: 0 _rem($spacing-base);
   width: 100%;
 }
 
@@ -263,6 +263,13 @@
 
   .App-header-inner & {
     height: 100%;
+  }
+
+  .App-drawer & {
+    align-items: stretch;
+    flex-direction: column;
+
+    padding-top: _rem($spacing-base);
   }
 }
 
@@ -295,6 +302,22 @@
     height: _rem($app-header-height);
 
     line-height: _rem($app-header-height);
+  }
+
+  // Adjust navigtation items in a drawer.
+  .App-drawer .App-nav & {
+    @include transition-default(background-color);
+    @include hover {
+      background-color: $color-grey-100;
+    }
+
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+
+    padding: #{_rem($spacing-medium)} #{_rem($spacing-base)};
+
+    color: rgba(#000, 0.90);
   }
 }
 
