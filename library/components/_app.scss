@@ -91,8 +91,6 @@
   }
 }
 
-.App-responsive {}
-
 /* App header
    ------------------------------------------------------------------------- */
 
@@ -131,6 +129,12 @@
   height: 100%;
   padding: 0 _rem($spacing-medium);
   width: 100%;
+
+  &.has-header-menu {
+    @include breakpoint-media-max('md') {
+      padding-left: _rem($spacing-small);
+    }
+  }
 }
 
 /**
