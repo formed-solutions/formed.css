@@ -15,7 +15,7 @@ function jadeDev() {
     }
   };
 
-  return gulp.src('./src/**/*.jade')
+  return gulp.src('./src/pages/*.jade')
     .pipe(jade(JADE_OPTS))
     .on('error', function __error__(error) {
       console.error('jade error: ', error);
