@@ -5,23 +5,23 @@
 'use strict';
 
 const gulp = require('gulp');
-const jade = require('gulp-jade');
+const pug = require('gulp-pug');
 
-function jadeDev() {
-  const JADE_OPTS = {
+function pugDev() {
+  const PUG_OPTS = {
     pretty: true,
     locals: {
       urlPrefix: '/'
     }
   };
 
-  return gulp.src('./src/pages/*.jade')
-    .pipe(jade(JADE_OPTS))
+  return gulp.src('./src/pages/*.pug')
+    .pipe(pug(PUG_OPTS))
     .on('error', function __error__(error) {
-      console.error('jade error: ', error);
+      console.error('pug error: ', error);
       this.emit('end');
     })
     .pipe(gulp.dest('.tmp'));
 }
 
-module.exports = jadeDev;
+module.exports = pugDev;

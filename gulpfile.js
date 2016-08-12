@@ -5,9 +5,9 @@ const browserSync = require('browser-sync');
 const reload      = browserSync.reload;
 
 gulp.task('sass:dev', require('./tasks/sass-dev'));
-gulp.task('jade:dev', require('./tasks/jade-dev'));
+gulp.task('pug:dev', require('./tasks/pug-dev'));
 
-gulp.task('serve', ['sass:dev', 'jade:dev'], () => {
+gulp.task('serve', ['sass:dev', 'pug:dev'], () => {
   browserSync.init({
     browser: 'google chrome',
     server: {
@@ -16,5 +16,5 @@ gulp.task('serve', ['sass:dev', 'jade:dev'], () => {
   });
 
   gulp.watch(['library/**/*.scss'], ['sass:dev'])
-  gulp.watch(['src/**/*.jade'], ['jade:dev', reload]);
+  gulp.watch(['src/**/*.pug'], ['pug:dev', reload]);
 });
