@@ -51,9 +51,11 @@
 }
 
 /**
- * Modifieir: authentication cards.
+ * Modifieir: wide cards.
+ * Cards that require a set width.
  */
 
+.Card--wide,
 .Card--auth {
   margin: #{_rem($spacing-base)} auto 0;
   max-width: _rem(455);
@@ -135,14 +137,22 @@
   padding: #{_rem($spacing-medium)};
 }
 
-.Card-bd + .Card-bd {
-  padding-top: 0;
-}
-
 /* Card footer
    ------------------------------------------------------------------------- */
 
+/**
+ * Child: card footer.
+ *
+ * Example:
+ *   <div class="Card">
+ *    <div class="Card-ft">// footer</div>
+ *   </div>
+ *
+ * 1. Push footer to bottom of card.
+ */
+
 .Card-ft {
   border-top: 1px solid $color-grey-100;
+  margin-top: auto; /* 1 */
   padding: #{_rem($spacing-small)} #{_rem($spacing-medium)};
 }
