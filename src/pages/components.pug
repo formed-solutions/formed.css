@@ -1,0 +1,77 @@
+extends ../layouts/page
+
+block settings
+  - var page = 'components'
+
+block main
+
+  div.background-light._mbl._pvl
+    div.App-container
+      h2 Components
+      p A collection of small independent, reusable pieces of UI.  Components offer enclosed semantics and behaviour.
+
+  div.App-container._mbl
+    h3 Card
+    div(class="_mtl" style="display: flex;")
+      div.Card
+        div.Card-hd
+          h2.Card-title Card title
+
+        div.Card-bd
+        div.Card-ft
+
+  div.App-container._mbl
+    div.Menu.is-active(style="height: 230px")
+      h3 Menu
+
+      ul.Menu-box(style="margin-top: 48px;")
+        li.Menu-item Menu item 1
+        li.Menu-item Menu item 2
+        li.Menu-item Menu item 3
+
+  div.App-container._mbl
+    h3 Editor
+
+    div.Editor._mbl.js-editor
+      input(class="Editor-control"
+            id="scr"
+            placeholder="screen reader label"
+            type="text")
+      label(class="Editor-label" for="scr")
+        span._visuallyHidden Editor screen reader
+      div.Editor-help
+        | Some help text
+
+    div.Editor.Editor--hangingLabel.js-editor
+      input(class="Editor-control"
+            type="text")
+      label(class="Editor-label") Editor label
+
+    div.Editor.Editor--lg.Editor--hangingLabel.js-editor
+      input(class="Editor-control"
+            type="text")
+      label(class="Editor-label") Large editors
+
+    div.Editor.js-editor
+      textarea(class="Editor-control"
+               placeholder="Multi line"
+               rows="5")
+      label(class="Editor-label" for="multi-line")
+        span._visuallyHidden Multi line
+
+    script.
+      var editors = document.querySelectorAll('.js-editor .Editor-control');
+      var editorList = Array.prototype.slice.call(editors);
+
+      editorList.forEach(function (editor) {
+        editor.addEventListener('focus', function (evt) {
+          evt.target.parentNode.classList.add('is-focused');
+        });
+
+        editor.addEventListener('blur', function (evt) {
+          evt.target.parentNode.classList.remove('is-focused');
+          evt.target.parentNode
+            .classList.toggle('is-answered', evt.target.value);
+        });
+      });
+

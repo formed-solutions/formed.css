@@ -1,0 +1,36 @@
+extends ../layouts/components
+
+block settings
+   - var page = 'components - card'
+
+block content
+  div.App-container._mbl
+    h1 Card
+    p._textLarge A card is a self-contained piece of UI.  Card includes sub-components for a header, body, and footer.  Easily extend a card component by adding a modifier to alter all or specific sub-components.
+
+    div(class="_mvl _flex _flexCenter")
+      div.Card.Card--wide
+        div(class="Card-hd background-primary" style="height: 150px;")
+          h2.Card-title Card title
+
+        div.Card-bd  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vitae modi harum fugiat consequuntur. Maxime consequuntur quibusdam molestiae nam vel. Omnis et illo eum, aut maxime. Consequuntur, ex quod saepe.
+        div.Card-ft
+          button(class="Button Button--primary" type="button") View
+
+  div.background-faded._pvl
+    div.App-container
+      pre
+        code
+          | &lt;div class="Card Card--wide"&gt;
+          |   &lt;div class="Card-hd"&gt;
+          |     &lt;div class="Card-title"&gt;Card title&lt;/div&gt;
+          |   &lt;/div&gt;
+          |   &lt;div class="Card-bd"&gt;
+          |     Lorem ipsum dolor sit amet...
+          |   &lt;/div&gt;
+          |   &lt;div&gt; class="Card-ft"&gt;
+          |     &lt;button class="Button Button--primary" type="button"&gt;
+          |       View
+          |     &lt;/button&gt;
+          |   &lt;/div&gt;
+          | &lt;/div&gt;

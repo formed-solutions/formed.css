@@ -1,0 +1,12 @@
+div.App-drawer
+  h1.App-title.App-drawer-title Formed.css
+
+  ul._listNoStyle
+    li: a(class="_block _pvm _phl" href="/base.html") Base styles
+    li
+      a(class="_block _pvm _phl" href="/card.html") Components
+      if (/components/.test(page))
+        ul._listNoStyle
+          li: a(class="_block _pvs _phl" href="/card.html") Card
+          li: a(class="_block _pvs _phl" href="/menu.html") Menu
+          li: a(class="_block _pvs _phl" href="/editor.html") Editor

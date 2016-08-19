@@ -1,0 +1,26 @@
+include ../mixins/mixins
+
+block settings
+
+doctype html
+html
+  head
+    title Formed CSS
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(charset="utf-8")
+    meta(name="viewport"
+         content="width=device-width, initial-scale=1")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    link(rel="stylesheet" href=urlPrefix + "formed.css")
+
+  body
+    include ../images/icons.svg
+
+    div.App.App--fixedDrawer
+      include ../includes/drawer
+      include ../includes/header
+
+      main.App-main
+        block main
+
+    block scripts
