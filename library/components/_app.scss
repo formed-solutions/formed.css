@@ -192,6 +192,12 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.App-container {
+  margin: 0 auto;
+  padding: 0 _rem($spacing-base);
+  width: 100%;
+}
+
 /* App drawer
    ------------------------------------------------------------------------- */
 
