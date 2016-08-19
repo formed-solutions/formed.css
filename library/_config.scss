@@ -62,7 +62,11 @@ $font-size-h4: _ms($font-size-root, 2, $font-rhythm) !default;
 $font-size-h5: $font-size-large !default;
 $font-size-h6: $font-size-base !default;
 
-$font-family-base:    $_helvetica !default
+// https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+$font-family-base:
+  -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+  "Helvetica Neue", sans-serif !default;
 $font-family-code:    $_consolas !default
 $font-family-headers: inherit !default
 
