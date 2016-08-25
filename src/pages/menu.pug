@@ -1,0 +1,18 @@
+extends ../layouts/components
+
+block settings
+   - var page = 'components - menu'
+
+block content
+  div.App-container._mbl
+    h1 Menu
+    p Menu description text.
+
+    div(class="_mvl _flex _flexCenter")
+      div.Menu.Menu--bottomLeft.is-active
+        h5._mbn Menu trigger
+
+        ul.Menu-box
+          li.Menu-item Menu item 1
+          li.Menu-item Menu item 2
+          li.Menu-item Menu item 3
