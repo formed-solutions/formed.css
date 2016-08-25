@@ -34,7 +34,7 @@
   }
 
   @else {
-    &:focus
+    &:focus,
     &:hover {
       @content
     }
