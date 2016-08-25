@@ -6,6 +6,7 @@
 // Dependencies
 @import '../config';
 @import "../_mixins/borders";
+@import "../_mixins/hover";
 @import "../_mixins/shadow-level";
 @import "../_mixins/transitions";
 @import "../../node_modules/underscore.css.scss/scss/functions/rem";
@@ -36,7 +37,7 @@
 .Menu-box {
   @include shadow-level($shadows, 2);
   @include border-radius($border-radius-small);
-  @include transition-default(transform, opacity);
+  @include transition-default(all);
 
   display: block;
   left: 0;
@@ -62,12 +63,28 @@
     transform: scale(1);
     z-index: $zindex-menu;
   }
+
+  .Menu.Menu--bottomLeft & {
+    left: 0;
+    top: 100%;
+  }
+
+  .Menu.Menu--bottomRight > & {
+    left: auto;
+    right: 0;
+    top: 100%;
+    transform-origin: 100% 0;
+  }
 }
 
 /* Menu item
    ------------------------------------------------------------------------- */
 
 .Menu-item {
+  @include hover-focus {
+    background-color: $color-grey-100; // $default-item-hover-bg-color;
+  }
+
   display: block;
   overflow: hidden;
   position: relative;
@@ -76,6 +93,7 @@
   height: _rem($spacing-base * 2);
   margin: 0;
   padding: 0 #{_rem($spacing-medium)};
+  width: 100%;
 
   background-color: transparent;
 
@@ -87,10 +105,7 @@
   white-space: nowrap;
 
   cursor: pointer;
+  font-size: _rem($font-size-medium);
   user-select: none;
-
-  &:hover {
-    background-color: $color-grey-200; // $default-item-hover-bg-color;
-  }
 }
 
