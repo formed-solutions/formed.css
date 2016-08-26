@@ -7,6 +7,7 @@
 
 // Dependencies
 @import "../config";
+@import "../_mixins/borders";
 @import "../_mixins/hover";
 @import "../_mixins/transitions";
 @import "../../node_modules/underscore.css.scss/scss/functions/rem";
@@ -23,6 +24,7 @@
 .Button {
   $pv: _rem($button-padding-vertical);
   $ph: _rem($button-padding-horizontal);
+  @include border-radius($button-radius);
   @include transition(
     background-color $transition-duration $easeInOutSine,
     color $transition-duration $transition-timing-function
@@ -32,7 +34,6 @@
   position: relative;
 
   border: none;
-  border-radius: $button-radius;
   box-sizing: border-box; /* 1 */
   margin: 0;
   padding: #{$pv} #{$ph};
@@ -77,6 +78,10 @@
 
   &:disabled,
   &.is-disabled {
+    @include elem-hover-focus {
+      background-color: transparent;
+    }
+
     opacity: $button-disabled-opacity;
 
     cursor: default;
@@ -97,4 +102,64 @@
 
 .Button--accent {
   color: $theme-accent;
+}
+
+/**
+ * Modifier: icon button.
+ * Buttons represented by a icon.
+ */
+
+%button-icon {
+  @include border-radius(50%);
+
+  overflow: hidden;
+
+  padding: 0;
+
+  line-height: normal;
+
+  .Button-icon {
+    bottom: 50%;
+    position: absolute;
+    top: 50%;
+  }
+}
+
+.Button--icon,
+.Button--iconSmall {
+  $size: _rem($line-height-base * 1.5);
+  @extend %button-icon;
+
+  height: $size;
+  min-width: $size;
+  width: $size;
+
+  .Button-icon {
+    $size: 1.25rem;
+    $translate: -($size * 0.5);
+
+    transform: translate($translate, $translate);
+
+    height: $size;
+    width: $size;
+  }
+}
+
+.Button--iconSmall {
+  $size: 1.50rem;
+  @extend %button-icon;
+
+  height: $size;
+  min-width: $size;
+  width: $size;
+
+  .Button-icon {
+    $size: 1rem;
+    $translate: -($size * 0.5);
+
+    transform: translate($translate, $translate);
+
+    height: $size;
+    width: $size;
+  }
 }
