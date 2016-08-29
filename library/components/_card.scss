@@ -31,6 +31,10 @@
   background-color: $card-background-color;
 
   font-weight: 400;
+
+  &.has-menu {
+    overflow: visible;
+  }
 }
 
 /**
@@ -131,8 +135,6 @@
  */
 
 .Card-bd {
-  overflow: hidden;
-
   box-sizing: border-box;
   padding: #{_rem($spacing-medium)};
 }
