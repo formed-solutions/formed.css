@@ -14,7 +14,7 @@
    ------------------------------------------------------------------------- */
 
 .Flash {
-  @include shadow-level($shadows, 2);
+  @include shadow-level(1);
 
   display: block;
 

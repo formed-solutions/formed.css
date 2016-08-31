@@ -7,14 +7,18 @@
 @import "../_mixins/box-shadows";
 @import "../_mixins/shadow-level";
 
+.shadow-none {
+  box-shadow: none !important;
+}
+
 // Generate shadow level helpers.
 // Will create a ruleset for each key in the `$shadow` configuretion option.
 // Example:
 // .shadow-1 { box-shadow: ...shadows; }
 // .shadow-2 { box-shadow: ...shadows; }
 
-@for $i from 1 through length($shadows) {
+@for $i from 1 through 24 {
   .shadow-#{$i} {
-    @include shadow-level($shadows, $i);
+    @include shadow-level($i);
   }
 }

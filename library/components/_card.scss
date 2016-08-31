@@ -16,7 +16,7 @@
 
 .Card {
   @include border-radius($border-radius-small);
-  @include shadow-level($shadows, 2);
+  @include shadow-level(1);
 
   display: flex;
   flex-direction: column;
@@ -135,8 +135,11 @@
  */
 
 .Card-bd {
+  display: block;
+
   box-sizing: border-box;
   padding: #{_rem($spacing-medium)};
+  width: 100%;
 }
 
 /* Card footer
