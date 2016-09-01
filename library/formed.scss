@@ -10,6 +10,7 @@
 @import "components/button";
 @import "components/card";
 @import "components/form";
+@import "components/dialog";
 @import "components/editor";
 @import "components/flash";
 @import "components/icons";
@@ -23,4 +24,7 @@
 @import "helpers/backgrounds";
 @import "helpers/shadows";
 @import "helpers/shadows";
+
+// Vendor
+@import 'vendor/dialogPolyfill';
 @import "vendor/underscore/underscore";

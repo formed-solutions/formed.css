@@ -1,0 +1,40 @@
+/**
+ * Dialog polyfill settings.
+ */
+
+// See base interactive-content for defaults.
+// dialog {}
+
+dialog + .backdrop {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* for small devices, modal dialogs go full-screen */
+@media screen and (max-width: 540px) {
+  dialog[_polyfill_modal] {  /* TODO: implement */
+    top: 0;
+
+    margin: 1em;
+    width: auto;
+  }
+}
+
+._dialog_overlay {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+dialog.fixed {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+}

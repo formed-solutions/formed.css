@@ -1,0 +1,43 @@
+// Dependencies
+@import "../config";
+@import "../_mixins/shadow-level";
+@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+
+.Dialog {
+  @include shadow-level(24);
+
+  z-index: 100000;
+
+  border: none;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0;
+  width: _rem(280);
+
+  background-color: #fff;
+
+  text-align: left;
+}
+
+.Dialog-hd {
+  $padding: _rem($spacing-base);
+
+  margin: 0;
+  padding: #{$padding} #{$padding} 0;
+
+  background-color: inherit;
+}
+
+.Dialog-bd {
+  padding: _rem($spacing-base);
+}
+
+.Dialog-ft {
+  $padding: _rem($spacing-small);
+
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+
+  padding: $padding #{_rem($spacing-base)};
+}
