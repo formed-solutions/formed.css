@@ -75,7 +75,10 @@
   > .App-drawer {
     @include breakpoint-media-min('md') {
       transform: translateX(0);
+      top: _rem($app-header-height-md);
     }
+
+    top: _rem($app-header-height);
   }
 
   .App-header-menu {
