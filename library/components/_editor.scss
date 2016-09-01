@@ -59,6 +59,7 @@
 
 /**
  * Modifier: hanging labels.
+ * Labels that slide up when control is focused.
  */
 
 .Editor--hangingLabel {
@@ -73,6 +74,19 @@
 
     color: $theme-primary;
     font-size: _rem($editor-label-hanging-font-size);
+  }
+}
+
+/**
+ * Modifier: static labels.
+ * Labels that sit above control.
+ */
+
+.Editor--staticLabel {
+  .Editor-label {
+    top: 0;
+
+    color: $theme-primary;
   }
 }
 
