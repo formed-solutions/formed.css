@@ -136,6 +136,7 @@
 
 .Card-bd {
   display: block;
+  flex-shrink: 0;
 
   box-sizing: border-box;
   padding: #{_rem($spacing-medium)};
@@ -157,7 +158,12 @@
  */
 
 .Card-ft {
+  display: block;
+  flex-shrink: 0;
+
   border-top: 1px solid $color-grey-100;
+  box-sizing: border-box;
   margin-top: auto; /* 1 */
   padding: #{_rem($spacing-small)} #{_rem($spacing-medium)};
+  width: 100%;
 }
