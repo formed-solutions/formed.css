@@ -39,7 +39,7 @@
     @include breakpoint-media-min('md') {
       margin-left: auto;
       margin-right: auto;
-      width: _rem(900);
+      width: _rem($modal-lg-dialog-width);
     }
   }
 }
@@ -68,7 +68,7 @@
 
   @include breakpoint-media-min('md') {
     margin: _rem($spacing-base + 6) auto;
-    width: _rem(600);
+    width: _rem($modal-dialog-width);
   }
 }
 

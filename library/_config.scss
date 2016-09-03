@@ -210,8 +210,11 @@ $editor-help-color: $color-grey-800 !default;
 // Form
 $form-control-height: ($line-height-base + $spacing-medium) !default;
 
-// Table
+// Modal
+$modal-dialog-width: 600px !default;
+$modal-lg-dialog-width: 900px !default;
 
+// Table
 $table-border-color: rgba(#000, 0.12) !default;
 $table-background:   #fff !default;
 $table-font-size:    $font-size-medium !default;
