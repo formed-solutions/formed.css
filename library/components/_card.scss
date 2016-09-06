@@ -24,7 +24,7 @@
   position: relative;
   z-index: $card-z-index;
 
-  box-sizing: box-sizing;
+  box-sizing: border-box;
   min-height: _rem($card-height);
   width: _rem($card-width);
 
