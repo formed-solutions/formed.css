@@ -50,3 +50,18 @@
   height: 4rem;
   width: 4rem;
 }
+
+/* Animation modifiers
+   ------------------------------------------------------------------------- */
+
+.Icon--spin {
+  animation: spin 2s infinite linear;
+}
+
+// Animation keyframes
+
+@keyframes spin {
+  100% {
+    transform: rotate(359deg);
+  }
+}
