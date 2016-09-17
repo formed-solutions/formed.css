@@ -87,7 +87,8 @@
   transform-origin: $card-hd-transform-origin-x $card-hd-transform-origin-y;
 
   box-sizing: border-box;
-  padding: #{_rem($spacing-base)} #{_rem($spacing-medium)} #{_rem($spacing-medium)};
+  // padding: #{_rem($spacing-base)} #{_rem($spacing-medium)} #{_rem($spacing-medium)};
+  padding: _rem($spacing-medium);
 
   color: #000;
   line-height: normal;

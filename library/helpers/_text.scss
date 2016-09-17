@@ -16,3 +16,9 @@
 .text-accent {
   color: $theme-accent;
 }
+
+// Experimental helper.
+// Use at own risk.
+.text-tint {
+  color: $theme-tint;
+}
