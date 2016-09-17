@@ -109,7 +109,7 @@
  */
 
 .Button--ctab {
-  @include shadow-level(2);
+  @include shadow-level(1);
 
   background-color: $button-background;
 
@@ -119,11 +119,11 @@
   }
 
   &:active {
-    @include shadow-level(4);
+    @include shadow-level(3);
   }
 
   &:focus:not(:active) {
-    @include shadow-level(6);
+    @include shadow-level(5);
   }
 
   &.Button--primary.Button--primary {
