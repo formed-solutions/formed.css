@@ -147,8 +147,13 @@ $button-padding-vertical: $spacing-small !default;
 $button-padding-horizontal: $spacing-medium !default;
 $button-disabled-opacity: 0.5 !default;
 
-$button-color: rgba($color-grey-500, 0.25) !default;
-$button-color-alt: #000 !default;
+$button-background: rgba($color-grey-500, 0.25) !default;
+$button-active-background: rgba($color-grey-500, 0.50) !default;
+$button-hover-background: $button-background !default;
+$button-focus-background: rgba(#000, 0.12) !default
+
+// $button-color: rgba($color-grey-500, 0.25) !default;
+$button-color: #000 !default;
 $button-active-color: rgba($color-grey-500, 0.50) !default;
 $button-hover-color: $button-color !default;
 $button-focus-color: rgba(#000, 0.12) !default;

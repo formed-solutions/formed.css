@@ -26,6 +26,7 @@
   $ph: _rem($button-padding-horizontal);
   @include border-radius($button-radius);
   @include transition(
+    box-shadow $transition-duration $easeInSine
     background-color $transition-duration $easeInOutSine,
     color $transition-duration $transition-timing-function
   );
@@ -40,7 +41,7 @@
 
   background: transparent;
 
-  color: $button-color-alt;
+  color: $button-color;
   font: $button-font;
   text-align: center;
   text-decoration: none;
@@ -48,6 +49,8 @@
   cursor: pointer;
   user-select: none; /* 2 */
   vertical-align: middle;
+
+  will-change: box-shadow;
 
   &:-moz-focus-innner {
     border: 0;
@@ -57,7 +60,7 @@
   // Placed these includes here as opposed to top of ruleset.  Wanted to keep
   // all state declaration blocks together.
   @include hover {
-    background-color: $button-hover-color;
+    background-color: $button-hover-background;
   }
 
   @include hover-focus-active {
@@ -65,15 +68,11 @@
   }
 
   &:focus:not(:active) {
-    background-color: $button-focus-color;
+    background-color: $button-focus-background;
   }
 
   &:active {
-    background-color: $button-active-color;
-  }
-
-  &:focus {
-    outline: none;
+    background-color: $button-active-background;
   }
 
   &:disabled,
@@ -102,6 +101,51 @@
 
 .Button--accent {
   color: $theme-accent;
+}
+
+/**
+ * Modifier: call to action buttons.
+ */
+
+.Button--ctab {
+  @include shadow-level(2);
+
+  background-color: $button-background;
+
+  &:active,
+  &:focus:not(:active) {
+    background-color: $button-active-background;
+  }
+
+  &:active {
+    @include shadow-level(4);
+  }
+
+  &:focus:not(:active) {
+    @include shadow-level(6);
+  }
+
+  &.Button--primary.Button--primary {
+    background-color: $theme-primary;
+
+    color: $theme-primary-contrast;
+  }
+
+  &.Button--accent.Button--accent {
+    background-color: $theme-accent;
+
+    color: $theme-accent-contrast;
+  }
+
+  // Use cascade and declare twice to up specificity so disabled state
+  // takes over.
+  &[disabled][disabled],
+  &.is-disabled.is-disabled {
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.26);
+
+    color: rgba(0, 0, 0, 0.43);
+  }
 }
 
 /**

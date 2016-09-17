@@ -43,6 +43,37 @@ block main
       |&lt;/button>
 
   div(class="_mvl _flex _flexCenter")
+    button(
+      class="Button Button--ctab _mrl" type="button") Button
+    button(
+      class="Button Button--primary Button--ctab _mrl" type="button") Button
+    button(
+      class="Button Button--accent Button--ctab _mrl" type="button") Accent
+    button(class="Button Button--ctab " disabled type="button") disabled
+
+  pre.language-markup
+    code
+      |&lt;!-- Call to Action Buttons -->
+      |&lt;!-- ctab button -->
+      |&lt;button class="Button Button--ctab" type="button">
+      |  Button
+      |&lt;/button>
+      |&lt;!-- Primary ctab button -->
+      |&lt;button class="Button Button--primary Button--ctab" type="button">
+      |  Button
+      |&lt;/button>
+      |&#13;
+      |&lt;!-- Accent ctab button -->
+      |&lt;button class="Button Button--accent Button--ctab" type="button">
+      |  Button
+      |&lt;/button>
+      |&#13;
+      |&lt;!-- Disabled ctab button -->
+      |&lt;button class="Button Button--ctab" disabled type="button">
+      |  Button
+      |&lt;/button>
+
+  div(class="_mvl _flex _flexCenter")
     button(class="Button Button--primary Button--icon _mrl" type="button")
       +icon('icon-chevron-left')(class="Button-icon")
     button(class="Button Button--accent Button--icon" type="button")
@@ -63,3 +94,12 @@ block main
       |    &lt;use xlink:href="#icon-chevron-right"></use>
       |  &lt;/svg>
       |&lt;/button>
+
+block scripts
+  script.
+    [].forEach.call(document.querySelectorAll('.Button'), function(elem) {
+      elem.addEventListener('mouseup', function(event) {
+        if (event) event.currentTarget.blur();
+      });
+    });
+
