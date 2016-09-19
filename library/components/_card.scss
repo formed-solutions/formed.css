@@ -25,6 +25,7 @@
   z-index: $card-z-index;
 
   box-sizing: border-box;
+  margin-bottom: _rem($spacing-base);
   min-height: _rem($card-height);
   width: _rem($card-width);
 
@@ -42,8 +43,6 @@
  */
 
 .Card--table {
-  border: 1px solid rgba(#000, 0.12);
-
   .Card-hd {
     padding: _rem($spacing-base);
   }
