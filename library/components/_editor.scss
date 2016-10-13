@@ -104,7 +104,7 @@
   border-bottom: 1px solid $editor-control-border-color;
   height: _rem($spacing-base);
   margin: 0;
-  padding: _rem($editor-control-padding) 0;
+  padding: _rem($editor-control-padding);
   width: $editor-control-width;
 
   background: none;
@@ -126,6 +126,12 @@
   &:focus,
   .Editor.is-focused & {
     outline: none;
+  }
+
+  &[readonly] {
+    color: $theme-tint;
+
+    cursor: not-allowed;
   }
 }
 
