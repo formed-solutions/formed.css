@@ -6,6 +6,10 @@
  *  <textarea>.
  */
 
+// Dependences
+@import "../config";
+@import "../_mixins/borders";
+
 /**
  * 1. Change font properties to `inherit` in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
@@ -119,6 +123,30 @@ textarea {
   overflow: auto;
 
   resize: vertical;
+}
+
+/**
+ * Style basic input controls.
+ */
+
+[type="email"],
+[type="password"],
+[type="number"],
+[type="tel"],
+[type="text"],
+[type="url"] {
+  @include border-radius($border-radius-small);
+
+  border: 1px solid $color-grey-100;
+  height: $spacing-base;
+  max-width: 100%;
+  padding: 0 0.5rem;
+
+  font-size: $font-size-medium;
+
+  &:focus {
+    outline: 1px solid $color-blue-400;
+  }
 }
 
 /**
