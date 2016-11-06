@@ -57,39 +57,6 @@
   }
 }
 
-/**
- * Modifier: hanging labels.
- * Labels that slide up when control is focused.
- */
-
-.Editor--hangingLabel {
-  .Editor-label {
-    @include transition-default(top, font-size);
-  }
-
-  // State
-  &.is-focused .Editor-label,
-  &.is-answered .Editor-label {
-    top: 0;
-
-    color: $theme-primary;
-    font-size: _rem($editor-label-hanging-font-size);
-  }
-}
-
-/**
- * Modifier: static labels.
- * Labels that sit above control.
- */
-
-.Editor--staticLabel {
-  .Editor-label {
-    top: 0;
-
-    color: $theme-primary;
-  }
-}
-
 /* Editor control
    ------------------------------------------------------------------------- */
 
@@ -139,7 +106,7 @@ textarea.Editor-control {
   height: auto;
 }
 
-/* Labels
+/* Label
    ------------------------------------------------------------------------- */
 
 /**
@@ -155,8 +122,10 @@ textarea.Editor-control {
   right: 0;
   top: _rem($editor-label-top);
 
+  padding: 0 _rem($editor-control-padding);
   width: 100%;
 
+  color: $editor-label-color;
   text-align: left;
   white-space: nowrap;
 
@@ -185,21 +154,85 @@ textarea.Editor-control {
 
     width: 100%;
   }
+
+  // Modifier: hanging labels.
+  // Labels that slide up when control is focused.
+  .Editor--hangingLabel & {
+    @include transition-default(top, font-size);
+  }
+
+  .Editor--hangingLabel.is-focused &,
+  .Editor--hangingLabel.is-dirty &,
+  .Editor--hangingLabel.is-answered & {
+    top: 0;
+
+    font-size: _rem($editor-label-hanging-font-size);
+  }
+
+  .Editor--hangingLabel.is-focused & {
+    color: $theme-primary;
+
+    &:after {
+      background-color: $theme-primary;
+    }
+  }
+
+  // Modifier: static labels.
+  // Labels that sit above control.
+  .Editor--staticLabel & {
+    top: 0;
+  }
+
+  // Modifier: invalid editor.
+  .Editor.is-invalid & {
+    color: $editor-invalid-color;
+
+    &:after {
+      visibility: visible;
+
+      width: 100%;
+
+      background-color: $editor-invalid-color;
+    }
+  }
 }
 
-/* Help
+/* Help/Message
    ------------------------------------------------------------------------- */
+
+%message {
+  position: absolute;
+
+  margin-top: _rem($spacing-small);
+}
 
 /**
  * Child: add help text for control.
  */
 
 .Editor-help {
-  display: block;
-  position: absolute;
+  @extend %message;
 
-  margin-top: _rem($spacing-small);
+  display: block;
 
   color: $editor-help-color;
   font-size: _rem($editor-label-hanging-font-size);
 }
+
+/**
+ * Child: invalid editor message to user telling what is wrong.
+ */
+
+.Editor-message {
+  @extend %message;
+
+  display: none;
+
+  color: $editor-invalid-color;
+  font-size: _rem($font-size-small);
+
+  .Editor.is-invalid & {
+    display: block;
+  }
+}
+

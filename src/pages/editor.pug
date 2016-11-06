@@ -1,0 +1,52 @@
+extends ../layouts/page
+
+block settings
+   - var page = 'components'
+
+block main
+  div.App-container._mvl
+    h1 Editor
+    p Form input components.
+
+  div(class="_mvl _flex _flexCenter")
+    div.Editor.Editor--hangingLabel
+      input(
+        class="Editor-control"
+        id="input-1"
+        placeholder="Editor text input"
+        type="text")
+      label(class="Editor-label" for="input-1")
+        span._visuallyHidden Editor text input
+
+  pre.language-markup
+    code
+      |&lt;!-- Default editor -->
+      |&lt;div class="Editor">
+      |  &lt;input class="Editor-control" id="input-1" type="text">
+      |&lt;/div>
+      |&#13;
+
+
+
+block scripts
+  script.
+    [].forEach.call(document.querySelectorAll('.Editor-control'),
+      function(elem) {
+        elem.addEventListener('focus', function(event) {
+          if (event) event
+              .currentTarget
+              .parentNode
+              .classList
+              .add('is-focused');
+        });
+
+        elem.addEventListener('blur', function(event) {
+          var target = event.currentTarget;
+
+          target
+            .parentNode
+            .classList
+            .remove('is-focused');
+        });
+      });
+
