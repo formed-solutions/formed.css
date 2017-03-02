@@ -1,24 +1,78 @@
-/**
- * Text helpers.
- */
+// Text helpers.
+// Adjust the alignment, appearance, size, and flow of text.
+// ----------------------------------------------------------------------------
 
 // Dependencies
+
 @import "../config";
+@import "../_functions/rem";
+@import "../_mixins/text-mod";
+@import "../_mixins/text-truncation";
 
-.text-danger {
-  color: $color-red-500;
+// Adjust text horzontally.
+
+.text-left    { text-align: left !important; }
+.text-center  { text-align: center !important; }
+.text-right   { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+// Adjust text vertically.
+
+.text-top      { vertical-align: top !important; }
+.text-middle   { vertical-align: middle !important; }
+.text-bottom   { vertical-align: bottom !important; }
+.text-baseline { vertical-align: baseline !important; }
+
+// Text truncation
+// Truncate a block of text where whitespace is prevented from wrapping.
+
+.text-truncate {
+  @include text-truncation;
 }
 
-.text-primary {
-  color: $theme-primary;
+// Word breaking
+// Break long words and wrap to next line.
+
+.text-break {
+  word-wrap: break-word !important;
 }
 
-.text-accent {
-  color: $theme-accent;
+// Text inheritance
+// Text node inherits color from parent.
+
+.text-inheritColor {
+  color: inherit !important;
 }
 
-// Experimental helper.
-// Use at own risk.
-.text-tint {
-  color: $theme-tint;
+// Text sizing
+// Limit the amount of font-size declarations.
+
+.text-base   { font-size: rem($font-size-base) !important; }
+.text-small  { font-size: rem($font-size-small) !important; }
+.text-medium { font-size: rem($font-size-medium) !important }
+.text-large  { font-size: rem($font-size-large) !important }
+
+// Transform treatments
+
+.text-justify    { text-transform: justify !important; }
+.text-upcase     { text-transform: uppercase !important; }
+.text-lowcase    { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Collapse whitespace and suppress line breaks.
+
+.text-noWrap {
+  white-space: nowrap !important;
 }
+
+// Reset whitespace.
+
+.text-wrap {
+  white-space: normal !important;
+}
+
+// Text skins.
+
+@include text-mod('.text-accent', $theme-accent);
+@include text-mod('.text-danger', $theme-danger);
+@include text-mod('.text-primary', $theme-primary);
