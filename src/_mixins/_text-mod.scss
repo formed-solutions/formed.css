@@ -1,0 +1,27 @@
+/// Creates a ruleset that alters the color of text with the pasted in color
+/// value.
+/// @param {string} $parent - CSS selector string.
+/// @param {$string} $parent - Any CSS color value.
+/// @returns {ruleset}
+/// @require {mixin} hover
+/// @require {mixin} transitions
+///
+/// @example
+///   @include text-mod('.text-light', #fff);
+
+@import "_hover";
+@import "_transitions";
+
+@mixin text-mod($parent, $color) {
+  #{unquote($parent)} {
+    @include transition-default(color);
+
+    color: $color !important;
+  }
+
+  a#{unquote($parent)} {
+    @include hover-focus {
+      filter: brightness(90%);
+    }
+  }
+}
