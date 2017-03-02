@@ -1,4 +1,4 @@
-include ../mixins/mixins
+include ../_mixins/mixins
 
 block settings
 
@@ -15,11 +15,11 @@ html
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css")
 
   body
-    include ../images/icons.svg
+    include ../assets/images/icons.svg
 
     div.App.App--fixedDrawer
-      include ../includes/drawer
-      include ../includes/header
+      include ../_includes/drawer
+      include ../_includes/header
 
       main.App-main
         block main
