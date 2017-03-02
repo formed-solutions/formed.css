@@ -15,6 +15,6 @@ gulp.task('serve', ['sass:dev', 'pug:dev'], () => {
     }
   });
 
-  gulp.watch(['library/**/*.scss'], ['sass:dev'])
+  gulp.watch(['src/**/*.scss'], ['sass:dev'])
   gulp.watch(['src/**/*.pug'], ['pug:dev', reload]);
 });
