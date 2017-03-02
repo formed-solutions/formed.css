@@ -6,6 +6,7 @@
   "scripts": {
     "clean:tmp": "rimraf ./.tmp/*",
     "start": "npm run clean:tmp && gulp serve",
+    "start:dev": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,19 +26,19 @@
   },
   "homepage": "https://github.com/formed-solutions/formed.css#readme",
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "browser-sync": "^2.12.5",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-jade": "^1.1.0",
-    "gulp-postcss": "^6.1.1",
-    "gulp-pug": "^3.0.4",
-    "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "^2.0.0-alpha",
-    "jstransformer-markdown": "^1.1.0",
+    "autoprefixer": "6.3.6",
+    "browser-sync": "2.12.5",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-jade": "1.1.0",
+    "gulp-postcss": "6.1.1",
+    "gulp-pug": "3.0.4",
+    "gulp-sass": "2.3.1",
+    "gulp-sourcemaps": "2.0.0-alpha",
+    "jstransformer-markdown": "1.1.0",
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "underscore.css.scss": "^3.1.0"
+    "underscore.css.scss": "3.1.0"
   }
 }
