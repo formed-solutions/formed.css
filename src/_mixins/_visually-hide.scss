@@ -1,0 +1,20 @@
+/// Generate rules to add to a ruleset to visually hide text but leave visible
+/// to screenreaders.
+/// @param {boolean} $important - add !important to each rules value.
+/// @return {ruleset}
+///
+/// @example
+///   .visuallyHidden {
+///     @include visually-hide;
+///   }
+
+@mixin visually-hide($important: true) {
+  clip: rect(1px, 1px, 1px, 1px) if($important, !important, '');
+  overflow: hidden if($important, !important, '');
+  position: absolute if($important, !important, '');
+
+  border: 0 if($important, !important, '');
+  height: 1px if($important, !important, '');
+  padding: 0 if($important, !important, '');
+  width: 1px if($important, !important, '');
+}
