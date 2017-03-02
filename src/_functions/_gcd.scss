@@ -1,0 +1,18 @@
+/// Calculate the greatest common divisor.
+/// @group functions
+/// @param {number} $a - First integer.
+/// @param {number} $b - Second integer.
+/// @return {number} The greateset common divisor.
+///
+/// @example
+///   $gcd: gcd(54, 24);
+///   // $gcd: 6;
+
+@function gcd($a, $b) {
+  @if $b == 0 {
+    @return $a;
+  }
+  @else {
+    @return gcd($b, $a % $b);
+  }
+}
