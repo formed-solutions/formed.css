@@ -15,7 +15,7 @@ function pugDev() {
     }
   };
 
-  return gulp.src('./src/pages/*.pug')
+  return gulp.src('./docs/pages/*.pug')
     .pipe(pug(PUG_OPTS))
     .on('error', function __error__(error) {
       console.error('pug error: ', error);
