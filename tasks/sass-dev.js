@@ -29,7 +29,7 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 function sassDev() {
-  return gulp.src('library/formed.scss')
+  return gulp.src('src/formed.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'nested',
