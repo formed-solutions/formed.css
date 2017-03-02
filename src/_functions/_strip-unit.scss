@@ -1,0 +1,12 @@
+/// Strips unit from a number.
+/// @group functions
+/// @param {number} $number - Number to strip unit from.
+/// @return {number} Returns number w/o a unit.
+///
+/// @example
+///   strip-unit(12px);
+///   // 12
+
+@function strip-unit($number) {
+  @return $number / ($number * 0 + 1);
+}

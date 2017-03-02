@@ -1,0 +1,17 @@
+/// Convert pixels to rem.
+/// @group functions
+/// @param {number} $target - Target px value to convert into a rem unit.
+/// @param {number} $base=16px - Pixel to convert $target from.
+/// @return {number} Returns computed rem value.
+/// @require {function} reletive-unit.scss
+///
+/// @example
+///  $size: rem(12px);
+///  // $size: 0.75rem;
+
+// Dependencies
+@import 'relative-unit';
+
+@function rem($target, $base: $font-size-root) {
+  @return relative-unit($target, 'rem', $base);
+}

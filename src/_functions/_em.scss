@@ -1,0 +1,17 @@
+/// Convert pixels to em.
+/// @group functions
+/// @param {number} $target - Target px value to convert into a em unit.
+/// @param {number} $base=16px - Pixel to convert $target from.
+/// @return {number} Returns computed em value.
+/// @require {function} relative-unit.scss
+///
+/// @example
+///  $font-size: em( 12px );
+///  // $font-size: 0.75em;
+
+// Dependencies
+@import 'relative-unit';
+
+@function em($target, $base: $font-size-root) {
+  @return relative-unit($target, 'em', $base);
+}

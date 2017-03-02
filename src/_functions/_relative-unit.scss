@@ -1,0 +1,25 @@
+/// Convert pixels to a relative unit.
+/// @group functions
+/// @param {number} $target - Target px value to convert.
+/// @param {string} $unit - Set the approprite unit.
+/// @param {number} $base=16px - Pixel to convert $target from.
+/// @return {number} Returns computed em value.
+/// @require {function} relative-unit
+///
+/// @example
+///  $value: relative-unit(12px, 'rem', 16px);
+///  // $value: 0.75rem;
+
+@import 'strip-unit';
+
+@function relative-unit($target, $unit: 'em', $base: $font-size-root) {
+  @if not unitless($target) {
+    $target: strip-unit($target);
+  }
+
+  @if not unitless($base) {
+    $base: strip-unit($base);
+  }
+
+  @return ($target / $base) + unquote($unit);
+}
