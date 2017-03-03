@@ -1,0 +1,28 @@
+// List helpers
+// Adjust the appearance of elements that group a collection of items together,
+// that may or may not have numerical ordering.
+
+// Strip all styles from any ordered or unordered list.
+// 1. Reset browser defaults.
+
+.list-noStyle {
+  margin: 0 !important; // 1
+  padding: 0 !important; // 1
+
+  list-style: none !important; // 1
+}
+
+// Inline lists
+// Align (direct) children horizontally of list element.
+// 1. Reset browser defaults
+// 2. Align direct child elements horizontally.
+
+.list-inline {
+  display: flex !important; // 2
+  flex-direction: row !important; // 2
+
+  margin: 0 !important; // 1
+  padding: 0 !important; // 1
+
+  list-style: none !important; // 1
+}
