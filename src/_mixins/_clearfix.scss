@@ -1,0 +1,11 @@
+/// Add rules to a ruleset to contain floats.
+/// @group mixins
+
+@mixin clearfix {
+  &:after {
+    clear: both !important;
+    display: table !important;
+
+    content: "" !important;
+  }
+}

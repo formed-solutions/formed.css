@@ -1,0 +1,74 @@
+// Helpers to alter the layout of an element.
+
+// Dependencies
+
+@import "../_mixins/clearfix";
+
+// Absolute position a box w/in its non static containing box.
+
+.layout-absolute,
+.layout-absoluteViewport,
+.layout-absoluteCenter {
+  position: absolute !important;
+}
+
+// Remove node from document flow to center to it's closest non-static parent.
+
+.layout-fixedCenter,
+.layout-absoluteCenter {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translateX(-50%) translateY(-50%) !important;
+}
+
+// Fix a box to the body.
+
+.layout-fixed,
+.layout-fixedViewport,
+.layout-fixedCenter {
+  backface-visibility: hidden !important;
+  position: fixed !important;
+}
+
+// Have an element occupy the entire height and with of the viewport.
+
+.layout-fixedViewport,
+.layout-absoluteViewport {
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+
+  margin: auto !important;
+}
+
+// Center a box relative to its containing box.
+
+.layout-center {
+  display: block !important;
+  float: none !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+// Contain flaots.
+
+.layout-clear {
+  @include clearfix;
+}
+
+// Floats
+// Position a box at the beginning or end of the current line.
+
+.layout-pull { float: left !important; }
+.layout-push { float: right !important; }
+
+// Overflow: clip content
+// Render a new block formatting context.  Will prevent wrapping under
+// floated nodes.  Can contain floats and prevent overlapping of succeeding
+// nodes that are floated.
+
+.layout-clip {
+  overflow: hidden !important;
+}
