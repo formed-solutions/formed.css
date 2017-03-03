@@ -7,7 +7,7 @@
 @import "../config";
 @import "../_functions/rem";
 @import "../_mixins/text-mod";
-@import "../_mixins/text-truncation";
+@import "../_mixins/text-truncate";
 
 // Adjust text horzontally.
 
@@ -74,5 +74,5 @@
 // Text skins.
 
 @include text-mod('.text-accent', $theme-accent);
-@include text-mod('.text-danger', $theme-danger);
+@include text-mod('.text-danger', $color-red-500);
 @include text-mod('.text-primary', $theme-primary);
