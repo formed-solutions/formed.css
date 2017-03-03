@@ -96,7 +96,7 @@
   }
 
   &[readonly] {
-    color: $theme-tint;
+    color: rgba(0, 0, 0, 0.50);
 
     cursor: not-allowed;
   }
