@@ -1,0 +1,15 @@
+/// Check if a list contains a value
+/// @param {list} $list
+/// @param {number | string} $value - Value to find in list.
+/// @return {boolean}
+///
+/// @example
+///   $list: ('foo', 'bar', 'baz');
+///   $value: 'bar';
+///   $result: contains($list, $value);
+///   // $result: true;
+
+@function contains($list, $value) {
+  @if type-of($list) == list { @return not not index($list, $value); }
+  @else { @return $list == $value; }
+}
