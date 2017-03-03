@@ -1,0 +1,31 @@
+// Adjust the appearance of links.
+
+// Dependencis
+
+@import "../_mixins/hover";
+
+// Plain links
+// Strip decoration away from links.
+
+.link-plain {
+  @include elem-hover-focus-active {
+    text-decoration: none !important;
+  }
+}
+
+// For links with multiple child nodes where one or more of those nodes
+// require text decoration.
+// Example:
+//   <a class="link-plain" href="#">
+//     link text
+//     <span class="link-plain-decor">decorative styles for link</span>
+//     link description
+//   </a>
+
+.link-plain {
+  @include hover-focus-active {
+    .link-plainDecor {
+      text-decoration: underline !important;
+    }
+  }
+}
