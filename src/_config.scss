@@ -14,8 +14,10 @@
 // Application options
 // ----------------------------------------------------------------------------
 
+$has-append-media:  true !default;
 $has-border-radius: true !default;
 $has-hover-media:   false !default;
+$has-prepend-media: true !default;
 $has-shadows:       true !default;
 $has-size-media:    true !default;
 $has-transitions:   true !default;

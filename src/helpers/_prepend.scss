@@ -1,0 +1,16 @@
+// Prepend white space to left of an element.
+
+// Dependencies
+@import "../config";
+@import "../_mixins/size";
+@import "../_mixins/breakpoints";
+
+@include size("prepend", $sizes, "margin-left");
+
+@if $has-prepend-media {
+  @each $vp in ("xs", "sm", "md", "lg", "xl") {
+    @include breakpoint-media-min(#{$vp}) {
+      @include size("prepend", $sizes, "margin-left", "");
+    }
+  }
+}
