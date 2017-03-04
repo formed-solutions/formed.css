@@ -1,0 +1,63 @@
+/// Percentage based mixin.
+///
+/// To use: pass a list of numbers and an optional string to create a suffix.
+///
+/// @param {string} $prefix - create selector name.
+/// @param {list} $size-units - Space separated list of integers.
+/// @param {string} $property [width] - Property to add dimensions to.
+/// @param {string} $suffix [''] - Add a modifier, etc.
+/// @param {boolean} $important - Add '!important' to your sizing declarations.
+/// @content Add any additional declarations to sizing declaration block.
+/// @requires {function} gcd
+/// @requires {function} contains
+///
+/// @example
+///   @include size('size', 2 4);
+///   // Output
+///   // .size1of2, .size2of4 { width: 50% !important; }
+///   // .size1of4 { width: 25% !important; }
+///   // .size3of4 { width: 75% !important; }
+
+// Dependencies
+@import "../_functions/contains";
+@import "../_functions/gcd";
+
+@mixin size(
+  $prefix,
+  $size-units,
+  $property: width,
+  $suffix: '',
+  $important: true) {
+
+  @each $n in  $size-units {
+
+    @for $i from 1 through $n - 1 {
+      $i-r: 0;
+      $n-r: 0;
+
+      // Get greatest common denominator.
+      $gcd: gcd( $i, $n );
+      $x: $i / $gcd;
+
+      @if $gcd > 1 {
+        // Reduced value of $i
+        $i-r: $i/$gcd;
+        // Reduced value of $n
+        $n-r: $n/$gcd;
+      }
+
+      $canreduce: contains($size-units, $n-r);
+
+      // Create our selector with a % width.
+      .#{$prefix}#{$i}of#{$n}#{$suffix} {
+        @if $canreduce {
+          @extend .#{$prefix}#{$x}of#{$n / $gcd}#{$suffix}
+        }
+        @else {
+         #{$property}: percentage( $i / $n ) if($important, !important, null);
+         @content;
+        }
+      }
+    }
+  }
+}

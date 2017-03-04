@@ -17,6 +17,7 @@
 $has-border-radius: true !default;
 $has-hover-media:   false !default;
 $has-shadows:       true !default;
+$has-size-media:    true !default;
 $has-transitions:   true !default;
 
 // Colors
@@ -106,6 +107,11 @@ $breakpoints: (
   lg: 1200px,
   xl: 1400px
 ) !default;
+
+// Size
+// ----------------------------------------------------------------------------
+
+$sizes: 2 3 4 5 6 8 10 12 !default;
 
 // Transitions
 // ----------------------------------------------------------------------------

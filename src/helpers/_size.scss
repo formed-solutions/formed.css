@@ -1,0 +1,64 @@
+// Adjust the amount of horizontal space an element occupies within its parent.
+
+// Dependencies
+@import "../config";
+@import "../_mixins/breakpoints";
+@import "../_mixins/size";
+
+// Basic ruleset mixins to DRY up area.
+// Inline them here b/c they are not for reuse.
+
+@mixin size-compact($modifier: '') {
+  .size-compact#{$modifier} {
+    float: left !important;
+
+    width: auto !important;
+  }
+}
+
+@mixin size-full($modifier: '') {
+  .size-full#{$modifier} {
+    width: 100% !important;
+  }
+}
+
+@mixin size-occupy($modifier: '') {
+  .size-occupy#{$modifier} {
+    overflow: hidden !important;
+
+    width: auto !important;
+  }
+}
+
+// Wrap tightly an elements content.
+
+@include size-compact();
+
+// Element fills entire space of parent.
+
+@include size-full();
+
+// Element occupies all available space.
+
+@include size-occupy();
+
+// Proportional widths.
+
+@include size("size", $sizes);
+
+// Media queries
+// ----------------------------------------------------------------------------
+
+@if $has-size-media {
+  @each $vp in ('xs', 'sm', 'md', 'lg', 'xl') {
+    @include breakpoint-media-min(#{$vp}) {
+      @include size-compact("--#{$vp}");
+      @include size-full("--#{$vp}");
+      @include size-occupy("--#{$vp}");
+
+      @include size("size-", $sizes, $suffix: "--#{$vp}") {
+        flex-basis: auto !important;
+      }
+    }
+  }
+}
