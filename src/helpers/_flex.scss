@@ -1,0 +1,165 @@
+// Flex box helpers.
+
+// Flex containers
+// ----------------------------------------------------------------------------
+
+.flex {
+  display: flex !important;
+}
+
+.flex-inline {
+  display: inline-flex !important;
+}
+
+// Flex Wraps
+// ----------------------------------------------------------------------------
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.flex-wrapNone {
+  flex-wrap: nowrap !important;
+}
+
+.flex-wrapReverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-rowReverse {
+  flex-direction: row-reverse !important;
+}
+
+// Directional
+// ----------------------------------------------------------------------------
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-rowReverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-colReverse {
+  flex-direction: column-reverse !important;
+}
+
+// Flex alignment on the main axis (horizontal).
+// ----------------------------------------------------------------------------
+
+.flex-between {
+  justify-content: space-between !important;
+}
+
+.flex-center {
+  justify-content: center !important;
+}
+
+.flex-justify {
+  justify-content: space-around !important;
+}
+
+.flex-left {
+  justify-content: flex-start !important;
+}
+
+.flex-right {
+  justify-content: flex-end !important;
+}
+
+// Flex alignment on the cross axis (perpendicular).
+// ----------------------------------------------------------------------------
+
+.flex-baseline {
+  align-items: baseline !important;
+}
+
+.flex-bottom {
+  align-items: flex-end !important;
+}
+
+.flex-middle {
+  align-items: center !important;
+}
+
+.flex-stretch {
+  align-items: stretch !important;
+}
+
+.flex-top {
+  align-items: flex-start !important;
+}
+
+// Align a flex container's lines within the flex container when there is
+// extra space on the cross-axis.
+// ----------------------------------------------------------------------------
+
+.flex-baselineContent {
+  align-content: baseline !important;
+}
+
+.flex-bottomContent {
+  align-content: flex-end !important;
+}
+
+.flex-middleContent {
+  align-content: center !important;
+}
+
+.flex-stretchContent {
+  align-content: stretch !important;
+}
+
+.flex-topContent {
+  align-content: flex-start !important;
+}
+
+// Flex items
+// ----------------------------------------------------------------------------
+
+.flex-itemAuto {
+  align-self: auto !important;
+}
+
+.flex-itemCenter {
+  align-self: center !important;
+}
+
+.flex-itemLeft {
+  align-self: flex-start !important;
+}
+
+.flex-itemRight {
+  align-self: flex-end !important;
+}
+
+.flex-itemStretch {
+  align-self: stretch !important;
+}
+
+// Specify the amount of space inside the flex container the flex item occupy.
+//
+// 1. Fix IE10-11 bug with `flex` shorthand declarations unitless `flex-basis`
+// values being ignored.
+// github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
+
+.flex-grow1 {
+  flex: 1 1 0% !important; // 1
+}
+
+.flex-grow2 {
+  flex:: 2 1 0% !important; // 1
+}
+
+.flex-grow3 {
+  flex:: 2 1 0% !important; // 1
+}
