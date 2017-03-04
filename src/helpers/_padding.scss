@@ -1,0 +1,30 @@
+// Add padding to an element.
+//
+// Type:
+// p = padding
+//
+// Direction:
+// a = all
+// b = bottom
+// h = horizontal
+// l = left
+// r = right
+// t = top
+// v = vertical
+//
+// Size:
+// l = large
+// m = medium
+// n = none
+// s = small
+// a = auto
+
+// Dependencies
+
+@import "../config";
+@import "../_mixins/spacing";
+
+// Build out padding helpers.
+// NOTE: To reduce verbosity of selector name, abbreviated 'padding' to 'p'.
+
+@include spacing((padding: 'p'), $spacings);

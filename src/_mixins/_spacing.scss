@@ -1,0 +1,89 @@
+/// Create spacing rulesets.
+///
+/// Legend:
+/// <type><direction><size>
+///
+/// Type:
+/// Is the map passed in.  e.g. $map: (margin: m), type will be 'm'.
+///
+/// Direction:
+/// a = all
+/// b = bottom
+/// h = horizontal
+/// l = left
+/// r = right
+/// t = top
+/// v = vertical
+///
+/// Size:
+/// l = large
+/// m = medium
+/// n = none
+/// s = small
+/// a = auto
+///
+/// @require {function} _rem
+/// @param {map} $map - Single key/value pair indicating property and abbr.
+/// @param {map} $spacings - key/value pairs of 'size' and length.
+/// @param {string} $modifier [''] - Add modifier to selector.
+/// @example
+///    $spacings: (
+///      n: 0,
+///      s: $spacing-small,
+///      m: $spacing-medium,
+///      l: $spacing-base
+///    ) !default;
+///    @include _spacing((padding: p), $spacings);
+///    @include _spacing((margin: m), $spacings);
+
+// Dependencies
+
+@import "../_functions/rem";
+
+@mixin spacing($map, $spacings) {
+  @each $prop, $abbr in $map {
+    @each $size, $length in $spacings {
+      %#{$abbr}#{$size}-top {
+        #{$prop}-top: _rem($length) !important;
+      }
+
+      %#{$abbr}#{$size}-right {
+        #{$prop}-right: _rem($length) !important;
+      }
+
+      %#{$abbr}#{$size}-bottom {
+        #{$prop}-bottom: _rem($length) !important;
+      }
+
+      %#{$abbr}#{$size}-left {
+        #{$prop}-left: _rem($length) !important;
+      }
+
+      .#{$abbr}a#{$size} {
+        @extend %#{$abbr}#{$size}-bottom;
+        @extend %#{$abbr}#{$size}-left;
+        @extend %#{$abbr}#{$size}-right;
+        @extend %#{$abbr}#{$size}-top;
+      }
+
+      .#{$abbr}t#{$size} { @extend %#{$abbr}#{$size}-top; }
+      .#{$abbr}r#{$size} { @extend %#{$abbr}#{$size}-right; }
+      .#{$abbr}b#{$size} { @extend %#{$abbr}#{$size}-bottom; }
+      .#{$abbr}l#{$size} { @extend %#{$abbr}#{$size}-left; }
+
+      // Horizontal spacing.
+
+      .#{$abbr}h#{$size} {
+        @extend %#{$abbr}#{$size}-left;
+        @extend %#{$abbr}#{$size}-right;
+      }
+
+      // Vertical spacing.
+
+      .#{$abbr}v#{$size} {
+        @extend %#{$abbr}#{$size}-bottom;
+        @extend %#{$abbr}#{$size}-top;
+      }
+    }
+  }
+}

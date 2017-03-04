@@ -1,0 +1,30 @@
+// Add margin to an element.
+//
+// Type:
+// m = margin
+//
+// Direction:
+// a = all
+// b = bottom
+// h = horizontal
+// l = left
+// r = right
+// t = top
+// v = vertical
+//
+// Size:
+// l = large
+// m = medium
+// n = none
+// s = small
+// a = auto
+
+// Dependences
+
+@import "../config";
+@import "../_mixins/spacing";
+
+// Build out margin helpers.
+// NOTE: To reduce verbosity of selector name, abbreviated 'margin' to 'm'.
+
+@include spacing((margin: 'm'), $spacings);
