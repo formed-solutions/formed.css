@@ -22,7 +22,7 @@
 
   // State
   &:active {
-    @include shadow-level(3, $color);
+    @include shadow-level(3);
 
     background-color: $color;
     color: $color-contrast-light;
