@@ -38,15 +38,14 @@
 
   border: none;
   box-sizing: border-box; /* 1 */
-  height: rem(42);
+  height: rem(40);
   margin: 0;
-  padding: #{$pv} #{$ph};
+  padding: 0 #{$ph};
 
   background: transparent;
 
   color: $button-color;
   font: $button-font;
-  line-height: 1rem;
   text-align: center;
   text-decoration: none;
 
