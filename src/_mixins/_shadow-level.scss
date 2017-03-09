@@ -1,9 +1,14 @@
-////
 /// Shadow level mixin.
 ///
 /// @group mixins
+/// @param {number} $level - A number from 0 - 24.
+/// @param {color} $color [#000] - A hexadecimal color value.
 /// @require {mixin} box-shadows
-////
+///
+/// @example
+///   .foo {
+///     @include shadow-level(2);
+///   }
 
 @import "box-shadows";
 
