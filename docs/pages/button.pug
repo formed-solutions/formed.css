@@ -4,15 +4,15 @@ block settings
    - var page = 'components'
 
 block main
-  div.App-container._mvl
+  div.App-container.mvl
     h1 Button
     p Formed button variations.
 
-  div(class="_mvl _flex _flexCenter")
-    button(class="Button _mrl" type="button") Button
+  div(class="mvl flex flex-center")
+    button(class="Button mrl" type="button") Button
     button(class="Button" disabled type="button") Button
 
-  //- div(class="background-faded _pvl")
+  //- div(class="background-faded pvl")
   //-   div.App-container
   pre.language-markup
     code
@@ -26,8 +26,8 @@ block main
       |  Button
       |&lt;/button>
 
-  div(class="_mvl _flex _flexCenter")
-    button(class="Button Button--primary _mrl" type="button") Button
+  div(class="mvl flex flex-center")
+    button(class="Button Button--primary mrl" type="button") Button
     button(class="Button Button--accent" type="button") Accent
 
   pre.language-markup
@@ -42,13 +42,43 @@ block main
       |  Button
       |&lt;/button>
 
-  div(class="_mvl _flex _flexCenter")
+  div(class="mvl flex flex-center")
     button(
-      class="Button Button--ctab _mrl" type="button") Button
+      class="Button Button--ghost mrl" type="button") Button
     button(
-      class="Button Button--primary Button--ctab _mrl" type="button") Button
+      class="Button Button--primary Button--ghost mrl" type="button") Button
     button(
-      class="Button Button--accent Button--ctab _mrl" type="button") Accent
+      class="Button Button--accent Button--ghost mrl" type="button") Accent
+    button(class="Button Button--ghost " disabled type="button") disabled
+
+  pre.language-markup
+    code
+      |&lt;!-- Ghost Buttons -->
+      |&lt;button class="Button Button--ghost" type="button">
+      |  Button
+      |&lt;/button>
+      |&lt;!-- Primary ghost button -->
+      |&lt;button class="Button Button--primary Button--ghost" type="button">
+      |  Button
+      |&lt;/button>
+      |&#13;
+      |&lt;!-- Accent ghost button -->
+      |&lt;button class="Button Button--accent Button--ghost" type="button">
+      |  Button
+      |&lt;/button>
+      |&#13;
+      |&lt;!-- Disabled ghost button -->
+      |&lt;button class="Button Button--ghost" disabled type="button">
+      |  Button
+      |&lt;/button>
+
+  div(class="mvl flex flex-center")
+    button(
+      class="Button Button--ctab mrl" type="button") Button
+    button(
+      class="Button Button--primary Button--ctab mrl" type="button") Button
+    button(
+      class="Button Button--accent Button--ctab mrl" type="button") Accent
     button(class="Button Button--ctab " disabled type="button") disabled
 
   pre.language-markup
@@ -73,8 +103,8 @@ block main
       |  Button
       |&lt;/button>
 
-  div(class="_mvl _flex _flexCenter")
-    button(class="Button Button--primary Button--icon _mrl" type="button")
+  div(class="mvl flex flex-center")
+    button(class="Button Button--primary Button--icon mrl" type="button")
       +icon('icon-chevron-left')(class="Button-icon")
     button(class="Button Button--accent Button--icon" type="button")
       +icon('icon-chevron-right')(class="Button-icon")
