@@ -138,20 +138,20 @@ $zindex-modal:  600 !default;
 $zindex-menu:   700 !default;
 
 // App
-$app-header-height: 56px !default;
-$app-header-height-md: 64px !default;
-$app-header-background: $theme-primary !default;
+$layout-header-height: 56px !default;
+$layout-header-height-md: 64px !default;
+$layout-header-background: $theme-primary !default;
 
-$app-title-font-size: _ms($font-size-root, 2, $font-rhythm) !default;
+$layout-title-font-size: _ms($font-size-root, 2, $font-rhythm) !default;
 
-$app-drawer-width: 280px !default;
-$app-drawer-translateX: -($app-drawer-width) !default;
-$app-drawer-background-color: #fff !default;
-$app-drawer-border-color: $color-grey-100 !default;
+$layout-drawer-width: 280px !default;
+$layout-drawer-translateX: -($layout-drawer-width) !default;
+$layout-drawer-background-color: #fff !default;
+$layout-drawer-border-color: $color-grey-100 !default;
 
-$app-left-offset:  $app-drawer-width !default;
+$layout-left-offset:  $layout-drawer-width !default;
 
-$app-nav-color: $theme-primary-contrast !default;
+$layout-nav-color: $theme-primary-contrast !default;
 
 // Button
 $button-radius: $border-radius-medium !default;
