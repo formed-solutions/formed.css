@@ -7,7 +7,10 @@ const reload      = browserSync.reload;
 gulp.task('sass:dev', require('./tasks/sass-dev'));
 gulp.task('pug:dev', require('./tasks/pug-dev'));
 
-gulp.task('serve', ['sass:dev', 'pug:dev'], () => {
+// Bundle all our webpack modules.
+gulp.task('bundle', require('./tasks/bundler'));
+
+gulp.task('serve', ['bundle', 'sass:dev', 'pug:dev'], () => {
   browserSync.init({
     browser: 'google chrome',
     server: {
