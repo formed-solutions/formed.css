@@ -38,6 +38,15 @@
 }
 
 /// Set a color state.
+/// @param {color} $color - A hexadecimal color value.
+/// @param {number} $brightness [30] - The amount to adjust brightness by.
+/// @return {color} hsl color value.
+/// @require {function} strip-unit
+///
+/// @example
+///   .Button:hover {
+///     color: set-color-state(#333);
+///   }
 
 @function set-color-state($color, $brightness: 30) {
   $hue: strip-unit(hue($color));
