@@ -1,11 +1,24 @@
-///
-/// Ghost button.
-///
+////
+/// Button modification mixins
+/// @group button-mods
+////
 
 // Dependencies
 @import "hover";
 @import "shadow-level";
 @import "../_functions/colors";
+
+/// Provides a convenient method to layout out a button ghost modification.
+///
+/// @param {color} $color - A hexadecimal color value.
+/// @require {function} rem
+/// @require {function} shadow-level
+/// @require {function} set-color-state
+///
+/// @example
+///   .Button--ghost {
+///     @include button-ghost(#333);
+///   }
 
 @mixin button-ghost($color) {
   @include hover {
