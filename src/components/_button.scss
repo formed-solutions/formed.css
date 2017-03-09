@@ -154,9 +154,6 @@
 // Modifier: ghost buttons
 // Transparent empty buttons.
 
-@import "../_functions/strip-unit";
-
-
 .Button--ghost {
   @include button-ghost(#333);
 
