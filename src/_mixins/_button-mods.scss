@@ -1,0 +1,41 @@
+///
+/// Ghost button.
+///
+
+// Dependencies
+@import "hover";
+@import "shadow-level";
+@import "../_functions/colors";
+
+@mixin button-ghost($color) {
+  @include hover {
+    border-color: set-color-state($color);
+
+    background-color: transparent;
+
+    color: set-color-state($color);
+  }
+
+  border: 1px solid $color;
+
+  color: $color;
+
+  // State
+  &:active {
+    @include shadow-level(3, $color);
+
+    background-color: $color;
+    color: $color-contrast-light;
+  }
+
+  &:focus:not(:active) {
+    @include shadow-level(5, $color);
+
+    border-color: set-color-state($color, 20);
+    background-color: transparent;
+
+    color: set-color-state($color, 20);
+  }
+
+  @content;
+}

@@ -7,7 +7,7 @@
 
 @import "box-shadows";
 
-@mixin shadow-level($level) {
+@mixin shadow-level($level, $color: #000) {
   @if $level == 0 {
     box-shadow: none;
   }
@@ -17,8 +17,8 @@
     $diry: if($level < 10, if($level % 2 == 0, $level - (($level / 2) - 1), ($level - (($level - 1) / 2))), $level - 4) + px;
     $dira: (24 - (round($level / 10))) / 100;
 
-    $shadow1: 0px ($level + px) $blur rgba(0, 0, 0, $amba);
-    $shadow2: 0px $diry $blur rgba(0, 0, 0, $dira);
+    $shadow1: 0px ($level + px) $blur rgba($color, $amba);
+    $shadow2: 0px $diry $blur rgba($color, $dira);
 
     @include box-shadow($shadow1, $shadow2);
   }

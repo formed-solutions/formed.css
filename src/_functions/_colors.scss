@@ -1,3 +1,11 @@
+////
+/// Color functions
+/// @group color functions
+////
+
+// Dependencies
+@import "strip-unit";
+
 /// Adjust the weight of the passed in color.  It is done by adjusting
 /// the lightness of the color.
 ///
@@ -27,4 +35,15 @@
   @return adjust-hue(
     scale-color($color, $saturation: $s, $lightness: $l),
     -5deg);
+}
+
+/// Set a color state.
+
+@function set-color-state($color, $brightness: 30) {
+  $hue: strip-unit(hue($color));
+  $saturation: saturation($color);
+  $lightness: lightness($color);
+  $luminosity: if($lightness > 50, $lightness - $brightness, $lightness + $brightness);
+
+  @return unquote("hsl(#{$hue}, #{$saturation}, #{$luminosity})");
 }

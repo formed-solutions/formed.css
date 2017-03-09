@@ -7,11 +7,12 @@
 
 // Dependencies
 @import "../config";
+@import "../_mixins/button-mods";
 @import "../_mixins/borders";
 @import "../_mixins/hover";
 @import "../_mixins/shadow-level";
 @import "../_mixins/transitions";
-@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 /* Main component
    ------------------------------------------------------------------------- */
@@ -23,8 +24,8 @@
  */
 
 .Button {
-  $pv: _rem($button-padding-vertical);
-  $ph: _rem($button-padding-horizontal);
+  $pv: rem($button-padding-vertical);
+  $ph: rem($button-padding-horizontal);
   @include border-radius($button-radius);
   @include transition(
     box-shadow $transition-duration $easeInSine
@@ -37,6 +38,7 @@
 
   border: none;
   box-sizing: border-box; /* 1 */
+  height: rem(40);
   margin: 0;
   padding: #{$pv} #{$ph};
 
@@ -44,6 +46,7 @@
 
   color: $button-color;
   font: $button-font;
+  line-height: 1rem;
   text-align: center;
   text-decoration: none;
 
@@ -149,6 +152,24 @@
   }
 }
 
+// Modifier: ghost buttons
+// Transparent empty buttons.
+
+@import "../_functions/strip-unit";
+
+
+.Button--ghost {
+  @include button-ghost(#333);
+
+  &.Button--primary {
+    @include button-ghost($theme-primary);
+  }
+
+  &.Button--accent {
+    @include button-ghost($theme-accent);
+  }
+}
+
 /**
  * Modifier: icon button.
  * Buttons represented by a icon.
@@ -172,7 +193,7 @@
 
 .Button--icon,
 .Button--iconSmall {
-  $size: _rem($line-height-base * 1.5);
+  $size: rem($line-height-base * 1.5);
   @extend %button-icon;
 
   height: $size;

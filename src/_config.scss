@@ -154,9 +154,9 @@ $app-left-offset:  $app-drawer-width !default;
 $app-nav-color: $theme-primary-contrast !default;
 
 // Button
-$button-radius: $border-radius-small !default;
-$button-padding-vertical: $spacing-small !default;
-$button-padding-horizontal: $spacing-medium !default;
+$button-radius: $border-radius-medium !default;
+$button-padding-vertical: $spacing-medium !default;
+$button-padding-horizontal: $spacing-base !default;
 $button-disabled-opacity: 0.5 !default;
 
 $button-background: rgba($color-grey-500, 0.25) !default;
