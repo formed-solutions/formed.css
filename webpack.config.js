@@ -5,7 +5,8 @@ const COMPONENTS = `${__dirname}/src/components`;
 
 module.exports = {
   entry: {
-    layout: `${COMPONENTS}/Layout/layout`
+    layout: `${COMPONENTS}/Layout/layout`,
+    all: `${__dirname}/src/formed`
   },
 
   output: {
