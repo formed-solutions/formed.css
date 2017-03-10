@@ -7,6 +7,11 @@
 @import "../../_functions/rem";
 @import "../../_functions/em";
 
+// z-index layout master list
+$z-header: 3 !default;
+$z-mask: 4 !default;
+$z-drawer: $zindex-drawer;
+
 // Main component
 // ----------------------------------------------------------------------------
 
@@ -48,7 +53,7 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
   position: relative;
-  z-index: $zindex-drawer;
+  z-index: $z-header;
 
   height: rem($layout-header-height);
   width: 100%;
@@ -198,7 +203,7 @@
   position: absolute;
   transform: translateX($layout-drawer-translateX);
   transform-style: preserve-3d;
-  z-index: $zindex-drawer;
+  z-index: $z-drawer;
 
   border-right: 1px solid $layout-drawer-border-color;
   height: 100%;
@@ -221,5 +226,31 @@
     }
 
     top: 0;
+  }
+}
+
+// Layout mask
+// ----------------------------------------------------------------------------
+
+// Child: creates a mask that will main area but render below draw.
+
+.Layout-mask {
+  @include transition-default(background-color);
+
+  left: 0;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  z-index: $z-mask;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: transparent;
+
+  &.is-active {
+    visibility: visible;
+
+    background-color: rgba(#000, 0.5);
   }
 }
