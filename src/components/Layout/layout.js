@@ -13,6 +13,10 @@ const layout = (() => {
 
   class Layout {
     constructor(element, options = {}) {
+      if (!!(element && element.nodeType !== 1)) {
+        throw new TypeError('Element passed in is not a HTML node.');
+      }
+
       this._element = element;
       this.config = Object.assign({}, this.defaults, options);
 
@@ -20,6 +24,7 @@ const layout = (() => {
     }
 
     init() {
+      this.wrapLayout();
       cacheChildren.call(this);
 
       if (this._drawer) {
@@ -114,6 +119,24 @@ const layout = (() => {
         this._drawer.setAttribute('aria-hidden', 'true');
         this._drawerBtn.setAttribute('aria-expanded', 'false');
       }
+    }
+
+    wrapLayout() {
+      const container = document.createElement('div');
+      container.classList.add('layout-absoluteViewport');
+
+      // Capter any focused element.
+      const focusedElement = document.querySelector(':focus');
+
+      this._element.parentNode.insertBefore(container, this._element);
+      this._element.parentNode.removeChild(this._element);
+      container.appendChild(this._element);
+
+      if (focusedElement) {
+        focusedElement.focus();
+      }
+
+      return this;
     }
   }
 
