@@ -93,10 +93,9 @@ const layout = (() => {
 
     screenSizeHandler() {
       if (this.breakpoint.matches && this._drawer) {
-        if (this.hasDrawerFixed()) {
-          this._drawer.setAttribute('aria-hidden', 'false');
-          this._drawerBtn.setAttribute('aria-expanded', 'false');
-        }
+        this._drawer
+          .setAttribute('aria-hidden', (!this.hasDrawerFixed()).toString());
+        this._drawerBtn.setAttribute('aria-expanded', 'false');
 
         this._drawer.classList.remove(this.config.isDrawerActiveClass);
         this._mask.classList.remove(this.config.isDrawerActiveClass);
