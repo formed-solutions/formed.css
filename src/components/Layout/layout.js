@@ -177,14 +177,19 @@ const layout = (() => {
   }
 
   function drawerSetup() {
-    // NOTE: should create this dynamically.
     this._drawerBtn =
           this._element.querySelector(`.${this.config.drawerBtnClass}`);
-    this._drawerBtn.setAttribute('aria-expanded', 'false');
-    this._drawerBtn.setAttribute('role', 'button');
-    this._drawerBtn.setAttribute('tabindex', '0');
 
+    // Ensure proper attributes are set.
     this._drawer.setAttribute('aria-hidden', 'true');
+    this._drawerBtn.setAttribute('aria-expanded', 'false');
+    this._drawerBtn.setAttribute('tabindex', '0');
+    this._drawerBtn.setAttribute('type', 'button');
+
+    // If not button add proper aria attr.
+    if (this._drawerBtn.tagName.toLowerCase() !== 'button') {
+      this._drawerBtn.setAttribute('role', 'button');
+    }
 
     createLayoutMask.call(this);
 
