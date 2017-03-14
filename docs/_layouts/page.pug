@@ -26,5 +26,11 @@ html
 
     script(
       src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js")
-    script(src=urlPrefix + "formed.all.js")
+    script(src=urlPrefix + "js/formed.js")
+    script.
+      (function(window) {
+        window.onload = function onload() {
+          var layout = new formed.Layout(document.querySelector('.Layout'));
+        };
+      })(window);
     block scripts
