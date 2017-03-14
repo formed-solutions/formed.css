@@ -8,6 +8,7 @@
 @import "../../_functions/em";
 
 // z-index layout master list
+$z-layout: 1 !default;
 $z-header: 3 !default;
 $z-mask: 4 !default;
 $z-drawer: $zindex-drawer;
@@ -21,6 +22,7 @@ $z-drawer: $zindex-drawer;
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+  z-index: $z-layout;
 
   height: 100%;
   width: 100%;
@@ -42,6 +44,7 @@ $z-drawer: $zindex-drawer;
 // Child: add a header region to the layout.
 
 .Layout-header {
+  @include shadow-level(2);
   @include transition-default(transform, width);
   @include breakpoint-media-min('md') {
     height: rem($layout-header-height-md);
@@ -62,13 +65,22 @@ $z-drawer: $zindex-drawer;
 
   will-change: transform;
 
-  // Modifier
+  // Modifier: fixed drawer.
+
   .Layout--drawerFixed & {
     @include breakpoint-media-min('md') {
       transform: translateX($layout-left-offset);
 
       width: calc(100% - #{$layout-left-offset});
     }
+  }
+
+  // Modifier: scrolling layout.
+
+  .Layout--scroll & {
+    z-index: 0;
+
+    box-shadow: none;
   }
 }
 
@@ -162,13 +174,24 @@ $z-drawer: $zindex-drawer;
   will-change: transform;
   -webkit-overflow-scrolling: touch;
 
-  // Modifier
+  // Modifier: fixed drawer
   .Layout--drawerFixed & {
     @include breakpoint-media-min('md') {
       transform: translateX($layout-left-offset);
 
       width: calc(100% - #{$layout-left-offset});
     }
+  }
+
+  // Modifier: scrolling layout
+  .Layout--scroll & {
+    overflow: visible;
+  }
+
+  // Hide overflow for instances where we have a drawer and it is active.
+
+  .Layout--scroll .Layout-drawer.is-active ~ & {
+    overflow: hidden;
   }
 }
 
@@ -194,15 +217,15 @@ $z-drawer: $zindex-drawer;
   @include transition-default(transform);
   @include shadow-level(1);
 
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   left: 0;
   overflow: visible;
   overflow-y: auto;
-  position: absolute;
+  position: fixed;
   transform: translateX($layout-drawer-translateX);
-  transform-style: preserve-3d;
   z-index: $z-drawer;
 
   border-right: 1px solid $layout-drawer-border-color;
