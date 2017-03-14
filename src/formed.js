@@ -1,5 +1,9 @@
-import Layout from './components/Layout/layout';
+// import Layout from './components/Layout/layout';
+import packageJson from '../package.json';
 
 (() => {
-  const layout = new Layout(document.querySelector('.Layout'));
+  window.formed = {
+    version: packageJson.version,
+    Layout: require('./components/Layout/layout').default
+  }
 })();
