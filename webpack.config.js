@@ -3,29 +3,38 @@ const include = join(__dirname, 'src');
 
 const COMPONENTS = `${__dirname}/src/components`;
 
-module.exports = {
-  entry: {
-    layout: `${COMPONENTS}/Layout/layout`,
-    all: `${__dirname}/src/formed`
-  },
-
-  output: {
-    path: join(__dirname, '.tmp'),
-    filename: 'formed.[name].js',
-    library: ['formed', '[name]'],
-    libraryTarget: 'umd',
-  },
-
-  devtool: 'source-map',
-
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include,
-        exclude: /node_modules/
-      }
-    ]
+const DEFAULT_RULES = [
+  {
+    test: /\.js$/,
+    loader: 'babel-loader',
+    include,
+    exclude: /node_modules/
   }
-};
+];
+
+module.exports = [
+  {
+    entry: {
+      layout: `${COMPONENTS}/Layout/layout`
+    },
+    output: {
+      path: join(__dirname, '.tmp', 'js'),
+      filename: '[name].js'
+    },
+    devtool: 'source-map',
+    module: {
+      rules: DEFAULT_RULES
+    }
+  },
+
+  {
+    entry: `${__dirname}/src/formed`,
+    output: {
+      path: join(__dirname, '.tmp', 'js'),
+      filename: 'formed.js'
+    },
+    module: {
+      rules: DEFAULT_RULES
+    }
+  }
+];

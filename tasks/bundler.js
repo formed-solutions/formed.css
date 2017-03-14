@@ -21,7 +21,7 @@ module.exports = (cb) => {
 
     gutil.log('[webpack]', stats.toString({ colors: true }));
 
-    DEVELOPMENT && reload(webpackConfig.output.filename);
+    DEVELOPMENT && reload(webpackConfig.map(config => config.output.filename));
 
     if (!started) {
       started = true;
