@@ -115,6 +115,12 @@
   .Editor.is-readonly & {
     cursor: not-allowed;
   }
+
+  // Context
+
+  .Editor.has-icon & {
+    padding-right: rem(22 + 7);
+  }
 }
 
 textarea.Editor-control {
@@ -162,6 +168,33 @@ textarea.Editor-control {
 
   .Editor.is-invalid & {
     color: $editor-invalid-color;
+  }
+}
+
+// Editor icons
+// ----------------------------------------------------------------------------
+
+.Editor-icon.Editor-icon {
+  @include transition-default(transform);
+
+  display: inline-block;
+  position: absolute;
+  right: rem(5);
+  top: 50%;
+  transform: translateY(-50%) scaleX(0.72) scaleY(0.72);
+
+  text-align: center;
+
+  will-change: transform;
+
+  &,
+  & > * {
+    height: rem(22);
+    width: rem(22);
+  }
+
+  .Editor.is-focused & {
+    transform: translateY(-50%) scaleX(1) scaleY(1);
   }
 }
 
