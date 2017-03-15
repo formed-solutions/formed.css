@@ -102,6 +102,11 @@
     outline: none;
   }
 
+  &:focus,
+  .Editor.is-focused & {
+    color: $editor-color-focus;
+  }
+
   .Editor.is-disabled & {
     background-color: $editor-color-disable-light;
 
@@ -195,6 +200,8 @@ textarea.Editor-control {
 
   .Editor.is-focused & {
     transform: translateY(-50%) scaleX(1) scaleY(1);
+
+    color: $editor-color-focus;
   }
 }
 
