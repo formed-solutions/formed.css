@@ -27,6 +27,43 @@
   width: rem($editor-width);
 
   font-size: rem($editor-font-size);
+
+  // Editor control frame that will we animate.
+
+  &:before {
+    @include border-radius($editor-control-border-radius);
+    @include transition-default(border-color, transform);
+
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0.80);
+
+    border: 2px solid $editor-color;
+    height: rem(40);
+    width: 100%;
+
+    content: "";
+    will-change: transform;
+  }
+
+  &.is-focused:before {
+    transform: translateY(-50%) scaleY(1);
+  }
+
+  &.is-dirty:before,
+  &.is-focused:before {
+    border-color: $editor-color-focus;
+  }
+
+  &.is-disabled:before {
+    display: none;
+  }
+
+  &.is-readonly:before {
+    border-color: $editor-color-disable-light;
+    border-style: dotted;
+  }
 }
 
 // Editor control
@@ -36,19 +73,17 @@
 
 .Editor-control {
   @include border-radius($editor-control-border-radius);
-  @include transition-default(border-color, height);
+  @include transition-default(border-color);
 
   display: block;
 
-  border: 2px solid $editor-control-border-color;
+  border: none;
   height: rem(32);
   margin: 0;
   padding: rem($editor-control-padding);
-  // transform: scaleY(0.80);
-  transform-origin: center center;
   width: $editor-control-width;
 
-  background: none;
+  background: transparent;
 
   color: inherit;
   font-family: inherit;
@@ -66,23 +101,11 @@
   }
 
   // State
-  &:focus,
-  .Editor.is-dirty &,
-  .Editor.is-focused & {
-    border-color: $editor-color-focus;
-
+  &:focus {
     outline: none;
   }
 
-  &:focus:not([readonly]),
-  .Editor.is-focused & {
-    height: rem(40);
-    // transform: scaleY(1);
-  }
-
   .Editor.is-disabled & {
-    border-color: $editor-color-disable-light;
-
     background-color: $editor-color-disable-light;
 
     color: $editor-color-disable-dark;
@@ -90,9 +113,6 @@
 
   &[readonly],
   .Editor.is-readonly & {
-    border-color: $editor-color-disable-light;
-    border-style: dotted;
-
     cursor: not-allowed;
   }
 }
