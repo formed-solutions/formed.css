@@ -158,8 +158,11 @@ textarea.Editor-control {
   .Editor.is-focused & {
     transform: translateY(-200%);
 
-    color: $editor-color-focus;
     font-size: $font-size-medium;
+  }
+
+  .Editor.is-focused & {
+    color: $editor-color-focus;
   }
 
   .Editor.is-disabled & {
