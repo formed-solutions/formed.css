@@ -4,40 +4,121 @@ block settings
    - var page = 'components'
 
 block main
-  div.App-container._mvl
+  div.Layout-container.mvl
     h1 Editor
     p Form input components.
 
-  div(class="_mvl _flex _flexCenter")
-    div.Editor.Editor--hangingLabel
+  div(class="mvl phl flex flex-center")
+    div.Editor
       input(
         class="Editor-control"
         id="input-1"
-        placeholder="Editor text input"
         type="text")
       label(class="Editor-label" for="input-1")
-        span._visuallyHidden Editor text input
+        | Name
+
+    div.Editor.mll
+      input(
+        class="Editor-control"
+        id="input-1"
+        type="text"
+        value="christopher")
+      label(class="Editor-label" for="input-1")
+        | Name
 
   pre.language-markup
     code
       |&lt;!-- Default editor -->
       |&lt;div class="Editor">
+      |  &lt;label class="Editor-label" for="input-1">Name</label>
       |  &lt;input class="Editor-control" id="input-1" type="text">
       |&lt;/div>
       |&#13;
 
+      |&lt;!-- Dirty editor -->
+      |&lt;div class="Editor is-dirty">
+      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;input class="Editor-control" id="input-1" type="text">
+      |&lt;/div>
+      |&#13;
 
+  div(class="mvl phl flex flex-center")
+    div.Editor.is-disabled
+      input(
+        class="Editor-control"
+        disabled
+        id="input-1"
+        type="text")
+      label(class="Editor-label" for="input-1")
+        | Name
+
+    div.Editor.is-disabled.is-dirty.mll
+      input(
+        class="Editor-control"
+        disabled
+        id="input-1"
+        type="text"
+        value="christopher")
+      label(class="Editor-label" for="input-1")
+        | Name
+
+  pre.language-markup
+    code
+      |&lt;!-- Disabled editor -->
+      |&lt;div class="Editor is-disabled">
+      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;input class="Editor-control" id="input-1" type="text">
+      |&lt;/div>
+      |&#13;
+
+      |&lt;!-- Disabled dirty editor -->
+      |&lt;div class="Editor is-disabled is-dirty">
+      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;input class="Editor-control" id="input-1" type="text">
+      |&lt;/div>
+      |&#13;
+
+  div(class="mvl phl flex flex-center")
+    div.Editor.is-readonly.mll
+      input(
+        class="Editor-control"
+        readonly
+        id="input-1"
+        type="text"
+        value="christopher")
+      label(class="Editor-label" for="input-1")
+        | Name
+
+  pre.language-markup
+    code
+      |&lt;!-- Disabled dirty editor -->
+      |&lt;div class="Editor is-dirty is-readonly">
+      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;input class="Editor-control" readonly id="input-1" type="text">
+      |&lt;/div>
+      |&#13;
 
 block scripts
   script.
     [].forEach.call(document.querySelectorAll('.Editor-control'),
       function(elem) {
+        if (elem.value) {
+          elem.parentNode
+            .classList
+            .add('is-dirty');
+        }
+
         elem.addEventListener('focus', function(event) {
-          if (event) event
-              .currentTarget
-              .parentNode
-              .classList
-              .add('is-focused');
+          if (event) {
+            var target = event.currentTarget;
+
+            if (!target.hasAttribute('readonly')) {
+              target
+                .parentNode
+                .classList
+                .add('is-focused');
+            }
+          }
         });
 
         elem.addEventListener('blur', function(event) {
@@ -47,6 +128,19 @@ block scripts
             .parentNode
             .classList
             .remove('is-focused');
+
+          if (target.value) {
+            target
+              .parentNode
+              .classList
+              .add('is-dirty');
+          }
+          else {
+            target
+              .parentNode
+              .classList
+              .remove('is-dirty');
+          }
         });
       });
 
