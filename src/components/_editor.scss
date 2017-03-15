@@ -49,10 +49,7 @@
 
   &.is-focused:before {
     transform: translateY(-50%) scaleY(1);
-  }
 
-  &.is-dirty:before,
-  &.is-focused:before {
     border-color: $editor-color-focus;
   }
 
