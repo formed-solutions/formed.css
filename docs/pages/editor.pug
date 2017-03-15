@@ -1,4 +1,5 @@
 extends ../_layouts/page
+include ../_mixins/mixins
 
 block settings
    - var page = 'components'
@@ -39,6 +40,54 @@ block main
       |&lt;div class="Editor is-dirty">
       |  &lt;label class="Editor-label" for="input-1">Name</label>
       |  &lt;input class="Editor-control" id="input-1" type="text">
+      |&lt;/div>
+      |&#13;
+
+  div(class="mvl phl flex flex-center")
+    div.Editor.has-icon.mll
+      input(
+        class="Editor-control"
+        id="input-1"
+        type="text")
+      label(class="Editor-label" for="input-1")
+        | Name
+      div.Editor-icon
+        +icon('icon-user')
+
+    div.Editor.has-icon.mll
+      input(
+        class="Editor-control"
+        id="input-1"
+        type="text"
+        value="christopher")
+      label(class="Editor-label" for="input-1")
+        | Name
+      div.Editor-icon
+        +icon('icon-user')
+
+  pre.language-markup
+    code
+      |&lt;!-- Editors with icons -->
+      |&lt;div class="Editor has-icon">
+      |  &lt;input class="Editor-control" id="input-1" type="text">
+      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;div class="Editor-icon">
+      |    &lt;svg class="Icon">
+      |      &lt;use xlink:href="#icon-user"></user>
+      |    &lt;/svg>
+      |  &lt;/div>
+      |&lt;/div>
+      |&#13;
+
+      |&lt;!-- Dirty editors with icons -->
+      |&lt;div class="Editor has-icon">
+      |  &lt;input class="Editor-control" id="input-1" type="text">
+      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;div class="Editor-icon">
+      |    &lt;svg class="Icon">
+      |      &lt;use xlink:href="#icon-user"></user>
+      |    &lt;/svg>
+      |  &lt;/div>
       |&lt;/div>
       |&#13;
 
