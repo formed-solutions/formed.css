@@ -12,7 +12,6 @@ block main
   div(class="mvl phl flex flex-center")
     div.Editor
       input(
-        autofocus="true"
         class="Editor-control"
         id="input-1"
         type="text")
@@ -32,20 +31,19 @@ block main
 
   pre.language-markup
     code
-      |&lt;!-- Default editor -->
-      |&lt;div class="Editor">
-      |  &lt;label class="Editor-label" for="input-1">Text&lt;/label>
-      |  &lt;input class="Editor-control" id="input-1" type="text">
-      |&lt;/div>
-      |&#13;
+      :markdown
+        <!-- Default editor -->
+        <div class="Editor">
+          <label class="Editor-label" for="input-1">Text</label>
+          <input class="Editor-control" id="input-1" type="text">
+        </div>
 
-      |&lt;!-- Default editor with validation feedback -->
-      |&lt;div class="Editor">
-      |  &lt;label class="Editor-label" pattern="-?[0-9]+" for="input-2">Number&lt;/label>
-      |  &lt;input class="Editor-control" id="input-2" type="text">
-      |  &lt;div class="Editor-feedback">Value needs to be a number.&lt;/div>
-      |&lt;/div>
-      |&#13;
+        <!-- Default editor with validation feedback -->
+        <div class="Editor">
+          <label class="Editor-label" pattern="-?[0-9]+" for="input-2">Number</label>
+          <input class="Editor-control" id="input-2" type="text">
+          <div class="Editor-feedback">Value needs to be a number.</div>
+        </div>
 
   div(class="mvl phl flex flex-center")
     div.Editor
@@ -72,19 +70,18 @@ block main
 
   pre.language-markup
     code
-      |&lt;!-- Editors with no label -->
-      |&lt;div class="Editor">
-      |  &lt;input class="Editor-control" id="input-3" type="text">
-      |  &lt;label class="Editor-label" for="input-3">Text&lt;/label>
-      |&lt;/div>
-      |&#13;
+      :markdown
+        <!-- Editors with no label -->
+        <div class="Editor">
+          <input class="Editor-control" id="input-3" type="text">
+          <label class="Editor-label" for="input-3">Text</label>
+        </div>
 
-      |&lt;div class="Editor">
-      |  &lt;input class="Editor-control" id="input-4" type="text">
-      |  &lt;label class="Editor-label" for="input-4">Number&lt;/label>
-      |  &lt;div class="Editor-feedback">Value needs to be a number.&lt;/div>
-      |&lt;/div>
-      |&#13;
+        <div class="Editor">
+          <input class="Editor-control" id="input-4" type="text">
+          <label class="Editor-label" for="input-4">Number</label>
+          <div class="Editor-feedback">Value needs to be a number.</div>
+        </div>
 
   div(class="mvl phl flex flex-center")
     div.Editor.has-icon.mll
@@ -110,29 +107,28 @@ block main
 
   pre.language-markup
     code
-      |&lt;!-- Editors with icons -->
-      |&lt;div class="Editor has-icon">
-      |  &lt;input class="Editor-control" id="input-5" type="text">
-      |  &lt;label class="Editor-label" for="input-5">Name&lt;/label>
-      |  &lt;div class="Editor-icon">
-      |    &lt;svg class="Icon">
-      |      &lt;use xlink:href="#icon-user">&lt;/user>
-      |    &lt;/svg>
-      |  &lt;/div>
-      |&lt;/div>
-      |&#13;
+      :markdown
+        <!-- Editors with icons -->
+        <div class="Editor has-icon">
+          <input class="Editor-control" id="input-5" type="text">
+          <label class="Editor-label" for="input-5">Name</label>
+          <div class="Editor-icon">
+            <svg class="Icon">
+              <use xlink:href="#icon-user"></user>
+            </svg>
+          </div>
+        </div>
 
-      |&lt;!-- Dirty editors with icons -->
-      |&lt;div class="Editor has-icon">
-      |  &lt;input class="Editor-control" id="input-6" type="text">
-      |  &lt;label class="Editor-label" for="input-6">Name&lt;/label>
-      |  &lt;div class="Editor-icon">
-      |    &lt;svg class="Icon">
-      |      &lt;use xlink:href="#icon-user">&lt;/user>
-      |    &lt;/svg>
-      |  &lt;/div>
-      |&lt;/div>
-      |&#13;
+        <!-- Dirty editors with icons -->
+        <div class="Editor has-icon">
+          <input class="Editor-control" id="input-6" type="text">
+          <label class="Editor-label" for="input-6">Name</label>
+          <div class="Editor-icon">
+            <svg class="Icon">
+              <use xlink:href="#icon-user"></user>
+            </svg>
+          </div>
+        </div>
 
   div(class="mvl phl flex flex-center")
     div.Editor
@@ -156,19 +152,18 @@ block main
 
   pre.language-markup
     code
-      |&lt;!-- Disabled editor -->
-      |&lt;div class="Editor is-disabled">
-      |  &lt;input class="Editor-control" disabled id="input-7" type="text">
-      |  &lt;label class="Editor-label" for="input-7">Name&lt;/label>
-      |&lt;/div>
-      |&#13;
+      :markdown
+        <!-- Disabled editor -->
+        <div class="Editor is-disabled">
+          <input class="Editor-control" disabled id="input-7" type="text">
+          <label class="Editor-label" for="input-7">Name</label>
+        </div>
 
-      |&lt;!-- Readonly editor -->
-      |&lt;div class="Editor is-dirty is-readonly">
-      |  &lt;input class="Editor-control" readonly id="input-8" type="text">
-      |  &lt;label class="Editor-label" for="input-8">Name&lt;/label>
-      |&lt;/div>
-      |&#13;
+        <!-- Readonly editor -->
+        <div class="Editor is-dirty is-readonly">
+          <input class="Editor-control" readonly id="input-8" type="text">
+          <label class="Editor-label" for="input-8">Name</label>
+        </div>
 
 block scripts
   script.

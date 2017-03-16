@@ -12,19 +12,18 @@ block main
     button(class="Button mrl" type="button") Button
     button(class="Button" disabled type="button") Button
 
-  //- div(class="background-faded pvl")
-  //-   div.App-container
   pre.language-markup
     code
-      |&lt;!-- Default button -->
-      |&lt;button class="Button" type="button">
-      |  Button
-      |&lt;/button>
-      |&#13;
-      |&lt;!-- Disabled button -->
-      |&lt;button class="Button" disabled type="button">
-      |  Button
-      |&lt;/button>
+      :markdown
+        <!-- Default button -->
+        <button class="Button" type="button">
+          Button
+        </button>
+
+        <!-- Disabled button -->
+        <button class="Button" disabled type="button">
+          Button
+        </button>
 
   div(class="mvl flex flex-center")
     button(class="Button Button--primary mrl" type="button") Button
@@ -32,15 +31,16 @@ block main
 
   pre.language-markup
     code
-      |&lt;!-- Primary button -->
-      |&lt;button class="Button Button--primary" type="button">
-      |  Button
-      |&lt;/button>
-      |&#13;
-      |&lt;!-- Accent button -->
-      |&lt;button class="Button Button--accent" type="button">
-      |  Button
-      |&lt;/button>
+      :markdown
+        <!-- Primary button -->
+        <button class="Button Button--primary" type="button">
+          Button
+        </button>
+
+        <!-- Accent button -->
+        <button class="Button Button--accent" type="button">
+          Button
+        </button>
 
   div(class="mvl flex flex-center")
     button(
@@ -53,24 +53,25 @@ block main
 
   pre.language-markup
     code
-      |&lt;!-- Ghost Buttons -->
-      |&lt;button class="Button Button--ghost" type="button">
-      |  Button
-      |&lt;/button>
-      |&lt;!-- Primary ghost button -->
-      |&lt;button class="Button Button--primary Button--ghost" type="button">
-      |  Button
-      |&lt;/button>
-      |&#13;
-      |&lt;!-- Accent ghost button -->
-      |&lt;button class="Button Button--accent Button--ghost" type="button">
-      |  Button
-      |&lt;/button>
-      |&#13;
-      |&lt;!-- Disabled ghost button -->
-      |&lt;button class="Button Button--ghost" disabled type="button">
-      |  Button
-      |&lt;/button>
+      :markdown
+        <!-- Ghost Buttons -->
+        <button class="Button Button--ghost" type="button">
+          Button
+        </button>
+        <!-- Primary ghost button -->
+        <button class="Button Button--primary Button--ghost" type="button">
+          Button
+        </button>
+
+        <!-- Accent ghost button -->
+        <button class="Button Button--accent Button--ghost" type="button">
+          Button
+        </button>
+
+        <!-- Disabled ghost button -->
+        <button class="Button Button--ghost" disabled type="button">
+          Button
+        </button>
 
   div(class="mvl flex flex-center")
     button(
@@ -83,25 +84,27 @@ block main
 
   pre.language-markup
     code
-      |&lt;!-- Call to Action Buttons -->
-      |&lt;!-- ctab button -->
-      |&lt;button class="Button Button--ctab" type="button">
-      |  Button
-      |&lt;/button>
-      |&lt;!-- Primary ctab button -->
-      |&lt;button class="Button Button--primary Button--ctab" type="button">
-      |  Button
-      |&lt;/button>
-      |&#13;
-      |&lt;!-- Accent ctab button -->
-      |&lt;button class="Button Button--accent Button--ctab" type="button">
-      |  Button
-      |&lt;/button>
-      |&#13;
-      |&lt;!-- Disabled ctab button -->
-      |&lt;button class="Button Button--ctab" disabled type="button">
-      |  Button
-      |&lt;/button>
+      :markdown
+        <!-- Call to Action Buttons -->
+        <!-- ctab button -->
+        <button class="Button Button--ctab" type="button">
+          Button
+        </button>
+
+        <!-- Primary ctab button -->
+        <button class="Button Button--primary Button--ctab" type="button">
+          Button
+        </button>
+
+        <!-- Accent ctab button -->
+        <button class="Button Button--accent Button--ctab" type="button">
+          Button
+        </button>
+
+        <!-- Disabled ctab button -->
+        <button class="Button Button--ctab" disabled type="button">
+          Button
+        </button>
 
   div(class="mvl flex flex-center")
     button(class="Button Button--primary Button--icon mrl" type="button")
@@ -111,19 +114,20 @@ block main
 
   pre.language-markup
     code
-      |&lt;!-- Button icon primary -->
-      |&lt;button class="Button Button--icon Button--primary" type="button">
-      |  &lt;svg class="Icon Button-icon">
-      |   &lt;use xlink:href="#icon-chevron-left"></use>
-      |  &lt;/svg>
-      |&lt;/button>
-      |&#13;
-      |&lt;!-- Button icon accent -->
-      |&lt;button class="Button Button--icon Button--accent" type="button">
-      |  &lt;svg class="Icon Button-icon">
-      |    &lt;use xlink:href="#icon-chevron-right"></use>
-      |  &lt;/svg>
-      |&lt;/button>
+      :markdown
+        <!-- Button icon primary -->
+        <button class="Button Button--icon Button--primary" type="button">
+          <svg class="Icon Button-icon">
+            <use xlink:href="#icon-chevron-left"></use>
+          </svg>
+        </button>
+
+        <!-- Button icon accent -->
+        <button class="Button Button--icon Button--accent" type="button">
+          <svg class="Icon Button-icon">
+            <use xlink:href="#icon-chevron-right"></use>
+          </svg>
+        </button>
 
 block scripts
   script.

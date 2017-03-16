@@ -4,30 +4,28 @@ block settings
    - var page = 'components'
 
 block main
-  div.App-container._mvl
+  div.Layout-container.mvl
     h1 Menu
     p Menu description text.
 
-    div(class="_mvl _flex _flexCenter")
-      div.Menu.Menu--bottomLeft.is-active
-        h5._mbn Menu trigger
+  div(class="mvl flex flex-center")
+    div.Menu.Menu--bottomLeft.is-active
+      h5.mbn Menu trigger
 
-        ul.Menu-box
-          li.Menu-item Menu item 1
-          li.Menu-item Menu item 2
-          li.Menu-item Menu item 3
+      ul.Menu-box
+        li.Menu-item Menu item 1
+        li.Menu-item Menu item 2
+        li.Menu-item Menu item 3
 
-  div(class="background-faded _pvl" style="margin-top: 200px")
-    div.App-container
-      pre
+  div(style="margin-top: 200px;")
+    pre.language-markup
+      code
         :markdown
-          ````
-            <div class="Menu Menu--bottomLeft">
-              <h5>Menu trigger</h5>
-              <div class="Menu-box">
-                <li class="Menu-item">Menu item 1</li>
-                <li class="Menu-item">Menu item 2</li>
-                <li class="Menu-item">Menu item 3</li>
-              </div>
+          <div class="Menu Menu--bottomLeft">
+            <h5>Menu trigger</h5>
+            <div class="Menu-box">
+              <li class="Menu-item">Menu item 1</li>
+              <li class="Menu-item">Menu item 2</li>
+              <li class="Menu-item">Menu item 3</li>
             </div>
-          ````
+          </div>
