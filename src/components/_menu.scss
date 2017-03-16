@@ -9,7 +9,7 @@
 @import "../_mixins/hover";
 @import "../_mixins/shadow-level";
 @import "../_mixins/transitions";
-@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 /* Main component
    ------------------------------------------------------------------------- */
@@ -38,7 +38,7 @@
 
   border: 1px solid $color-grey-100;
   margin: 0;
-  padding: #{_rem($menu-box-padding)} 0;
+  padding: #{rem($menu-box-padding)} 0;
 
   background-color: #fff;
 
@@ -77,22 +77,22 @@
   position: relative;
 
   border: none;
-  height: _rem($menu-item-height);
+  height: rem($menu-item-height);
   margin: 0;
-  padding: 0 #{_rem($spacing-medium)};
+  padding: 0 #{rem($spacing-medium)};
   width: 100%;
 
   background-color: transparent;
 
   color: rgba(#000, 0.87); // $default-item-text-color
-  line-height: _rem($spacing-base * 2);
+  line-height: rem($spacing-base * 2);
   text-align: left;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
 
   cursor: pointer;
-  font-size: _rem($font-size-medium);
+  font-size: rem($font-size-medium);
   user-select: none;
 
   &[disabled],

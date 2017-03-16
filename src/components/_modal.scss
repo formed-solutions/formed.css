@@ -7,7 +7,7 @@
 @import '../_mixins/breakpoints';
 @import '../_mixins/borders';
 @import '../_mixins/box-shadows';
-@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 /* Main component
    ------------------------------------------------------------------------- */
@@ -39,7 +39,7 @@
     @include breakpoint-media-min('md') {
       margin-left: auto;
       margin-right: auto;
-      width: _rem($modal-lg-dialog-width);
+      width: rem($modal-lg-dialog-width);
     }
   }
 }
@@ -58,7 +58,7 @@
   position: relative;
 
   border: 1px solid rgba(0, 0, 0, 0.2);
-  margin: _rem($spacing-medium);
+  margin: rem($spacing-medium);
   width: auto;
 
   background-color: #fff;
@@ -67,8 +67,8 @@
   outline: 0;
 
   @include breakpoint-media-min('md') {
-    margin: _rem($spacing-base + 6) auto;
-    width: _rem($modal-dialog-width);
+    margin: rem($spacing-base + 6) auto;
+    width: rem($modal-dialog-width);
   }
 }
 
@@ -81,8 +81,8 @@
 
 .Modal-hd {
   border-bottom: 1px solid #e5e5e5;
-  min-height: _rem($spacing-medium + $line-height-base);
-  padding: _rem($spacing-medium) _rem($spacing-base);
+  min-height: rem($spacing-medium + $line-height-base);
+  padding: rem($spacing-medium) rem($spacing-base);
 }
 
 .Modal-title {
@@ -94,10 +94,10 @@
 .Modal-bd {
   position: relative;
 
-  padding: _rem($spacing-base);
+  padding: rem($spacing-base);
 }
 
 .Modal-ft {
   border-top: 1px solid #e5e5e5;
-  padding: _rem($spacing-medium) _rem($spacing-base);
+  padding: rem($spacing-medium) rem($spacing-base);
 }

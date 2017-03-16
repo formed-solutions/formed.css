@@ -3,7 +3,7 @@
 @import "../_mixins/hover";
 @import "../_mixins/shadow-level";
 @import "../_mixins/transitions";
-@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 .Dialog {
   @include shadow-level(24);
@@ -14,7 +14,7 @@
   box-sizing: border-box;
   margin: auto;
   padding: 0;
-  width: _rem(280);
+  width: rem(280);
 
   background-color: #fff;
 
@@ -22,7 +22,7 @@
 }
 
 .Dialog-hd {
-  $padding: _rem($spacing-base);
+  $padding: rem($spacing-base);
 
   position: relative;
 
@@ -53,17 +53,17 @@
 }
 
 .Dialog-bd {
-  padding: _rem($spacing-base);
+  padding: rem($spacing-base);
 }
 
 .Dialog-ft {
-  $padding: _rem($spacing-small);
+  $padding: rem($spacing-small);
 
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
 
-  padding: $padding #{_rem($spacing-medium)};
+  padding: $padding #{rem($spacing-medium)};
 
   font-size: 1rem;
 }

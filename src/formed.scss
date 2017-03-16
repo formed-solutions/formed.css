@@ -1,6 +1,10 @@
+// Main SCSS manifest file.
+//
+// Blocked out by sections in how they should be laid out in the cascade.
+// Helpers should always be the last block with the exception of any vendor
+// specific styles that are needed.
 
 @import "config";
-// @import "vendor/underscore/config";
 
 // Base
 @import "base/base";
@@ -10,7 +14,6 @@
 @import "components/Editor/editor";
 @import "components/button";
 @import "components/card";
-@import "components/form";
 @import "components/dialog";
 @import "components/flash";
 @import "components/icons";
@@ -37,4 +40,3 @@
 
 // Vendor
 @import 'vendor/dialogPolyfill';
-// @import "vendor/underscore/underscore";

@@ -1,11 +1,4 @@
-// ----------------------------------------------------------------------------
-// Mixins: Breakpoints
-// ----------------------------------------------------------------------------
-
-// Dependencies
-@import "../config";
-@import "../../node_modules/underscore.css.scss/scss/functions/em";
-
+/// Mixins: Breakpoints
 /// breakpoint-media-min
 /// breakpoint-media-max
 ///
@@ -20,11 +13,16 @@
 ///   @include breakpoint-media-min('md')
 ///    width: 50%
 
+// Dependencies
+
+@import "../config";
+@import "../_functions/em";
+
 // min-width media query block
 
 @mixin breakpoint-media-min($size, $_breakpoints: $breakpoints) {
   @if map-has-key($_breakpoints, $size) {
-    @media (min-width: #{inspect(_em(map-get($_breakpoints, $size)))}) {
+    @media (min-width: #{inspect(em(map-get($_breakpoints, $size)))}) {
       @content;
     }
   }
@@ -37,7 +35,7 @@
 
 @mixin breakpoint-media-max($size, $_breakpoints: $breakpoints) {
   @if map-has-key($_breakpoints, $size) {
-    @media (max-width: #{inspect(_em(map-get($_breakpoints, $size) - 1))}) {
+    @media (max-width: #{inspect(em(map-get($_breakpoints, $size) - 1))}) {
       @content;
     }
   }

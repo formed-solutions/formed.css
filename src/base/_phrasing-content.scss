@@ -1,27 +1,23 @@
-/**
- * Phrasing content is document text.
- *
- * Included elements:
- *   <abbr>, <audio>, <b>, <bdo>, <br>, <button>, <canvas>, <cite>, <code>,
- *   <command>, <datalist>, <dfn>, <em>, <embed>, <i>, <iframe>, <img>,
- *   <input>, <kbd>, <keygen>, <label>, <mark>, <math>, <meter>, <noscript>,
- *   <object>, <output>, <progress>, <q>, <ruby>, <samp>, <script>, <select>,
- *   <small>, <span>, <strong>, <sub>, <sup>, <svg>, <textarea>, <time>,
- *   <var>, <video>, <wbr>.
- *
- * Resource:
- *   https://www.w3.org/TR/2011/WD-html5-20110525/content-models.html#phrasing-content-0
- */
+// Phrasing content is document text.
+//
+// Included elements:
+//   <abbr>, <audio>, <b>, <bdo>, <br>, <button>, <canvas>, <cite>, <code>,
+//   <command>, <datalist>, <dfn>, <em>, <embed>, <i>, <iframe>, <img>,
+//   <input>, <kbd>, <keygen>, <label>, <mark>, <math>, <meter>, <noscript>,
+//   <object>, <output>, <progress>, <q>, <ruby>, <samp>, <script>, <select>,
+//   <small>, <span>, <strong>, <sub>, <sup>, <svg>, <textarea>, <time>,
+//   <var>, <video>, <wbr>.
+//
+// Resource:
+//   https://www.w3.org/TR/2011/WD-html5-20110525/content-models.html#phrasing-content-0
 
-/**
- * 1. Remove the bottom border in Firefox 39-.
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
+// 1. Remove the bottom border in Firefox 39-.
+// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
 
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none; // 1
+  text-decoration: underline; // 2
+  text-decoration: underline dotted; // 2
 }
 
 b,
@@ -33,9 +29,7 @@ small {
   font-size: floor(percentage( ($font-size-small / $font-size-base) ))
 }
 
-/**
- * Prevent `sub` and `sup` affecting `line-height`.
- */
+// Prevent `sub` and `sup` affecting `line-height`.
 
 sub,
 sup {

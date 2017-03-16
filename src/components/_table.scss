@@ -4,7 +4,7 @@
 
 @import '../config';
 @import "../_mixins/transitions";
-@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 .Table {
   position: relative;
@@ -17,7 +17,7 @@
   white-space: nowrap;
 
   thead {
-    padding-bottom: _rem(3);
+    padding-bottom: rem(3);
   }
 
   tbody {
@@ -26,7 +26,7 @@
 
       position: relative;
 
-      height: _rem($table-row-height);
+      height: rem($table-row-height);
 
       &.is-selected {
         background-color: $table-row-selected;
@@ -42,35 +42,35 @@
   th {
     position: relative;
 
-    padding: 0 #{_rem($spacing-medium)} #{_rem($spacing-medium)};
+    padding: 0 #{rem($spacing-medium)} #{rem($spacing-medium)};
 
     text-align: right;
 
     &:first-of-type {
-      padding-left: _rem($spacing-base);
+      padding-left: rem($spacing-base);
     }
 
     &:last-of-type {
-      padding-right: _rem($spacing-base);
+      padding-right: rem($spacing-base);
     }
   }
 
   td {
     border-top: 1px solid $table-border-color;
     border-bottom: 1px solid $table-border-color;
-    height: _rem($table-row-height);
-    padding-top: _rem($spacing-medium);
+    height: rem($table-row-height);
+    padding-top: rem($spacing-medium);
 
     color: $table-cell-color;
     vertical-align: middle;
   }
 
   th {
-    height: _rem($table-row-height);
-    padding-bottom: _rem($spacing-small);
+    height: rem($table-row-height);
+    padding-bottom: rem($spacing-small);
 
     color: $table-header-color;
-    font-size: _rem($table-header-font-size);
+    font-size: rem($table-header-font-size);
     line-height: $table-header-line-height;
     vertical-align: bottom;
     text-overflow: ellipsis;

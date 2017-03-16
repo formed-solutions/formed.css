@@ -22,7 +22,7 @@
 /// s = small
 /// a = auto
 ///
-/// @require {function} _rem
+/// @require {function} rem
 /// @param {map} $map - Single key/value pair indicating property and abbr.
 /// @param {map} $spacings - key/value pairs of 'size' and length.
 /// @param {string} $modifier [''] - Add modifier to selector.
@@ -44,19 +44,19 @@
   @each $prop, $abbr in $map {
     @each $size, $length in $spacings {
       %#{$abbr}#{$size}-top {
-        #{$prop}-top: _rem($length) !important;
+        #{$prop}-top: rem($length) !important;
       }
 
       %#{$abbr}#{$size}-right {
-        #{$prop}-right: _rem($length) !important;
+        #{$prop}-right: rem($length) !important;
       }
 
       %#{$abbr}#{$size}-bottom {
-        #{$prop}-bottom: _rem($length) !important;
+        #{$prop}-bottom: rem($length) !important;
       }
 
       %#{$abbr}#{$size}-left {
-        #{$prop}-left: _rem($length) !important;
+        #{$prop}-left: rem($length) !important;
       }
 
       .#{$abbr}a#{$size} {

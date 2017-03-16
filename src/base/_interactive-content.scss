@@ -1,22 +1,21 @@
-/**
- * Content that is designed for user interaction.
- *
- * Included elements:
- *  <a>, <button>, <details>, <embed>, <iframe>, <keygen>, <label>, <select>,
- *  and <textarea>.
- *
- * NOTE:
- *   Form input styles are set in _form-content.scss. i.e. <label>,
- *   <select>, <textarea>.
- *
- *   For embedded content that overlaps with interactive content see
- *   _embedded_content.scss. i.e. <embed> and <iframe>.
- */
+// Content that is designed for user interaction.
+//
+// Included elements:
+//  <a>, <button>, <details>, <embed>, <iframe>, <keygen>, <label>, <select>,
+//  and <textarea>.
+//
+// NOTE:
+//   Form input styles are set in _form-content.scss. i.e. <label>,
+//   <select>, <textarea>.
+//
+//   For embedded content that overlaps with interactive content see
+//   _embedded_content.scss. i.e. <embed> and <iframe>.
 
 // Dependencies
+
 @import '../config';
 @import '../_mixins/hover';
-@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 button {
   background: transparent;
@@ -51,27 +50,23 @@ dialog {
   }
 }
 
-/**
- * 1. Remove the gray background color from active links in IE 10.
- * 2. Remove space in underlined links for Safari 8+ and iOS 8+
- */
+// 1. Remove the gray background color from active links in IE 10.
+// 2. Remove space in underlined links for Safari 8+ and iOS 8+
 
 a {
-  background-color: transparent; /* 1 */
+  background-color: transparent; // 1
 
   color: $link-color;
   text-decoration: $link-text-decoration;
 
-  -webkit-text-decoration-skip: objects; /* 2 */
+  -webkit-text-decoration-skip: objects; // 2
 
   @include hover-focus {
     color: $link-color-hover;
     text-decoration: $link-color-text-decoration;
   }
 
-  /**
-   * Improve readability of focused elements in both active and hover states.
-   */
+  // Improve readability of focused elements in both active and hover states.
 
   &:active,
   &:hover {

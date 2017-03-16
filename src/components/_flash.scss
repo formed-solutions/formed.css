@@ -8,7 +8,7 @@
 // Dependencies
 @import "../config";
 @import "../_mixins/shadow-level";
-@import "node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 /* Main component
    ------------------------------------------------------------------------- */
@@ -19,8 +19,8 @@
   display: block;
 
   border: none;
-  margin-bottom: _rem($spacing-base);
-  padding: _rem($spacing-medium);
+  margin-bottom: rem($spacing-base);
+  padding: rem($spacing-medium);
 }
 
 /**

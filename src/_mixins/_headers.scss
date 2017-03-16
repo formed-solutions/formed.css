@@ -4,7 +4,7 @@
 
 // Dependencies
 @import "../config";
-@import "node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 // Generate `font-sizes` for headers.
 
@@ -20,7 +20,7 @@
 
   @each $header, $size in $headers {
     #{$header} {
-      font-size: _rem($size);
+      font-size: rem($size);
     }
   }
 }

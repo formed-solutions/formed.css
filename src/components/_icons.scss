@@ -3,7 +3,7 @@
  */
 
 // Dependencies
-@import "../../node_modules/underscore.css.scss/scss/functions/rem";
+@import "../_functions/rem";
 
 /* Main icon container
    ------------------------------------------------------------------------- */
@@ -22,13 +22,13 @@
    ------------------------------------------------------------------------- */
 
 .Icon--sm {
-  height: _rem($font-size-small);
-  width: _rem($font-size-small);
+  height: rem($font-size-small);
+  width: rem($font-size-small);
 }
 
 .Icon--md {
-  height: _rem($font-size-medium);
-  width: _rem($font-size-medium);
+  height: rem($font-size-medium);
+  width: rem($font-size-medium);
 }
 
 .Icon--lg {

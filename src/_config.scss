@@ -4,9 +4,10 @@
 // <component/>-<modifier>-<state>-<property>: value
 
 // Dependencies
-@import "node_modules/underscore.css.scss/scss/addons/font-stacks";
-@import "node_modules/underscore.css.scss/scss/addons/ratio-variables";
-@import "node_modules/underscore.css.scss/scss/functions/modular-scale";
+
+@import "_addons/font-stacks";
+@import "_addons/ratio-variables";
+@import "_functions/modular-scale";
 
 // Addons
 @import "_addons/easings";
@@ -54,14 +55,14 @@ $font-rhythm: $major-third !default;
 $font-size-root: 16px !default;
 
 $font-size-base:   $font-size-root !default;
-$font-size-large:  _ms($font-size-root, 1, $font-rhythm) !default;
-$font-size-medium: ceil(_ms($font-size-root, -1, $font-rhythm)) !default;
-$font-size-small:  ceil(_ms($font-size-root, -2, $font-rhythm)) !default;
+$font-size-large:  ms($font-size-root, 1, $font-rhythm) !default;
+$font-size-medium: ceil(ms($font-size-root, -1, $font-rhythm)) !default;
+$font-size-small:  ceil(ms($font-size-root, -2, $font-rhythm)) !default;
 
-$font-size-h1: _ms($font-size-root, 5, $font-rhythm) !default;
-$font-size-h2: _ms($font-size-root, 4, $font-rhythm) !default;
-$font-size-h3: _ms($font-size-root, 3, $font-rhythm) !default;
-$font-size-h4: _ms($font-size-root, 2, $font-rhythm) !default;
+$font-size-h1: ms($font-size-root, 5, $font-rhythm) !default;
+$font-size-h2: ms($font-size-root, 4, $font-rhythm) !default;
+$font-size-h3: ms($font-size-root, 3, $font-rhythm) !default;
+$font-size-h4: ms($font-size-root, 2, $font-rhythm) !default;
 $font-size-h5: $font-size-large !default;
 $font-size-h6: $font-size-base !default;
 
@@ -70,7 +71,7 @@ $font-family-base:
   -apple-system, BlinkMacSystemFont,
   "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
   "Helvetica Neue", sans-serif !default;
-$font-family-code:    $_consolas !default
+$font-family-code:    $consolas !default
 $font-family-headers: inherit !default
 
 $line-height-base:    ($font-size-root * 1.5) !default;
@@ -142,7 +143,7 @@ $layout-header-height: 56px !default;
 $layout-header-height-md: 64px !default;
 $layout-header-background: $theme-primary !default;
 
-$layout-title-font-size: _ms($font-size-root, 2, $font-rhythm) !default;
+$layout-title-font-size: ms($font-size-root, 2, $font-rhythm) !default;
 
 $layout-drawer-width: 280px !default;
 $layout-drawer-translateX: -($layout-drawer-width) !default;
