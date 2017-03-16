@@ -172,7 +172,6 @@ block main
 
 block scripts
   script.
-    instances = [];
     [].forEach.call(document.querySelectorAll('.Editor'), function (editor) {
-      instances.push(Object.create(formed.Editor).init(editor));
+      Object.create(formed.Editor).init(editor);
     });

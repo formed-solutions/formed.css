@@ -33,6 +33,10 @@ const Editor = (() => {
       throw new TypeError('Element passed in is not a HTML node.');
     }
 
+    if (!api.isPrototypeOf(this)) {
+      return Object.create(api).init(element);
+    }
+
     this.editorEl = element;
     this.controlEl =
       this.editorEl.querySelector(`.${this.cssInterface.CONTROL}`);
@@ -141,7 +145,7 @@ const Editor = (() => {
     this.refreshState();
   }
 
-  return {
+  const api = {
     disable,
     enable,
     init,
@@ -149,6 +153,8 @@ const Editor = (() => {
     refreshState,
     destroy
   };
+
+  return api;
 })();
 
 export default Editor;
