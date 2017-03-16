@@ -15,6 +15,7 @@ const DEFAULT_RULES = [
 module.exports = [
   {
     entry: {
+      editor: `${COMPONENTS}/Editor/index`,
       layout: `${COMPONENTS}/Layout/layout`
     },
     output: {
