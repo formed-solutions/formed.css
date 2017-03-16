@@ -9,7 +9,6 @@
 @import "../../_mixins/borders";
 @import "../../_mixins/transitions";
 @import "../../_functions/rem";
-@import "node_modules/underscore.css.scss/scss/mixins/placeholder";
 
 // Main container component
 // ----------------------------------------------------------------------------
@@ -90,7 +89,7 @@
 
   will-change: transform;
 
-  @include _placeholder {
+  &::placeholder {
     opacity: 0.54;
 
     font-weight: 200;
