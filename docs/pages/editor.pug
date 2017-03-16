@@ -12,34 +12,77 @@ block main
   div(class="mvl phl flex flex-center")
     div.Editor
       input(
+        autofocus="true"
         class="Editor-control"
         id="input-1"
         type="text")
       label(class="Editor-label" for="input-1")
-        | Name
+        | Text
 
     div.Editor.mll
       input(
         class="Editor-control"
-        id="input-1"
-        type="text"
-        value="christopher")
-      label(class="Editor-label" for="input-1")
-        | Name
+        id="input-2"
+        pattern="-?[0-9]*(\.[0-9]+)?"
+        type="text")
+      label(class="Editor-label" for="input-2")
+        | Number
+      div.Editor-feedback
+        | Value needs to be a number.
 
   pre.language-markup
     code
       |&lt;!-- Default editor -->
       |&lt;div class="Editor">
-      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;label class="Editor-label" for="input-1">Text&lt;/label>
       |  &lt;input class="Editor-control" id="input-1" type="text">
       |&lt;/div>
       |&#13;
 
-      |&lt;!-- Dirty editor -->
-      |&lt;div class="Editor is-dirty">
-      |  &lt;label class="Editor-label" for="input-1">Name</label>
-      |  &lt;input class="Editor-control" id="input-1" type="text">
+      |&lt;!-- Default editor with validation feedback -->
+      |&lt;div class="Editor">
+      |  &lt;label class="Editor-label" pattern="-?[0-9]*(\.[0-9]+)?" for="input-2">Number&lt;/label>
+      |  &lt;input class="Editor-control" id="input-2" type="text">
+      |  &lt;div class="Editor-feedback">Value needs to be a number.&lt;/div>
+      |&lt;/div>
+      |&#13;
+
+  div(class="mvl phl flex flex-center")
+    div.Editor
+      input(
+        autofocus="true"
+        class="Editor-control"
+        id="input-3"
+        placeholder="Text"
+        type="text")
+      label(class="Editor-label" for="input-3")
+        | Text
+
+    div.Editor.mll
+      input(
+        class="Editor-control"
+        id="input-4"
+        pattern="-?[0-9]*(\.[0-9]+)?"
+        placeholder="Number"
+        type="text")
+      label(class="Editor-label" for="input-4")
+        | Number
+      div.Editor-feedback
+        | Value needs to be a number.
+
+  pre.language-markup
+    code
+      |&lt;!-- Editors with no label -->
+      |&lt;div class="Editor">
+      |  &lt;input class="Editor-control" id="input-3" type="text">
+      |  &lt;label class="Editor-label" for="input-3">Text&lt;/label>
+      |&lt;/div>
+      |&#13;
+
+      |&lt;div class="Editor">
+      |  &lt;input class="Editor-control" id="input-4" type="text">
+      |  &lt;label class="Editor-label" for="input-4">Number&lt;/label>
+      |  &lt;div class="Editor-feedback">Value needs to be a number.&lt;/div>
       |&lt;/div>
       |&#13;
 
@@ -47,9 +90,9 @@ block main
     div.Editor.has-icon.mll
       input(
         class="Editor-control"
-        id="input-1"
+        id="input-5"
         type="text")
-      label(class="Editor-label" for="input-1")
+      label(class="Editor-label" for="input-5")
         | Name
       div.Editor-icon
         +icon('icon-user')
@@ -57,10 +100,10 @@ block main
     div.Editor.has-icon.mll
       input(
         class="Editor-control"
-        id="input-1"
+        id="input-6"
         type="text"
         value="christopher")
-      label(class="Editor-label" for="input-1")
+      label(class="Editor-label" for="input-6")
         | Name
       div.Editor-icon
         +icon('icon-user')
@@ -69,11 +112,11 @@ block main
     code
       |&lt;!-- Editors with icons -->
       |&lt;div class="Editor has-icon">
-      |  &lt;input class="Editor-control" id="input-1" type="text">
-      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;input class="Editor-control" id="input-5" type="text">
+      |  &lt;label class="Editor-label" for="input-5">Name&lt;/label>
       |  &lt;div class="Editor-icon">
       |    &lt;svg class="Icon">
-      |      &lt;use xlink:href="#icon-user"></user>
+      |      &lt;use xlink:href="#icon-user">&lt;/user>
       |    &lt;/svg>
       |  &lt;/div>
       |&lt;/div>
@@ -81,115 +124,55 @@ block main
 
       |&lt;!-- Dirty editors with icons -->
       |&lt;div class="Editor has-icon">
-      |  &lt;input class="Editor-control" id="input-1" type="text">
-      |  &lt;label class="Editor-label" for="input-1">Name</label>
+      |  &lt;input class="Editor-control" id="input-6" type="text">
+      |  &lt;label class="Editor-label" for="input-6">Name&lt;/label>
       |  &lt;div class="Editor-icon">
       |    &lt;svg class="Icon">
-      |      &lt;use xlink:href="#icon-user"></user>
+      |      &lt;use xlink:href="#icon-user">&lt;/user>
       |    &lt;/svg>
       |  &lt;/div>
       |&lt;/div>
       |&#13;
 
   div(class="mvl phl flex flex-center")
-    div.Editor.is-disabled
+    div.Editor
       input(
         class="Editor-control"
         disabled
-        id="input-1"
+        id="input-7"
         type="text")
-      label(class="Editor-label" for="input-1")
+      label(class="Editor-label" for="input-7")
         | Name
 
-    div.Editor.is-disabled.is-dirty.mll
+    div.Editor.is-readonly.mll
       input(
         class="Editor-control"
-        disabled
-        id="input-1"
+        readonly
+        id="input-8"
         type="text"
         value="christopher")
-      label(class="Editor-label" for="input-1")
+      label(class="Editor-label" for="input-8")
         | Name
 
   pre.language-markup
     code
       |&lt;!-- Disabled editor -->
       |&lt;div class="Editor is-disabled">
-      |  &lt;label class="Editor-label" for="input-1">Name</label>
-      |  &lt;input class="Editor-control" id="input-1" type="text">
+      |  &lt;label class="Editor-label" for="input-7">Name&lt;/label>
+      |  &lt;input class="Editor-control" id="input-7" type="text">
       |&lt;/div>
       |&#13;
 
-      |&lt;!-- Disabled dirty editor -->
-      |&lt;div class="Editor is-disabled is-dirty">
-      |  &lt;label class="Editor-label" for="input-1">Name</label>
-      |  &lt;input class="Editor-control" id="input-1" type="text">
-      |&lt;/div>
-      |&#13;
-
-  div(class="mvl phl flex flex-center")
-    div.Editor.is-readonly.mll
-      input(
-        class="Editor-control"
-        readonly
-        id="input-1"
-        type="text"
-        value="christopher")
-      label(class="Editor-label" for="input-1")
-        | Name
-
-  pre.language-markup
-    code
       |&lt;!-- Disabled dirty editor -->
       |&lt;div class="Editor is-dirty is-readonly">
-      |  &lt;label class="Editor-label" for="input-1">Name</label>
-      |  &lt;input class="Editor-control" readonly id="input-1" type="text">
+      |  &lt;label class="Editor-label" for="input-8">Name&lt;/label>
+      |  &lt;input class="Editor-control" readonly id="input-8" type="text">
       |&lt;/div>
       |&#13;
 
 block scripts
   script.
-    [].forEach.call(document.querySelectorAll('.Editor-control'),
-      function(elem) {
-        if (elem.value) {
-          elem.parentNode
-            .classList
-            .add('is-dirty');
-        }
-
-        elem.addEventListener('focus', function(event) {
-          if (event) {
-            var target = event.currentTarget;
-
-            if (!target.hasAttribute('readonly')) {
-              target
-                .parentNode
-                .classList
-                .add('is-focused');
-            }
-          }
-        });
-
-        elem.addEventListener('blur', function(event) {
-          var target = event.currentTarget;
-
-          target
-            .parentNode
-            .classList
-            .remove('is-focused');
-
-          if (target.value) {
-            target
-              .parentNode
-              .classList
-              .add('is-dirty');
-          }
-          else {
-            target
-              .parentNode
-              .classList
-              .remove('is-dirty');
-          }
-        });
-      });
-
+    instances = [];
+    [].forEach.call(document.querySelectorAll('.Editor'), function (editor) {
+      instances.push(Object.create(formed.Editor).init(editor));
+    });
