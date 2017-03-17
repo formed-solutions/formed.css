@@ -32,8 +32,11 @@ module.exports = [
     entry: `${__dirname}/src/formed`,
     output: {
       path: join(__dirname, '.tmp', 'js'),
-      filename: 'formed.js'
+      filename: 'formed.js',
+      library: 'formed',
+      libraryTarget: 'umd'
     },
+    devtool: 'source-map',
     module: {
       rules: DEFAULT_RULES
     }

@@ -168,5 +168,5 @@ block main
 block scripts
   script.
     [].forEach.call(document.querySelectorAll('.Editor'), function (editor) {
-      Object.create(formed.Editor).init(editor);
+      Object.create(formed.default.Editor).init(editor);
     });
