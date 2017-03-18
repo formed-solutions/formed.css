@@ -2,7 +2,7 @@
  * Editor component
  */
 
-const Editor = (() => {
+const editor = (() => {
   const cssInterface = {
     CONTROL: 'Editor-control',
     LABEL: 'Editor-label',
@@ -29,31 +29,30 @@ const Editor = (() => {
   }
 
   function init(element) {
+    // Create a new object with api on __proto__.
+    const editor = Object.create(api);
+
     if (!!(element && element.nodeType !== 1)) {
       throw new TypeError('Element passed in is not a HTML node.');
     }
 
-    if (!api.isPrototypeOf(this)) {
-      return Object.create(api).init(element);
+    editor.editorEl = element;
+    editor.controlEl =
+      editor.editorEl.querySelector(`.${cssInterface.CONTROL}`);
+    editor.iconEl = editor.editorEl.querySelector(`.${cssInterface.ICON}`);
+    editor.labelEl = editor.editorEl.querySelector(`.${cssInterface.LABEL}`);
+
+    bindings.call(editor);
+    setContextClasses.call(editor);
+
+    editor.refreshState();
+
+    if (editor.controlEl.hasAttribute('autofocus')) {
+      editor.editorEl.focus();
+      checkFocusState.call(editor);
     }
 
-    this.editorEl = element;
-    this.controlEl =
-      this.editorEl.querySelector(`.${this.cssInterface.CONTROL}`);
-    this.iconEl = this.editorEl.querySelector(`.${this.cssInterface.ICON}`);
-    this.labelEl = this.editorEl.querySelector(`.${this.cssInterface.LABEL}`);
-
-    bindings.call(this);
-    setContextClasses.call(this);
-
-    this.refreshState();
-
-    if (this.controlEl.hasAttribute('autofocus')) {
-      this.editorEl.focus();
-      checkFocusState.call(this);
-    }
-
-    return this;
+    return editor;
   }
 
   function destroy() {
@@ -86,28 +85,28 @@ const Editor = (() => {
     const isDisabled = this.controlEl.hasAttribute('disabled');
     const method = isDisabled ? 'add' : 'remove';
 
-    this.editorEl.classList[method](this.cssInterface.IS_DISABLED);
+    this.editorEl.classList[method](cssInterface.IS_DISABLED);
   }
 
   function checkFocusState() {
     const isFocused = !!this.editorEl.querySelector(':focus');
     const method = isFocused ? 'add' : 'remove';
 
-    this.editorEl.classList[method](this.cssInterface.IS_FOCUSED);
+    this.editorEl.classList[method](cssInterface.IS_FOCUSED);
   }
 
   function checkDirtyState() {
     const isDirty = this.controlEl.value && this.controlEl.value.length > 0;
     const method = isDirty ? 'add' : 'remove';
 
-    this.editorEl.classList[method](this.cssInterface.IS_DIRTY);
+    this.editorEl.classList[method](cssInterface.IS_DIRTY);
   }
 
   function checkReadonlyState() {
     const isReadonly = this.controlEl.hasAttribute('readonly');
     const method = isReadonly ? 'add' : 'remove';
 
-    this.editorEl.classList[method](this.cssInterface.IS_READONLY);
+    this.editorEl.classList[method](cssInterface.IS_READONLY);
   }
 
   function checkValidState() {
@@ -115,14 +114,14 @@ const Editor = (() => {
       const isValid = this.controlEl.validity.valid;
       const method = isValid ? 'remove' : 'add';
 
-      this.editorEl.classList[method](this.cssInterface.IS_INVALID);
+      this.editorEl.classList[method](cssInterface.IS_INVALID);
     }
   }
 
   function setContextClasses() {
     if (this.controlEl) {
       if (this.controlEl.hasAttribute('placeholder')) {
-        this.editorEl.classList.add(this.cssInterface.HAS_PLACEHOLDER);
+        this.editorEl.classList.add(cssInterface.HAS_PLACEHOLDER);
       }
     }
   }
@@ -130,11 +129,11 @@ const Editor = (() => {
   // Handlers
 
   function blurHandler() {
-    this.editorEl.classList.remove(this.cssInterface.IS_FOCUSED);
+    this.editorEl.classList.remove(cssInterface.IS_FOCUSED);
   }
 
   function focusHandler() {
-    this.editorEl.classList.add(this.cssInterface.IS_FOCUSED);
+    this.editorEl.classList.add(cssInterface.IS_FOCUSED);
   }
 
   function inputHandler() {
@@ -148,13 +147,11 @@ const Editor = (() => {
   const api = {
     disable,
     enable,
-    init,
-    cssInterface,
     refreshState,
     destroy
   };
 
-  return api;
+  return init;
 })();
 
-export default Editor;
+export default editor;
