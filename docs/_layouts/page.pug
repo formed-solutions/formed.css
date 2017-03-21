@@ -1,5 +1,9 @@
 include ../_mixins/mixins
 
+- var IS_DEVELOPMENT = ENV === 'development'
+- var jsAsset = IS_DEVELOPMENT ? 'js/formed.js' : 'dist/js/formed.min.js'
+- var cssAsset = IS_DEVELOPMENT ? 'css/formed.css' : 'dist/css/formed.min.css'
+
 block settings
 
 doctype html
@@ -11,7 +15,7 @@ html
     meta(name="viewport"
          content="width=device-width, initial-scale=1")
     meta(name="apple-mobile-web-app-capable" content="yes")
-    link(rel="stylesheet" href=urlPrefix + "css/formed.css")
+    link(rel="stylesheet" href=urlPrefix + cssAsset)
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css")
 
   body
@@ -26,7 +30,7 @@ html
 
     script(
       src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js")
-    script(src=urlPrefix + "js/formed.js")
+    script(src=urlPrefix + jsAsset)
     script.
       (function(window) {
         window.onload = function onload() {

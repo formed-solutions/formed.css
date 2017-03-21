@@ -6,12 +6,14 @@
 
 const gulp = require('gulp');
 const pug = require('gulp-pug');
+const ENV = process.env.NODE_ENV
 
 function pugDev() {
   const PUG_OPTS = {
     pretty: true,
     locals: {
-      urlPrefix: '/'
+      urlPrefix: '/',
+      ENV
     }
   };
 
@@ -27,7 +29,8 @@ function pugDev() {
 function pugDist() {
   const PUG_OPTS = {
     locals: {
-      urlPrefix: '/docs/'
+      urlPrefix: '',
+      ENV
     }
   };
 
