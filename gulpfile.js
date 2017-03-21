@@ -23,4 +23,4 @@ gulp.task('serve', ['bundle', 'sass:dev', 'pug:dev'], () => {
   gulp.watch(['docs/**/*.pug'], ['pug:dev', reload]);
 });
 
-gulp.task('build', ['sass:dist']);
+gulp.task('build', ['sass:dist', 'bundle']);

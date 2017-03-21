@@ -5,12 +5,15 @@
 
 'use strict';
 
-const webpack       = require('webpack');
-const webpackConfig = require('../webpack.config.js');
-const bs            = require('browser-sync');
-const reload        = bs.reload;
-const gutil         = require('gulp-util');
-const DEVELOPMENT   = process.env.NODE_ENV === 'development';
+const webpack = require('webpack');
+const webpackDev = require('../webpack.config.js');
+const webpackProd = require('../webpack.config.prod.js');
+const bs = require('browser-sync');
+const reload = bs.reload;
+const gutil = require('gulp-util');
+
+const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
+const webpackConfig = IS_DEVELOPMENT ? webpackDev : webpackProd;
 
 module.exports = (cb) => {
   let started = false;
@@ -21,7 +24,8 @@ module.exports = (cb) => {
 
     gutil.log('[webpack]', stats.toString({ colors: true }));
 
-    DEVELOPMENT && reload(webpackConfig.map(config => config.output.filename));
+    IS_DEVELOPMENT &&
+      reload(webpackConfig.map(config => config.output.filename));
 
     if (!started) {
       started = true;
@@ -29,5 +33,5 @@ module.exports = (cb) => {
     }
   }
 
-  DEVELOPMENT ? bundler.watch(200, bundle) : bundler.run(bundle);
+  IS_DEVELOPMENT ? bundler.watch(200, bundle) : bundler.run(bundle);
 };
