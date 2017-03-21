@@ -17,9 +17,14 @@ gulp.task('pug:dist', require('./tasks/pug').dist);
 gulp.task('bundle', require('./tasks/bundler'));
 
 gulp.task('build', [`sass:${TASK_ENV}`, 'bundle', `pug:${TASK_ENV}`], () => {
-  if (IS_DEVELOPMENT) {
-    gulp.src('dist/**/*')
-      .pipe(gulp.dest('docs/dist'));
+  if (!IS_DEVELOPMENT) {
+    gulp.src([
+      'dist/js/formed.min.js',
+      'dist/js/formed.min.js.map'])
+      .pipe(gulp.dest('docs/dist/js'));
+
+    gulp.src('dist/css/*')
+      .pipe(gulp.dest('docs/dist/css'));
   }
 });
 
