@@ -24,4 +24,23 @@ function pugDev() {
     .pipe(gulp.dest('.tmp'));
 }
 
-module.exports = pugDev;
+function pugDist() {
+  const PUG_OPTS = {
+    locals: {
+      urlPrefix: '/docs/'
+    }
+  };
+
+  return gulp.src('./docs/pages/*.pug')
+    .pipe(pug(PUG_OPTS))
+    .on('error', function __error__(error) {
+      console.error('pug error: ', error);
+      this.emit('end');
+    })
+    .pipe(gulp.dest('docs'));
+}
+
+module.exports = {
+  dev: pugDev,
+  dist: pugDist
+}
