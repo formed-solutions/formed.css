@@ -1,8 +1,11 @@
 'use strict';
 
-const gulp        = require('gulp');
+const gulp = require('gulp');
 const browserSync = require('browser-sync');
-const reload      = browserSync.reload;
+const reload = browserSync.reload;
+
+const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
+const TASK_ENV = IS_DEVELOPMENT ? 'dev' : 'dist';
 
 gulp.task('sass:dev', require('./tasks/sass').dev);
 gulp.task('sass:dist', require('./tasks/sass').dist);
@@ -13,7 +16,14 @@ gulp.task('pug:dist', require('./tasks/pug').dist);
 // Will handle which ENV in the bundler.
 gulp.task('bundle', require('./tasks/bundler'));
 
-gulp.task('serve', ['bundle', 'sass:dev', 'pug:dev'], () => {
+gulp.task('build', [`sass:${TASK_ENV}`, 'bundle', `pug:${TASK_ENV}`], () => {
+  if (IS_DEVELOPMENT) {
+    gulp.src('dist/**/*')
+      .pipe(gulp.dest('docs/dist'));
+  }
+});
+
+gulp.task('serve', ['build'], () => {
   browserSync.init({
     browser: 'google chrome',
     server: {
@@ -23,9 +33,4 @@ gulp.task('serve', ['bundle', 'sass:dev', 'pug:dev'], () => {
 
   gulp.watch(['src/**/*.scss'], ['sass:dev'])
   gulp.watch(['docs/**/*.pug'], ['pug:dev', reload]);
-});
-
-gulp.task('build', ['sass:dist', 'bundle', 'pug:dist'], () => {
-  gulp.src('dist/**/*')
-    .pipe(gulp.dest('docs/dist'));
 });
