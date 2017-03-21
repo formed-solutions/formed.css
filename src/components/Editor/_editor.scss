@@ -97,13 +97,11 @@
   }
 
   // State
-  &:focus {
-    outline: none;
-  }
 
   &:focus,
   .Editor.is-focused & {
     color: $editor-color-focus;
+    outline: none;
   }
 
   .Editor.is-disabled & {
