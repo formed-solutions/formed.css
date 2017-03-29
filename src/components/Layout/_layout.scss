@@ -215,7 +215,6 @@ $z-drawer: $zindex-drawer;
 
 .Layout-drawer {
   @include transition-default(transform);
-  @include shadow-level(1);
 
   backface-visibility: hidden;
   display: flex;
@@ -228,7 +227,7 @@ $z-drawer: $zindex-drawer;
   transform: translateX($layout-drawer-translateX);
   z-index: $z-drawer;
 
-  border-right: 1px solid $layout-drawer-border-color;
+  border-right: 1px solid transparent;
   height: 100%;
   min-height: 100%;
   width: rem($layout-drawer-width);
@@ -239,13 +238,21 @@ $z-drawer: $zindex-drawer;
   -webkit-overflow-scrolling: touch;
 
   &.is-active {
+    @include shadow-level(1);
+
     transform: translateX(0);
+
+    border-color: $layout-drawer-border-color;
   }
 
   // Modifiers
   .Layout--drawerFixed > & {
     @include breakpoint-media-min('md') {
+      @include shadow-level(1);
+
       transform: translateX(0);
+
+      border-color: $layout-drawer-border-color;
     }
 
     top: 0;
