@@ -67,7 +67,7 @@ $z-drawer: $zindex-drawer;
 
   // Modifier: fixed drawer.
 
-  .Layout--drawerFixed & {
+  .Layout--drawerFixed > & {
     @include breakpoint-media-min('md') {
       transform: translateX($layout-left-offset);
 
@@ -224,7 +224,7 @@ $z-drawer: $zindex-drawer;
   left: 0;
   overflow: visible;
   overflow-y: auto;
-  position: fixed;
+  position: absolute;
   transform: translateX($layout-drawer-translateX);
   z-index: $z-drawer;
 
@@ -243,7 +243,7 @@ $z-drawer: $zindex-drawer;
   }
 
   // Modifiers
-  .Layout--drawerFixed & {
+  .Layout--drawerFixed > & {
     @include breakpoint-media-min('md') {
       transform: translateX(0);
     }

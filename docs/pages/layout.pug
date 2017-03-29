@@ -1,0 +1,68 @@
+extends ../_layouts/page
+
+block settings
+   - var page = 'components'
+
+block main
+  div.Layout-container.mvl
+    h1 Layout
+    p Construct the page layout for application.
+
+  div.Layout-container.mvl
+    h2 Default layout
+
+    div.layout-relative.shadow-1(style="height: 300px")
+      div.Layout.js-layout
+        include ../_includes/drawer
+        include ../_includes/header
+        div.Layout-main
+
+  pre.language-markup
+    code
+      :markdown
+        <div class="Layout js-layout">
+          <div class="Layout-drawer">...</div>
+          <div class="Layout-header background-primary">...</div>
+          <div class="Layout-main">...</div>
+        </div>
+
+  div.Layout-container.mvl
+    h2 Drawer fixed
+
+    div.layout-relative.shadow-1(style="height: 300px")
+      div.Layout.Layout--drawerFixed.js-layout
+        include ../_includes/drawer
+        include ../_includes/header
+        div.Layout-main
+
+  pre.language-markup
+    code
+      :markdown
+        <div class="Layout Layout--drawerFixed js-layout">
+          <div class="Layout-drawer">...</div>
+          <div class="Layout-header background-primary">...</div>
+          <div class="Layout-main">...</div>
+
+  div.Layout-container.mvl
+    h2 Scrollable layout
+
+    div.layout-relative.shadow-1(style="height: 300px")
+      div.Layout.Layout--scroll.js-layout
+        div.Layout-header.background-primary
+        div.Layout-main(style="min-height: 500px")
+
+  pre.language-markup.pbl
+    code
+      :markdown
+        <div class="Layout Layout--scroll js-layout">
+          <div class="Layout-header background-primary">...</div>
+          <div class="Layout-main">...</div>
+
+block scripts
+  script.
+    window.onload = function onload() {
+      [].forEach
+        .call(document.querySelectorAll('.js-layout'), function (layout) {
+          var l1 = new formed.default.Layout(layout);
+        });
+    };
