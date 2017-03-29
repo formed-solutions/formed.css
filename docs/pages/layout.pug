@@ -60,9 +60,10 @@ block main
 
 block scripts
   script.
-    window.onload = function onload() {
+    (function() {
+      layouts = [];
       [].forEach
         .call(document.querySelectorAll('.js-layout'), function (layout) {
-          var l1 = new formed.default.Layout(layout);
+          layouts.push(formed.default.layout(layout));
         });
-    };
+    })();

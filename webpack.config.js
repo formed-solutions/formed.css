@@ -16,7 +16,7 @@ module.exports = [
   {
     entry: {
       editor: `${COMPONENTS}/Editor/index`,
-      layout: `${COMPONENTS}/Layout/layout`
+      layout: `${COMPONENTS}/Layout/index`
     },
     output: {
       path: join(__dirname, '.tmp', 'js'),
