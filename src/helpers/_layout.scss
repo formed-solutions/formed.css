@@ -64,6 +64,10 @@
 .layout-pull { float: left !important; }
 .layout-push { float: right !important; }
 
+.layout-relative {
+  position: relative !important;
+}
+
 // Overflow: clip content
 // Render a new block formatting context.  Will prevent wrapping under
 // floated nodes.  Can contain floats and prevent overlapping of succeeding
