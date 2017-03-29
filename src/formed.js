@@ -1,5 +1,5 @@
-import editor from './components/Editor';
-import layout from './components/Layout/index';
+import editor from './components/editor';
+import layout from './components/layout';
 
 export default {
   editor,

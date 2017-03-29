@@ -15,8 +15,8 @@ const DEFAULT_RULES = [
 module.exports = [
   {
     entry: {
-      editor: `${COMPONENTS}/Editor/index`,
-      layout: `${COMPONENTS}/Layout/index`
+      editor: `${COMPONENTS}/editor/index`,
+      layout: `${COMPONENTS}/layout/index`
     },
     output: {
       path: join(__dirname, '.tmp', 'js'),
