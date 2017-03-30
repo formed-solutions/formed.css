@@ -48,7 +48,7 @@ function devBundle() {
   return gulp.src(INPUT_PATH)
     .pipe(sourcemaps.init())
     .pipe(sass(SASS_OPTIONS))
-    .on('error', onSassError.bind(this))
+    .on('error', onSassError)
     .pipe(postcss([
       require('autoprefixer')({
         browsers: AUTOPREFIXER_BROWSERS
@@ -65,7 +65,7 @@ function distBundle() {
   return gulp.src(INPUT_PATH)
     .pipe(sourcemaps.init())
     .pipe(sass(SASS_OPTIONS))
-    .on('error', onSassError.bind(this))
+    .on('error', onSassError)
     .pipe(postcss([
       require('autoprefixer')({
         browsers: AUTOPREFIXER_BROWSERS
