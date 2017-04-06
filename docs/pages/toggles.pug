@@ -73,8 +73,7 @@ block main
 
 block scripts
   script.
-    var checkboxes = [];
     [].forEach.call(document.querySelectorAll('.js-checkbox'),
       function (checkbox) {
-        checkboxes.push(formed.default.checkbox(checkbox));
+        formed.default.checkbox(checkbox);
       });
