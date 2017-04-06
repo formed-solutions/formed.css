@@ -1,0 +1,80 @@
+extends ../_layouts/page
+
+block settings
+   - var page = 'components'
+
+block main
+  div.Layout-container.mvl
+    h1 Toggles
+    p Custom Formed checkboxes and radio buttons.
+
+  div.Layout-container.mvl
+    h2 Checkbox
+
+    div.flex.flex-center
+      div
+        label(class="Checkbox js-checkbox" for="checkbox1")
+          input(class="Checkbox-control"
+            checked
+            id="checkbox1"
+            type="checkbox")
+          span.Checkbox-label checkbox
+
+      div.mll
+        label(class="Checkbox js-checkbox" for="checkbox2")
+          input(class="Checkbox-control" id="checkbox2" type="checkbox")
+          span.Checkbox-label checkbox
+
+  div.Layout-container.mvl
+    div.flex.flex-center
+      div
+        label(class="Checkbox has-mask js-checkbox" for="checkbox3")
+          input(class="Checkbox-control"
+            checked
+            disabled
+            id="checkbox3"
+            type="checkbox")
+          span.Checkbox-label checkbox
+
+      div.mll
+        label(class="Checkbox has-mask js-checkbox" for="checkbox3")
+          input(class="Checkbox-control"
+            disabled
+            id="checkbox3"
+            type="checkbox")
+          span.Checkbox-label checkbox
+
+  pre.language-markup
+    code
+      :markdown
+        <!-- checked checkbox -->
+        <label class="Checkbox js-checkbox" for="checkbox1">
+          <input class="Checkbox-control" checked id="checkbox1" type="checkbox" />
+          <span class="Checkbox-label">checkbox</span>
+        </label>
+
+        <!-- unchecked checkbox -->
+        <label class="Checkbox js-checkbox" for="checkbox2">
+          <input class="Checkbox-control" id="checkbox2" type="checkbox" />
+          <span class="Checkbox-label">checkbox</span>
+        </label>
+
+        <!-- disabled checked checkbox -->
+        <label class="Checkbox js-checkbox" for="checkbox2">
+          <input class="Checkbox-control" disabled checked id="checkbox2" type="checkbox" />
+          <span class="Checkbox-label">checkbox</span>
+        </label>
+
+        <!-- disabled checkbox -->
+        <label class="Checkbox js-checkbox" for="checkbox2">
+          <input class="Checkbox-control" disabled id="checkbox2" type="checkbox" />
+          <span class="Checkbox-label">checkbox</span>
+        </label>
+
+block scripts
+  script.
+    var checkboxes = [];
+    [].forEach.call(document.querySelectorAll('.js-checkbox'),
+      function (checkbox) {
+        checkboxes.push(formed.default.checkbox(checkbox));
+      });

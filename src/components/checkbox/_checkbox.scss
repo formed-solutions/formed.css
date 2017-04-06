@@ -1,0 +1,154 @@
+// Checkbox component
+// Custom checkbox inputs.
+
+// Dependencies
+@import "../../config";
+@import "../../_functions/rem";
+@import "../../_mixins/borders";
+@import "../../_mixins/hover";
+@import "../../_mixins/shadow-level";
+@import "../../_mixins/transitions";
+
+// Main component
+// ----------------------------------------------------------------------------
+
+.Checkbox {
+  position: relative;
+  z-index: 1;
+
+  align-items: center;
+  display: flex;
+
+  box-sizing: border-box;
+  height: $checkbox-size;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  vertical-align: middle;
+
+  cursor: pointer;
+
+  &.is-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+// Checkbox control
+// ----------------------------------------------------------------------------
+
+// Child: the actual input.
+
+.Checkbox-control {
+  .Checkbox.is-custom > & {
+    position: absolute;
+    opacity: 0;
+
+    border: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    width: 0;
+
+    appearance: none;
+  }
+}
+
+// Checkbox box
+// ----------------------------------------------------------------------------
+
+// Child: the custom checkbox.
+
+.Checkbox-box {
+  $check: url("data:image/svg+xml,#{unquote($checkbox-check)}");
+  $check-size: 16px;
+  @include border-radius($border-radius-medium);
+  @include transition-default(border-color);
+
+  display: block;
+  overflow: hidden;
+  position: relative;
+
+  height: $checkbox-size;
+  margin: 0;
+  width: $checkbox-size;
+
+  border: 2px solid $checkbox-color;
+
+  cursor: pointer;
+
+  &:after {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: $check-size $check-size;
+
+    content: "";
+  }
+
+  .Checkbox.is-focused & {
+    @include shadow-level(1);
+
+    border-color: $checkbox-color-focus;
+  }
+
+  .Checkbox.is-checked &,
+  .Checkbox.is-checked.is-focus & {
+    border-color: $checkbox-color;
+
+    background-color: $checkbox-color;
+    box-shadow: none;
+
+    &:after {
+      background-image: $check;
+    }
+  }
+
+  .Checkbox.is-disabled & {
+    border-color: $checkbox-color-disabled-light;
+  }
+
+  .Checkbox.is-disabled.is-checked & {
+    background-color: $checkbox-color-disabled-light;
+
+    &:after {
+      background-image: $check;
+    }
+  }
+
+  // .Checkbox.has-mask.is-disabled & {
+  //   &:after {
+  //     background-color: $checkbox-color-disabled-dark;
+  //     mask: $check no-repeat 50% 50% / #{$check-size} #{$check-size};
+  //   }
+  // }
+}
+
+// Checkbox label
+// ----------------------------------------------------------------------------
+
+// Child: label text for associated checbox.
+
+.Checkbox-label {
+  margin-left: $spacing-small;
+
+  font-size: $checkbox-label-font-size;
+  line-height: normal;
+
+  .Checkbox &:first-child,
+  .Checkbox &:not(:last-child) {
+    margin-right: $spacing-small;
+  }
+
+  .Checkbox.is-disabled & {
+    color: $checkbox-color-disabled-light;
+  }
+}

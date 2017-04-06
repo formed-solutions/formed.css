@@ -15,6 +15,7 @@ const DEFAULT_RULES = [
 module.exports = [
   {
     entry: {
+      checkbox: `${COMPONENTS}/checkbox`,
       editor: `${COMPONENTS}/editor/index`,
       layout: `${COMPONENTS}/layout/index`
     },

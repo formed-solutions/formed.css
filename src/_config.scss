@@ -211,6 +211,17 @@ $card-text-color:  #000 !default;
 $card-border-color: rgba(0,0,0,0.1) !default;
 $card-subtitle-color: rgba-tpl(#000, 0.54) !default;
 
+// Checkbox
+
+$checkbox-color: #333 !default;
+$checkbox-color-hover: #808080 !default;
+$checkbox-color-focus: #666 !default;
+$checkbox-color-disabled-dark: #c4c4c4 !default;
+$checkbox-color-disabled-light: #e5e5e5 !default;
+$checkbox-size: 24px !default;
+$checkbox-label-font-size: $font-size-base !default;
+$checkbox-check: "%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2221%22%20height%3D%2216%22%20viewBox%3D%220%200%2021%2016%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M21.333%203.636l-3.944-3.636-9.447%208.722-4-3.691-3.943%203.641%207.937%207.329%200.005-0.010%200.012%200.010z%22%3E%3C/path%3E%0A%3C/svg%3E" !default;
+
 // Editor
 $editor-vertical-spacing:  $spacing-base !default;
 $editor-font-size:         $font-size-base !default;
