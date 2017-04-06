@@ -16,8 +16,9 @@ const DEFAULT_RULES = [
 module.exports = [
   {
     entry: {
-      editor: `${COMPONENTS}/editor/index`,
-      layout: `${COMPONENTS}/layout/layout`
+      checkbox: `${COMPONENTS}/checkbox`,
+      editor: `${COMPONENTS}/editor`,
+      layout: `${COMPONENTS}/layout`
     },
     output: {
       path: join(__dirname, 'dist', 'js'),

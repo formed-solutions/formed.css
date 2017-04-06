@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */
+/******/ ({
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -77,160 +77,14 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 /**
- * Layout.js
+ * Create a Formed layout.
  */
 
 var layout = function () {
   'use strict';
 
-  var KEYCODES = {
-    ENTER: 13,
-    ESCAPE: 27,
-    SPACE: 32
-  };
-
-  var Layout = function () {
-    function Layout(element) {
-      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      _classCallCheck(this, Layout);
-
-      if (!!(element && element.nodeType !== 1)) {
-        throw new TypeError('Element passed in is not a HTML node.');
-      }
-
-      this._element = element;
-      this.config = Object.assign({}, this.defaults, options);
-
-      this.init();
-    }
-
-    _createClass(Layout, [{
-      key: 'init',
-      value: function init() {
-        this.wrapLayout();
-        cacheChildren.call(this);
-
-        if (this._drawer) {
-          drawerSetup.call(this);
-        }
-
-        this.breakpoint = window.matchMedia(this.config.breakpoint);
-
-        this.screenSizeHandler();
-
-        this.bindings();
-      }
-    }, {
-      key: 'bindings',
-      value: function bindings() {
-        if (this._drawer) {
-          this._drawerBtn.addEventListener('click', this.drawerToggleHandler.bind(this));
-
-          this._drawerBtn.addEventListener('keydown', this.drawerToggleHandler.bind(this));
-
-          this._drawer.addEventListener('keydown', this.keyboardHandler.bind(this));
-
-          this._mask.addEventListener('click', this.drawerToggleHandler.bind(this));
-        }
-
-        this.breakpoint.addListener(this.screenSizeHandler.bind(this));
-
-        return this;
-      }
-    }, {
-      key: 'drawerToggleHandler',
-      value: function drawerToggleHandler(evt) {
-        var SPACE = KEYCODES.SPACE,
-            ENTER = KEYCODES.ENTER;
-
-
-        if (evt && evt.type === 'keydown') {
-          if (evt.keyCode === SPACE || evt.keyCode === ENTER) {
-            evt.preventDefault();
-          } else {
-            return;
-          }
-        }
-
-        this.toggleDrawer();
-      }
-    }, {
-      key: 'hasActiveDrawer',
-      value: function hasActiveDrawer() {
-        return this._drawer && this._drawer.classList.contains(this.config.isDrawerActiveClass);
-      }
-    }, {
-      key: 'hasDrawerFixed',
-      value: function hasDrawerFixed() {
-        return this._drawer && this._element.classList.contains('Layout--drawerFixed');
-      }
-    }, {
-      key: 'keyboardHandler',
-      value: function keyboardHandler(evt) {
-        if (evt.keyCode === KEYCODES.ESCAPE && this.hasActiveDrawer()) {
-          this.toggleDrawer();
-        }
-      }
-    }, {
-      key: 'screenSizeHandler',
-      value: function screenSizeHandler() {
-        if (this.breakpoint.matches && this._drawer) {
-          this._drawer.setAttribute('aria-hidden', (!this.hasDrawerFixed()).toString());
-          this._drawerBtn.setAttribute('aria-expanded', 'false');
-
-          this._drawer.classList.remove(this.config.isDrawerActiveClass);
-          this._mask.classList.remove(this.config.isDrawerActiveClass);
-        } else if (this.hasDrawerFixed()) {
-          this._drawer.setAttribute('aria-hidden', 'true');
-        }
-      }
-    }, {
-      key: 'toggleDrawer',
-      value: function toggleDrawer() {
-        this._drawer.classList.toggle(this.config.isDrawerActiveClass);
-        this._mask.classList.toggle(this.config.isDrawerActiveClass);
-
-        // Set aria attributes
-        if (this.hasActiveDrawer()) {
-          this._drawer.setAttribute('aria-hidden', 'false');
-          this._drawerBtn.setAttribute('aria-expanded', 'true');
-        } else {
-          this._drawer.setAttribute('aria-hidden', 'true');
-          this._drawerBtn.setAttribute('aria-expanded', 'false');
-        }
-      }
-    }, {
-      key: 'wrapLayout',
-      value: function wrapLayout() {
-        var container = document.createElement('div');
-        container.classList.add('layout-absoluteViewport');
-
-        // Capter any focused element.
-        var focusedElement = document.querySelector(':focus');
-
-        this._element.parentNode.insertBefore(container, this._element);
-        this._element.parentNode.removeChild(this._element);
-        container.appendChild(this._element);
-
-        if (focusedElement) {
-          focusedElement.focus();
-        }
-
-        return this;
-      }
-    }]);
-
-    return Layout;
-  }();
-
-  Layout.prototype.defaults = {
+  var cssInterface = {
     headerClass: 'Layout-header',
     drawerClass: 'Layout-drawer',
     drawerBtnClass: 'Layout-header-menu',
@@ -240,25 +94,148 @@ var layout = function () {
     breakpoint: '(min-width: 992px)'
   };
 
-  function cacheChildren() {
-    var config = this.config;
+  var KEYCODES = {
+    ENTER: 13,
+    ESCAPE: 27,
+    SPACE: 32
+  };
 
-    var directChildren = this._element.childNodes;
+  function hasActiveDrawer() {
+    return this.drawer && this.drawer.classList.contains(cssInterface.isDrawerActiveClass);
+  }
+
+  function hasDrawerFixed() {
+    return this.drawer && this.element.classList.contains('Layout--drawerFixed');
+  }
+
+  function toggleDrawer() {
+    this.drawer.classList.toggle(cssInterface.isDrawerActiveClass);
+    this.mask.classList.toggle(cssInterface.isDrawerActiveClass);
+
+    // Set aria attributes
+    if (this.hasActiveDrawer()) {
+      this.drawer.setAttribute('aria-hidden', 'false');
+      this.drawerBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      this.drawer.setAttribute('aria-hidden', 'true');
+      this.drawerBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  // Create a new layout, returning new object with the api attached to its
+  // proto.
+
+  function create(element) {
+    var layout = Object.create(api);
+
+    layout.element = element;
+
+    wrapLayout.call(layout);
+    cacheChildren.call(layout);
+
+    if (layout.drawer) {
+      drawerSetup.call(layout);
+    }
+
+    layout.breakpoint = window.matchMedia(cssInterface.breakpoint);
+
+    screenSizeHandler.call(layout);
+    bindings.call(layout);
+
+    return layout;
+  }
+
+  // Private functions
+
+  // Handlers
+
+  function drawerToggleHandler(evt) {
+    var SPACE = KEYCODES.SPACE,
+        ENTER = KEYCODES.ENTER;
+
+
+    if (evt && evt.type === 'keydown') {
+      if (evt.keyCode === SPACE || evt.keyCode === ENTER) {
+        evt.preventDefault();
+      } else {
+        return;
+      }
+    }
+
+    this.toggleDrawer();
+  }
+
+  function keyboardHandler(evt) {
+    if (evt.keyCode === KEYCODES.ESCAPE && this.hasActiveDrawer()) {
+      this.toggleDrawer();
+    }
+  }
+
+  function screenSizeHandler() {
+    if (this.breakpoint.matches && this.drawer) {
+      this.drawer.setAttribute('aria-hidden', (!this.hasDrawerFixed()).toString());
+      this.drawerBtn.setAttribute('aria-expanded', 'false');
+
+      this.drawer.classList.remove(cssInterface.isDrawerActiveClass);
+      this.mask.classList.remove(cssInterface.isDrawerActiveClass);
+    } else if (this.hasDrawerFixed()) {
+      this.drawer.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  // Helpers
+
+  function bindings() {
+    if (this.drawer) {
+      this.drawerBtn.addEventListener('click', drawerToggleHandler.bind(this));
+
+      this.drawerBtn.addEventListener('keydown', drawerToggleHandler.bind(this));
+
+      this.drawer.addEventListener('keydown', keyboardHandler.bind(this));
+
+      this.mask.addEventListener('click', drawerToggleHandler.bind(this));
+    }
+
+    this.breakpoint.addListener(screenSizeHandler.bind(this));
+
+    return this;
+  }
+
+  function wrapLayout() {
+    var container = document.createElement('div');
+    container.classList.add('layout-absoluteViewport');
+
+    // Capter any focused element.
+    var focusedElement = document.querySelector(':focus');
+
+    this.element.parentNode.insertBefore(container, this.element);
+    this.element.parentNode.removeChild(this.element);
+    container.appendChild(this.element);
+
+    if (focusedElement) {
+      focusedElement.focus();
+    }
+
+    return this;
+  }
+
+  function cacheChildren() {
+    var directChildren = this.element.childNodes;
     var numChildren = directChildren.length;
 
     for (var i = 0; i < numChildren; i++) {
       var child = directChildren[i];
 
-      if (child.classList && child.classList.contains(config.headerClass)) {
-        this._header = child;
+      if (child.classList && child.classList.contains(cssInterface.headerClass)) {
+        this.header = child;
       }
 
-      if (child.classList && child.classList.contains(config.drawerClass)) {
-        this._drawer = child;
+      if (child.classList && child.classList.contains(cssInterface.drawerClass)) {
+        this.drawer = child;
       }
 
-      if (child.classList && child.classList.contains(config.mainClass)) {
-        this._main = child;
+      if (child.classList && child.classList.contains(cssInterface.mainClass)) {
+        this.main = child;
       }
     }
 
@@ -266,17 +243,17 @@ var layout = function () {
   }
 
   function drawerSetup() {
-    this._drawerBtn = this._element.querySelector('.' + this.config.drawerBtnClass);
+    this.drawerBtn = this.element.querySelector('.' + cssInterface.drawerBtnClass);
 
     // Ensure proper attributes are set.
-    this._drawer.setAttribute('aria-hidden', 'true');
-    this._drawerBtn.setAttribute('aria-expanded', 'false');
-    this._drawerBtn.setAttribute('tabindex', '0');
-    this._drawerBtn.setAttribute('type', 'button');
+    this.drawer.setAttribute('aria-hidden', 'true');
+    this.drawerBtn.setAttribute('aria-expanded', 'false');
+    this.drawerBtn.setAttribute('tabindex', '0');
+    this.drawerBtn.setAttribute('type', 'button');
 
     // If not button add proper aria attr.
-    if (this._drawerBtn.tagName.toLowerCase() !== 'button') {
-      this._drawerBtn.setAttribute('role', 'button');
+    if (this.drawerBtn.tagName.toLowerCase() !== 'button') {
+      this.drawerBtn.setAttribute('role', 'button');
     }
 
     createLayoutMask.call(this);
@@ -285,19 +262,26 @@ var layout = function () {
   }
 
   function createLayoutMask() {
-    this._mask = document.createElement('div');
-    this._mask.classList.add(this.config.maskClass);
+    this.mask = document.createElement('div');
+    this.mask.classList.add(cssInterface.maskClass);
 
-    this._element.appendChild(this._mask);
+    this.element.appendChild(this.mask);
 
     return this;
   }
 
-  return Layout;
+  var api = {
+    hasActiveDrawer: hasActiveDrawer,
+    hasDrawerFixed: hasDrawerFixed,
+    toggleDrawer: toggleDrawer
+  };
+
+  return create;
 }();
 
 exports.default = layout;
 
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=layout.js.map

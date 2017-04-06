@@ -16,8 +16,8 @@ module.exports = [
   {
     entry: {
       checkbox: `${COMPONENTS}/checkbox`,
-      editor: `${COMPONENTS}/editor/index`,
-      layout: `${COMPONENTS}/layout/index`
+      editor: `${COMPONENTS}/editor`,
+      layout: `${COMPONENTS}/layout`
     },
     output: {
       path: join(__dirname, '.tmp', 'js'),

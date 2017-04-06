@@ -52,6 +52,7 @@
 </svg>
 <div class="Layout Layout--drawerFixed"><div class="Layout-drawer"><h1 class="Layout-title phl">Formed.css</h1><ul class="listNoStyle"><li><a class="display-block pvm phl" href="base.html">Base styles</a></li><li><a class="display-block pvm phl" href="card.html">Components</a></li></ul></div><header class="Layout-header background-primary"><div class="Layout-header-inner"><button class="Layout-header-menu" type="button"><svg class="Icon Icon--lg text-baseline"><use xlink:href="#icon-menu"></use></svg></button><h1 class="Layout-title text-capitalize">Base style</h1></div></header><main class="Layout-main"><div class="Layout-container mtl"><section><h2>Sectioning Elements</h2><section><h3>Headings</h3><div><h1 class="mbm">Header 1<small>&nbsp;small text</small></h1><h2 class="mbm">Header 2<small>&nbsp;small text</small></h2><h3 class="mbm">Header 3<small>&nbsp;small text</small></h3><h4 class="mbm">Header 4<small>&nbsp;small text</small></h4><h5 class="mbm">Header 5</h5><h6 class="mbm">Header</h6></div></section></section></div></main></div><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script><script src="dist/js/formed.min.js"></script><script>(function(window) {
   window.onload = function onload() {
-    var layout = new formed.default.Layout(document.querySelector('.Layout'));
+    //- var layout = new formed.default.Layout(document.querySelector('.Layout'));
+    formed.default.layout(document.querySelector('.Layout'));
   };
 })(window);</script></body></html>

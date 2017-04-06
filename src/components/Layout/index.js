@@ -151,7 +151,6 @@ const layout = (() => {
   }
 
   function cacheChildren() {
-    const { config } = this;
     const directChildren = this.element.childNodes;
     const numChildren = directChildren.length;
 
