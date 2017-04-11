@@ -50,7 +50,7 @@
     </symbol>
   </defs>
 </svg>
-<div class="Layout Layout--drawerFixed"><div class="Layout-drawer"><h1 class="Layout-title phl">Formed.css</h1><ul class="listNoStyle"><li><a class="display-block pvm phl" href="base.html">Base styles</a></li><li><a class="display-block pvm phl" href="card.html">Components</a><ul class="list-noStyle"><li><a class="display-block pvs phl" href="layout.html">Layout</a></li><li><a class="display-block pvs phl" href="card.html">Card</a></li><li><a class="display-block pvs phl" href="menu.html">Menu</a></li><li><a class="display-block pvs phl" href="editor.html">Editor</a></li><li><a class="display-block pvs phl" href="button.html">Button</a></li><li><a class="display-block pvs phl" href="dialog.html">Dialog</a></li><li><a class="display-block pvs phl" href="toggles.html">Toggle</a></li></ul></li></ul></div><header class="Layout-header background-primary"><div class="Layout-header-inner"><button class="Layout-header-menu" type="button"><svg class="Icon Icon--lg text-baseline"><use xlink:href="#icon-menu"></use></svg></button><h1 class="Layout-title text-capitalize">components</h1></div></header><main class="Layout-main"><div class="Layout-container mvl"><h1>Toggles</h1><p>Custom Formed checkboxes and radio buttons.</p></div><div class="Layout-container mvl"><h2>Checkbox</h2><div class="flex flex-center"><div><label class="Checkbox js-checkbox" for="checkbox1"><input class="Checkbox-control" checked id="checkbox1" type="checkbox"><span class="Checkbox-label">checkbox</span></label></div><div class="mll"><label class="Checkbox js-checkbox" for="checkbox2"><input class="Checkbox-control" id="checkbox2" type="checkbox"><span class="Checkbox-label">checkbox</span></label></div></div></div><div class="Layout-container mvl"><div class="flex flex-center"><div><label class="Checkbox has-mask js-checkbox" for="checkbox3"><input class="Checkbox-control" checked disabled id="checkbox3" type="checkbox"><span class="Checkbox-label">checkbox</span></label></div><div class="mll"><label class="Checkbox has-mask js-checkbox" for="checkbox3"><input class="Checkbox-control" disabled id="checkbox3" type="checkbox"><span class="Checkbox-label">checkbox</span></label></div></div></div><pre class="language-markup"><code><p>&lt;!-- checked checkbox --&gt;
+<div class="Layout Layout--drawerFixed"><div class="Layout-drawer"><h1 class="Layout-title phl">Formed.css</h1><ul class="listNoStyle"><li><a class="display-block pvm phl" href="base.html">Base styles</a></li><li><a class="display-block pvm phl" href="card.html">Components</a><ul class="list-noStyle"><li><a class="display-block pvs phl" href="layout.html">Layout</a></li><li><a class="display-block pvs phl" href="card.html">Card</a></li><li><a class="display-block pvs phl" href="menu.html">Menu</a></li><li><a class="display-block pvs phl" href="editor.html">Editor</a></li><li><a class="display-block pvs phl" href="button.html">Button</a></li><li><a class="display-block pvs phl" href="dialog.html">Dialog</a></li><li><a class="display-block pvs phl" href="toggles.html">Toggles</a></li></ul></li></ul></div><header class="Layout-header background-primary"><div class="Layout-header-inner"><button class="Layout-header-menu" type="button"><svg class="Icon Icon--lg text-baseline"><use xlink:href="#icon-menu"></use></svg></button><h1 class="Layout-title text-capitalize">components</h1></div></header><main class="Layout-main"><div class="Layout-container mvl"><h1>Toggles</h1><p>Custom Formed checkboxes and radio buttons.</p></div><div class="Layout-container mvl"><h2 id="checkbox">Checkbox</h2><div class="flex flex-center"><div><label class="Checkbox js-checkbox" for="checkbox1"><input class="Checkbox-control" checked id="checkbox1" type="checkbox"><span class="Checkbox-label">checkbox</span></label></div><div class="mll"><label class="Checkbox js-checkbox" for="checkbox2"><input class="Checkbox-control" id="checkbox2" type="checkbox"><span class="Checkbox-label">checkbox</span></label></div></div></div><div class="Layout-container mvl"><div class="flex flex-center"><div><label class="Checkbox has-mask js-checkbox" for="checkbox3"><input class="Checkbox-control" checked disabled id="checkbox3" type="checkbox"><span class="Checkbox-label">checkbox</span></label></div><div class="mll"><label class="Checkbox has-mask js-checkbox" for="checkbox4"><input class="Checkbox-control" disabled id="checkbox4" type="checkbox"><span class="Checkbox-label">checkbox</span></label></div></div></div><pre class="language-markup"><code><p>&lt;!-- checked checkbox --&gt;
 &lt;label class=&quot;Checkbox js-checkbox&quot; for=&quot;checkbox1&quot;&gt;
   &lt;input class=&quot;Checkbox-control&quot; checked id=&quot;checkbox1&quot; type=&quot;checkbox&quot; /&gt;
   &lt;span class=&quot;Checkbox-label&quot;&gt;checkbox&lt;/span&gt;
@@ -72,6 +72,16 @@
 &lt;label class=&quot;Checkbox js-checkbox&quot; for=&quot;checkbox2&quot;&gt;
   &lt;input class=&quot;Checkbox-control&quot; disabled id=&quot;checkbox2&quot; type=&quot;checkbox&quot; /&gt;
   &lt;span class=&quot;Checkbox-label&quot;&gt;checkbox&lt;/span&gt;
+&lt;/label&gt;</p></code></pre><div class="Layout-container mvl"><h2 id="radio">Radio</h2><div class="flex flex-center"><label class="Radio js-radio" for="radio1"><input class="Radio-control" id="radio1" name="radioSet1" type="radio"><span class="Radio-label">radio</span></label><label class="Radio mll js-radio" for="radio2"><input class="Radio-control" id="radio2" name="radioSet1" type="radio"><span class="Radio-label">radio</span></label></div></div><pre class="language-markup"><code><p>&lt;!-- radio checked --&gt;
+&lt;label class=&quot;Radio js-radio&quot; for=&quot;radio1&quot;&gt;
+  &lt;input class=&quot;Radio-control&quot; checked name=&quot;radioSet1&quot; id=&quot;radio1&quot; type=&quot;radio&quot; /&gt;
+  &lt;span class=&quot;Radio-label&quot;&gt;radio&lt;/span&gt;
+&lt;/label&gt;</p>
+
+<p>&lt;!-- unchecked radio --&gt;
+&lt;label class=&quot;Radio js-radio&quot; for=&quot;radio2&quot;&gt;
+  &lt;input class=&quot;Radio-control&quot; id=&quot;radio2&quot; name=&quot;radioSet1&quot; type=&quot;radio&quot; /&gt;
+  &lt;span class=&quot;Radio-label&quot;&gt;radio&lt;/span&gt;
 &lt;/label&gt;</p></code></pre></main></div><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script><script src="dist/js/formed.min.js"></script><script>(function(window) {
   window.onload = function onload() {
     //- var layout = new formed.default.Layout(document.querySelector('.Layout'));
@@ -80,4 +90,10 @@
 })(window);</script><script>[].forEach.call(document.querySelectorAll('.js-checkbox'),
   function (checkbox) {
     formed.default.checkbox(checkbox);
+  });
+
+radios = [];
+[].forEach.call(document.querySelectorAll('.js-radio'),
+  function (radio) {
+    radios.push(formed.default.radio(radio));
   });</script></body></html>
