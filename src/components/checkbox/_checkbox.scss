@@ -39,19 +39,21 @@
 // ----------------------------------------------------------------------------
 
 // Child: the actual input.
+// 1. Webkit won't allow user to tab to control if height and width set to 0
+//    and appearance: none.
 
 .Checkbox-control {
+  line-height: $spacing-base;
+
   .Checkbox.is-custom > & {
     position: absolute;
     opacity: 0;
 
     border: none;
-    height: 0;
+    height: 1px; // 1
     margin: 0;
     padding: 0;
-    width: 0;
-
-    appearance: none;
+    width: 1px; // 1
   }
 }
 
