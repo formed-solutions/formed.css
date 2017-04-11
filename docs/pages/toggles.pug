@@ -9,7 +9,7 @@ block main
     p Custom Formed checkboxes and radio buttons.
 
   div.Layout-container.mvl
-    h2 Checkbox
+    h2#checkbox Checkbox
 
     div.flex.flex-center
       div
@@ -37,10 +37,10 @@ block main
           span.Checkbox-label checkbox
 
       div.mll
-        label(class="Checkbox has-mask js-checkbox" for="checkbox3")
+        label(class="Checkbox has-mask js-checkbox" for="checkbox4")
           input(class="Checkbox-control"
             disabled
-            id="checkbox3"
+            id="checkbox4"
             type="checkbox")
           span.Checkbox-label checkbox
 
@@ -71,9 +71,48 @@ block main
           <span class="Checkbox-label">checkbox</span>
         </label>
 
+  div.Layout-container.mvl
+    h2#radio Radio
+
+    div.flex.flex-center
+      label(class="Radio js-radio" for="radio1")
+        input(class="Radio-control"
+          id="radio1"
+          name="radioSet1"
+          type="radio")
+        span.Radio-label radio
+
+      label(class="Radio mll js-radio" for="radio2")
+        input(class="Radio-control"
+          id="radio2"
+          name="radioSet1"
+          type="radio")
+        span.Radio-label radio
+
+  pre.language-markup
+    code
+      :markdown
+        <!-- radio checked -->
+        <label class="Radio js-radio" for="radio1">
+          <input class="Radio-control" checked name="radioSet1" id="radio1" type="radio" />
+          <span class="Radio-label">radio</span>
+        </label>
+
+        <!-- unchecked radio -->
+        <label class="Radio js-radio" for="radio2">
+          <input class="Radio-control" id="radio2" name="radioSet1" type="radio" />
+          <span class="Radio-label">radio</span>
+        </label>
+
 block scripts
   script.
     [].forEach.call(document.querySelectorAll('.js-checkbox'),
       function (checkbox) {
         formed.default.checkbox(checkbox);
+      });
+
+    radios = [];
+    [].forEach.call(document.querySelectorAll('.js-radio'),
+      function (radio) {
+        radios.push(formed.default.radio(radio));
       });

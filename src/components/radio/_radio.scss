@@ -1,0 +1,133 @@
+// Radio component
+// Custom radio buttons
+
+// Dependencies
+@import "../../config";
+@import "../../_functions/rem";
+@import "../../_mixins/shadow-level";
+@import "../../_mixins/transitions";
+
+// Main component
+// ----------------------------------------------------------------------------
+
+.Radio {
+  align-items: center;
+  display: flex;
+  position: relative;
+
+  box-sizing: border-box;
+  height: $radio-size;
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+
+  &.is-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+// Radio control
+// ----------------------------------------------------------------------------
+
+// Child: the actual radio input.
+// Hide appearace but leave available for keyboard, screenreaders...
+// 1. Webkit won't allow user to tab to control if height and width set to 0
+//    and appearance: none.
+
+.Radio-control {
+  .Radio.is-custom > & {
+    position: absolute;
+    opacity: 0;
+
+    border: none;
+    height: 1px; // 1
+    margin: 0;
+    padding: 0;
+    width: 1px; // 1
+  }
+}
+
+// Radio circle
+// ----------------------------------------------------------------------------
+
+// Child: the custom radio button.
+
+.Radio-circle {
+  display: block;
+  position: relative;
+
+  border-radius: 50%;
+  border: 2px solid $radio-color;
+  height: $radio-size;
+  width: $radio-size;
+
+  .Radio.is-focused & {
+    @include shadow-level(5);
+  }
+
+  .Radio.is-checked & {
+    background-color: $radio-color;
+  }
+
+  .Radio.is-checked.is-focused & {
+    border-color: $radio-color;
+
+    background-color: $radio-color;
+    box-shadow: none;
+  }
+
+  .Radio.is-pressed.is-checked & {
+    @include shadow-level(3);
+  }
+
+  .Radio.is-disabled & {
+    border-color: $radio-color-disabled-light;
+  }
+
+  .Radio.is-disabled.is-checked & {
+    background-color: $radio-color-disabled-light;
+  }
+
+  &:after {
+    display: none;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+
+    background-color: #fff;
+
+    content: "";
+  }
+
+  .Radio.is-checked &:after {
+    display: block;
+  }
+}
+
+// Radio label
+// ----------------------------------------------------------------------------
+
+// Child: label text.
+
+.Radio-label {
+  margin-left: rem($spacing-small);
+
+  font-size: rem($radio-label-font-size);
+  line-height: normal;
+
+  .Radio &:first-child,
+  .Radio &:not(:last-child) {
+    margin-right: rem($spacing-small);
+  }
+
+  .Radio.is-disabled & {
+    color: $radio-color-disabled-light;
+  }
+}

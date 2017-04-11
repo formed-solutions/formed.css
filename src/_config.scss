@@ -258,6 +258,16 @@ $menu-item-height: ($spacing-base * 2) !default;
 $modal-dialog-width: 600px !default;
 $modal-lg-dialog-width: 900px !default;
 
+// Radio
+$radio-size: 24px !default;
+$radio-color: #333 !default;
+$radio-color-focus: #666 !default;
+$radio-color-hover: #808080 !default;
+$radio-color-disabled-dark: #c4c4c4 !default;
+$radio-color-disabled-light: #e5e5e5 !default;
+
+$radio-label-font-size: $font-size-root !default;
+
 // Table
 $table-border-color: rgba(#000, 0.12) !default;
 $table-background:   #fff !default;
