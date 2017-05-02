@@ -180,6 +180,10 @@ const layout = (() => {
     this.drawerBtn =
           this.element.querySelector(`.${cssInterface.drawerBtnClass}`);
 
+    if (!drawerBtn) {
+      throw Error(`No ${cssInterface.drawerBtnClass} detected.`);
+    }
+
     // Ensure proper attributes are set.
     this.drawer.setAttribute('aria-hidden', 'true');
     this.drawerBtn.setAttribute('aria-expanded', 'false');
