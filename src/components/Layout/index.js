@@ -37,6 +37,25 @@ const layout = (() => {
       && this.element.classList.contains('Layout--drawerFixed');
   }
 
+  function destroy() {
+    killEvents.call(this);
+  }
+
+  function refresh() {
+    killEvents.call(this);
+    cacheChildren.call(this);
+
+    if (this.drawer) {
+      drawerSetup.call(this);
+    }
+
+    this.screenSizeHandler();
+
+    events.call(this);
+
+    return this;
+  }
+
   function toggleDrawer() {
     this.drawer.classList.toggle(cssInterface.isDrawerActiveClass);
     this.mask.classList.toggle(cssInterface.isDrawerActiveClass);
@@ -50,6 +69,8 @@ const layout = (() => {
       this.drawer.setAttribute('aria-hidden', 'true');
       this.drawerBtn.setAttribute('aria-expanded', 'false');
     }
+
+    return this;
   }
 
   // Create a new layout, returning new object with the api attached to its
@@ -61,6 +82,10 @@ const layout = (() => {
     layout.config = _assign({}, defaults, options);
     layout.element = element;
 
+    layout.drawerToggleHandler = drawerToggleHandler.bind(layout);
+    layout.keyboardHandler = keyboardHandler.bind(layout);
+    layout.screenSizeHandler = screenSizeHandler.bind(layout);
+
     wrapLayout.call(layout);
     cacheChildren.call(layout);
 
@@ -68,11 +93,10 @@ const layout = (() => {
       drawerSetup.call(layout);
     }
 
-    layout.breakpoint =
-      window.matchMedia((cssInterface.breakpoint));
+    layout.breakpoint = window.matchMedia((cssInterface.breakpoint));
 
-    screenSizeHandler.call(layout);
-    bindings.call(layout);
+    layout.screenSizeHandler();
+    events.call(layout);
 
     return layout;
   }
@@ -119,24 +143,42 @@ const layout = (() => {
 
   // Helpers
 
-  function bindings() {
+  function events() {
     if (this.drawer) {
       this.drawerBtn
-        .addEventListener('click', drawerToggleHandler.bind(this));
+        .addEventListener('click', this.drawerToggleHandler);
 
       this.drawerBtn
-        .addEventListener('keydown', drawerToggleHandler.bind(this));
+        .addEventListener('keydown', this.drawerToggleHandler);
 
       this.drawer
-        .addEventListener('keydown', keyboardHandler.bind(this));
+        .addEventListener('keydown', this.keyboardHandler);
 
-      this.mask.addEventListener('click',
-          drawerToggleHandler.bind(this));
+      this.mask
+        .addEventListener('click', this.drawerToggleHandler);
     }
 
-    this.breakpoint.addListener(screenSizeHandler.bind(this));
+    this.breakpoint.addListener(this.screenSizeHandler);
 
     return this;
+  }
+
+  function killEvents() {
+    if (this.drawer) {
+      this.drawerBtn
+        .removeEventListener('click', this.drawerToggleHandler);
+
+      this.drawerBtn
+        .removeEventListener('keydown', this.drawerToggleHandler);
+
+      this.drawer
+        .removeEventListener('keydown', this.keyboardHandler);
+
+      this.mask
+        .removeEventListener('click', this.drawerToggleHandler);
+    }
+
+    this.breakpoint.removeListener(screenSizeHandler);
   }
 
   function wrapLayout() {
@@ -222,9 +264,11 @@ const layout = (() => {
   }
 
   const api = {
+    destroy,
     hasActiveDrawer,
     hasDrawerFixed,
-    toggleDrawer
+    toggleDrawer,
+    refresh
   };
 
   return create;
