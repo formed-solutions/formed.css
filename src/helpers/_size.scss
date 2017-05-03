@@ -44,7 +44,7 @@
 
 // Proportional widths.
 
-@include size("size", $sizes);
+@include size("size-", $sizes);
 
 // Media queries
 // ----------------------------------------------------------------------------
