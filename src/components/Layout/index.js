@@ -2,8 +2,14 @@
  * Create a Formed layout.
  */
 
+import _assign from 'lodash/assign';
+
 const layout = (() => {
   'use strict';
+
+  const defaults = {
+    parent: null
+  };
 
   const cssInterface = {
     headerClass: 'Layout-header',
@@ -49,9 +55,10 @@ const layout = (() => {
   // Create a new layout, returning new object with the api attached to its
   // proto.
 
-  function create(element) {
+  function create(element, options = {}) {
     const layout = Object.create(api);
 
+    layout.config = _assign({}, defaults, options);
     layout.element = element;
 
     wrapLayout.call(layout);
@@ -133,15 +140,20 @@ const layout = (() => {
   }
 
   function wrapLayout() {
-    const container = document.createElement('div');
+    const container = !this.config.parent
+      ? document.createElement('div')
+      : document.querySelector(this.config.parent);
+
     container.classList.add('layout-absoluteViewport');
 
     // Capter any focused element.
     const focusedElement = document.querySelector(':focus');
 
-    this.element.parentNode.insertBefore(container, this.element);
-    this.element.parentNode.removeChild(this.element);
-    container.appendChild(this.element);
+    if (!this.config.parent) {
+      this.element.parentNode.insertBefore(container, this.element);
+      this.element.parentNode.removeChild(this.element);
+      container.appendChild(this.element);
+    }
 
     if (focusedElement) {
       focusedElement.focus();
