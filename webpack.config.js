@@ -1,46 +1,23 @@
 const { join } = require('path');
 const include = join(__dirname, 'src');
 
-const COMPONENTS = `${__dirname}/src/components`;
-
-const DEFAULT_RULES = [
-  {
-    test: /\.js$/,
-    loader: 'babel-loader',
-    include,
-    exclude: /node_modules/
-  }
-];
-
-module.exports = [
-  {
-    entry: {
-      checkbox: `${COMPONENTS}/checkbox`,
-      editor: `${COMPONENTS}/editor`,
-      layout: `${COMPONENTS}/layout`,
-      radio: `${COMPONENTS}/radio`
-    },
-    output: {
-      path: join(__dirname, '.tmp', 'js'),
-      filename: '[name].js'
-    },
-    devtool: 'source-map',
-    module: {
-      rules: DEFAULT_RULES
-    }
+module.exports = {
+  entry: `${__dirname}/src/formed`,
+  output: {
+    path: join(__dirname, '.tmp', 'js'),
+    filename: 'formed.js',
+    library: 'formed',
+    libraryTarget: 'umd'
   },
-
-  {
-    entry: `${__dirname}/src/formed`,
-    output: {
-      path: join(__dirname, '.tmp', 'js'),
-      filename: 'formed.js',
-      library: 'formed',
-      libraryTarget: 'umd'
-    },
-    devtool: 'source-map',
-    module: {
-      rules: DEFAULT_RULES
-    }
+  devtool: 'source-map',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include,
+        exclude: /node_modules/
+      }
+    ]
   }
-];
+};

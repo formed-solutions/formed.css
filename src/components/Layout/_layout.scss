@@ -88,7 +88,7 @@ $z-drawer: $zindex-drawer;
 
 .Layout-header-inner {
   @include breakpoint-media-min('md') {
-    padding-left: rem($spacing-base);
+    // padding-left: rem($spacing-base);
     padding-right: rem($spacing-base);
   }
 
@@ -98,12 +98,12 @@ $z-drawer: $zindex-drawer;
   flex-wrap: nowrap;
 
   height: 100%;
-  padding: 0 rem($spacing-medium);
+  padding: 0 #{rem($spacing-medium)};
   width: 100%;
 
-  &.has-header-menu {
-    @include breakpoint-media-max('md') {
-      padding-left: rem($spacing-medium);
+  .Layout--drawerFixed > .Layout-header & {
+    @include breakpoint-media-min('md') {
+      padding-left: rem($spacing-base);
     }
   }
 }
@@ -129,7 +129,7 @@ $z-drawer: $zindex-drawer;
 
   cursor: pointer;
 
-  .Layout--drawerFixed & {
+  .Layout--drawerFixed > .Layout-header & {
     @include breakpoint-media-min('md') {
       display: none;
     }

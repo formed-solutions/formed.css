@@ -26,23 +26,37 @@ block main
           <div class="Layout-main">...</div>
         </div>
 
+        <script>
+          formed.default.layout(document.querySelector('.js-layout'));
+        </script>
+
   div.Layout-container.mvl
     h2 Drawer fixed
 
     div.layout-relative.shadow-1(style="height: 300px")
-      div.Layout.Layout--drawerFixed.js-layout
-        include ../_includes/drawer
-        include ../_includes/header
-        div.Layout-main
+      div#parent
+        div.Layout.Layout--drawerFixed.js-layoutWithParent
+          include ../_includes/drawer
+          include ../_includes/header
+          div.Layout-main
 
   pre.language-markup
     code
       :markdown
-        <div class="Layout Layout--drawerFixed js-layout">
-          <div class="Layout-drawer">...</div>
-          <div class="Layout-header background-primary">...</div>
-          <div class="Layout-main">...</div>
+        <div id="parent">
+          <div class="Layout Layout--drawerFixed js-layoutWithParent">
+            <div class="Layout-drawer">...</div>
+            <div class="Layout-header background-primary">...</div>
+            <div class="Layout-main">...</div>
+          </div>
         </div>
+
+        <script>
+          formed.default.layout(
+            document.querySelector('.js-layoutWithParent'),
+            { parent: '#parent' }
+          );
+        </script>
 
   div.Layout-container.mvl
     h2 Scrollable layout
@@ -60,12 +74,19 @@ block main
           <div class="Layout-main">...</div>
         </div>
 
+        <script>
+          formed.default.layout(document.querySelector('.js-layout'));
+        </script>
+
 block scripts
   script.
     (function() {
-      layouts = [];
       [].forEach
         .call(document.querySelectorAll('.js-layout'), function (layout) {
-          layouts.push(formed.default.layout(layout));
+          formed.default.layout(layout);
         });
+
+      formed.default.layout(document.querySelector('.js-layoutWithParent'), {
+        parent: '#parent'
+      });
     })();
