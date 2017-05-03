@@ -23,7 +23,9 @@ module.exports = [
     },
     output: {
       path: join(__dirname, 'dist', 'js'),
-      filename: '[name].js'
+      filename: '[name].js',
+      library: 'formed-[name]',
+      libraryTarget: 'umd'
     },
     devtool: 'source-map',
     module: {
