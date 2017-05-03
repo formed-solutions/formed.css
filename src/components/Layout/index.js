@@ -180,7 +180,7 @@ const layout = (() => {
     this.drawerBtn =
           this.element.querySelector(`.${cssInterface.drawerBtnClass}`);
 
-    if (!drawerBtn) {
+    if (!this.drawerBtn) {
       throw Error(`No ${cssInterface.drawerBtnClass} detected.`);
     }
 
