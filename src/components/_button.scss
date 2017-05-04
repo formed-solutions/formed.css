@@ -28,7 +28,7 @@
   $ph: rem($button-padding-horizontal);
   @include border-radius($button-radius);
   @include transition(
-    box-shadow $transition-duration $easeInSine
+    box-shadow $transition-duration $easeInSine,
     background-color $transition-duration $easeInOutSine,
     color $transition-duration $transition-timing-function
   );
