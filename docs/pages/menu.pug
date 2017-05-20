@@ -6,26 +6,120 @@ block settings
 block main
   div.Layout-container.mvl
     h1 Menu
-    p Menu description text.
+    p The Menu component represents a list of options a user can initiate or perform.
 
   div(class="mvl flex flex-center")
-    div.Menu.Menu--bottomLeft.is-active
-      h5.mbn Menu trigger
+    div.layout-relative
+      button(class="Button Button--primary Button--ctab"
+        id="menu1"
+        type="button") Left bottom
 
-      ul.Menu-box
+      ul(class="Menu Menu--bottomLeft js-menu" data-trigger="menu1")
         li.Menu-item Menu item 1
         li.Menu-item Menu item 2
         li.Menu-item Menu item 3
 
-  div(style="margin-top: 200px;")
+    div.layout-relative.mll
+      button(class="Button Button--accent Button--ctab"
+        id="menu2"
+        type="button") Bottom right
+
+      ul(class="Menu Menu--bottomRight js-menu" data-trigger="menu2")
+        li.Menu-item Menu item 1
+        li.Menu-item Menu item 2
+        li.Menu-item Menu item 3
+
+  div
     pre.language-markup
       code
         :markdown
-          <div class="Menu Menu--bottomLeft">
-            <h5>Menu trigger</h5>
-            <div class="Menu-box">
-              <li class="Menu-item">Menu item 1</li>
-              <li class="Menu-item">Menu item 2</li>
-              <li class="Menu-item">Menu item 3</li>
-            </div>
-          </div>
+          <button class="Button Button--primary Button--ctab"
+            id="menu1"
+            type="button">Left bottom menu</button>
+
+          <ul class="Menu Menu--bottomLeft js-menu" data-trigger="menu1">
+            <li class="Menu-item">Menu item 1</li>
+            <li class="Menu-item">Menu item 2</li>
+            <li class="Menu-item">Menu item 3</li>
+          </ul>
+
+          <button class="Button Button--accent Button--ctab"
+            id="menu2"
+            type="button">Left bottom menu</button>
+
+          <ul class="Menu Menu--bottomRight js-menu" data-trigger="menu2">
+            <li class="Menu-item">Menu item 1</li>
+            <li class="Menu-item">Menu item 2</li>
+            <li class="Menu-item">Menu item 3</li>
+          </ul>
+
+  div(class="mvl flex flex-center")
+    div.layout-relative
+      button(class="Button Button--primary Button--ctab"
+        id="menu3"
+        type="button") Top left
+
+      ul(class="Menu Menu--topLeft js-menu" data-trigger="menu3")
+        li.Menu-item Menu item 1
+        li.Menu-item Menu item 2
+        li.Menu-item Menu item 3
+
+    div.layout-relative.mll
+      button(class="Button Button--accent Button--ctab"
+        id="menu4"
+        type="button") Top right
+
+      ul(class="Menu Menu--topRight js-menu" data-trigger="menu4")
+        li.Menu-item Menu item 1
+        li.Menu-item Menu item 2
+        li.Menu-item Menu item 3
+
+  div
+    pre.language-markup
+      code
+        :markdown
+          <button class="Button Button--primary Button--ctab"
+            id="menu3"
+            type="button">Left bottom menu</button>
+
+          <ul class="Menu Menu--topLeft" data-trigger="menu3">
+            <li class="Menu-item">Menu item 1</li>
+            <li class="Menu-item">Menu item 2</li>
+            <li class="Menu-item">Menu item 3</li>
+          </ul>
+
+          <button class="Button Button--accent Button--ctab"
+            id="menu4"
+            type="button">Left bottom menu</button>
+
+          <ul class="Menu Menu--topRight" data-trigger="menu4">
+            <li class="Menu-item">Menu item 1</li>
+            <li class="Menu-item">Menu item 2</li>
+            <li class="Menu-item">Menu item 3</li>
+          </ul>
+
+  div.Layout-container.mvl
+    h3 Creating menus
+    p The <code>menu</code> object is a property on <code>formed.default</code> object attached window object after formed library is loaded.  Invoking a new menu is as easy as passing a DOM node to the method.
+
+  div
+    pre.language-markup
+      code
+        :markdown
+          <ul class"Menu .js-menu1">// Menu items</ul>
+          <ul class"Menu .js-menu2">// Menu items</ul>
+
+          <script>
+            formed.default.menu(document.querySelector('.js-menu1'));
+
+            // Storing the returned menu object.
+            var menu2 = formed.default.menu(document.querySelector('.js-menu2'));
+          </script>
+
+block scripts
+  script.
+    (function() {
+      [].forEach.call(document.querySelectorAll('.js-menu'), function (menu) {
+        formed.default.menu(menu);
+      });
+    })();
