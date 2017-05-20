@@ -1,7 +1,5 @@
-/**
- * Menu component
- * Display list of items on own surface.
- */
+// Menu component
+// Display list of items on own surface.
 
 // Dependencies
 @import '../../config';
@@ -61,82 +59,10 @@
   }
 }
 
-// Context class
+// Menu item
 // ----------------------------------------------------------------------------
 
-// Will wrap our menu when plugin is invoked.
-
-._MenuWrapper {
-  display: block;
-  overflow: visible;
-  position: absolute;
-  visibility: hidden;
-  z-index: -1;
-
-  border: none;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  width: 0;
-
-  &.is-active,
-  &.is-animating {
-    visibility: visible;
-    z-index: $zindex-menu;
-  }
-}
-
-// Dynamic element
-// Plugin will generate a shadow to mirror main `Menu` component.
-
-._MenuShadow {
-  @include border-radius($border-radius-small);
-  @include shadow-level(1);
-  @include transition-default(transform, opacity);
-
-  display: block;
-  left: 0;
-  overflow: hidden;
-  opacity: 0;
-  position: absolute;
-  transform: scale(0);
-  transform-origin: 0 0;
-  top: 0;
-  z-index: -1;
-
-  border: none;
-  margin: 0;
-  padding: 0;
-
-  background-color: #fff;
-
-  will-change: transform;
-
-  ._MenuWrapper.is-active & {
-    opacity: 1;
-    transform: scale(1);
-    z-index: $zindex-menu;
-  }
-
-  &.Menu--bottomRight {
-    transform-origin: 100% 0;
-  }
-
-  &.Menu--topLeft {
-    transform-origin: 0 100%;
-  }
-
-  &.Menu--topRight {
-    transform-origin: 100% 100%;
-  }
-
-  &.Menu--auto {
-    transform-origin: 50% 0
-  }
-}
-
-/* Menu item
-   ------------------------------------------------------------------------- */
+// Child: actionable items inside the menu.
 
 .Menu-item {
   @include transition-default(opacity);
@@ -195,3 +121,81 @@
 .Menu-divider {
   border-bottom: 1px solid $menu-divider-color;
 }
+
+// Dynamic selectors
+// ----------------------------------------------------------------------------
+
+// Calling component will handle the addition of the below selectors to the
+// DOM.
+
+// Take the menu and wrap it.
+
+._MenuWrapper {
+  display: block;
+  overflow: visible;
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+
+  border: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  width: 0;
+
+  &.is-active,
+  &.is-animating {
+    visibility: visible;
+    z-index: $zindex-menu;
+  }
+}
+
+// Provide a shadow for menu, component will copy and modifiers from main
+// component add them to the shadow.
+
+._MenuShadow {
+  @include border-radius($border-radius-small);
+  @include shadow-level(1);
+  @include transition-default(transform, opacity);
+
+  display: block;
+  left: 0;
+  overflow: hidden;
+  opacity: 0;
+  position: absolute;
+  transform: scale(0);
+  transform-origin: 0 0;
+  top: 0;
+  z-index: -1;
+
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  background-color: #fff;
+
+  will-change: transform;
+
+  ._MenuWrapper.is-active & {
+    opacity: 1;
+    transform: scale(1);
+    z-index: $zindex-menu;
+  }
+
+  &.Menu--bottomRight {
+    transform-origin: 100% 0;
+  }
+
+  &.Menu--topLeft {
+    transform-origin: 0 100%;
+  }
+
+  &.Menu--topRight {
+    transform-origin: 100% 100%;
+  }
+
+  &.Menu--auto {
+    transform-origin: 50% 0
+  }
+}
+
