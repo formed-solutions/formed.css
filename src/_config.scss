@@ -253,6 +253,9 @@ $form-control-height: ($line-height-base + $spacing-medium) !default;
 // Menu
 $menu-box-padding: $spacing-small !default;
 $menu-item-height: ($spacing-base * 2) !default;
+$menu-item-outline-bg-color: $color-grey-400 !default;
+$menu-item-focus-bg-color: $color-grey-200 !default;
+$menu-divider-color: rgba($color-contrast-dark, 0.15) !default;
 
 // Modal
 $modal-dialog-width: 600px !default;

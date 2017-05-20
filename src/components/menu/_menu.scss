@@ -1,0 +1,197 @@
+/**
+ * Menu component
+ * Display list of items on own surface.
+ */
+
+// Dependencies
+@import '../../config';
+@import "../../_mixins/borders";
+@import "../../_mixins/hover";
+@import "../../_mixins/shadow-level";
+@import "../../_mixins/transitions";
+@import "../../_functions/rem";
+
+// Main component
+// ----------------------------------------------------------------------------
+
+.Menu {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+
+  height: auto;
+  margin: 0;
+  min-width: 124px;
+  padding: $menu-box-padding 0;
+  width: auto;
+
+  list-style: none;
+
+  ._MenuWrapper.is-active & {
+    opacity: 1;
+    z-index: $zindex-menu;
+  }
+
+  &.is-animating {
+    @include transition-default(clip, opacity);
+  }
+
+  &.Menu--bottomRight {
+    left: auto;
+    right: 0;
+  }
+
+  &.Menu--topLeft {
+    bottom: 0;
+    top: auto;
+  }
+
+  &.Menu--topRight {
+    bottom: 0;
+    left: auto;
+    right: 0;
+    top: auto;
+  }
+
+  &.Menu--auto {
+    left: auto;
+    top: auto;
+  }
+}
+
+// Context class
+// ----------------------------------------------------------------------------
+
+// Will wrap our menu when plugin is invoked.
+
+._MenuWrapper {
+  display: block;
+  overflow: visible;
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+
+  border: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  width: 0;
+
+  &.is-active,
+  &.is-animating {
+    visibility: visible;
+    z-index: $zindex-menu;
+  }
+}
+
+// Dynamic element
+// Plugin will generate a shadow to mirror main `Menu` component.
+
+._MenuShadow {
+  @include border-radius($border-radius-small);
+  @include shadow-level(1);
+  @include transition-default(transform, opacity);
+
+  display: block;
+  left: 0;
+  overflow: hidden;
+  opacity: 0;
+  position: absolute;
+  transform: scale(0);
+  transform-origin: 0 0;
+  top: 0;
+  z-index: -1;
+
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  background-color: #fff;
+
+  will-change: transform;
+
+  ._MenuWrapper.is-active & {
+    opacity: 1;
+    transform: scale(1);
+    z-index: $zindex-menu;
+  }
+
+  &.Menu--bottomRight {
+    transform-origin: 100% 0;
+  }
+
+  &.Menu--topLeft {
+    transform-origin: 0 100%;
+  }
+
+  &.Menu--topRight {
+    transform-origin: 100% 100%;
+  }
+
+  &.Menu--auto {
+    transform-origin: 50% 0
+  }
+}
+
+/* Menu item
+   ------------------------------------------------------------------------- */
+
+.Menu-item {
+  @include transition-default(opacity);
+  @include hover-focus {
+    background-color: $color-grey-100; // $default-item-hover-bg-color;
+  }
+
+  display: block;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+
+  border: none;
+  height: $menu-item-height;
+  margin: 0;
+  padding: 0 $spacing-medium;
+  width: 100%;
+
+  background-color: transparent;
+
+  color: rgba(#000, 0.87); // $default-item-text-color
+  font-size: rem($font-size-medium);
+  line-height: rem($spacing-base * 2);
+  text-align: left;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  cursor: pointer;
+  outline-color: $menu-item-outline-bg-color;
+  user-select: none;
+
+  &[disabled],
+  &.is-disabled {
+    @include elem-hover-focus {
+      background-color: transparent;
+
+      color: rgba(#000, 0.40);
+
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  &:focus {
+    background-color: $menu-item-focus-bg-color;
+
+    outline: none;
+  }
+
+  ._MenuWrapper.is-active & {
+    opacity: 1;
+  }
+}
+
+.Menu-divider {
+  border-bottom: 1px solid $menu-divider-color;
+}
