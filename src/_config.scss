@@ -250,6 +250,9 @@ $editor-help-color: $color-grey-800 !default;
 // Form
 $form-control-height: ($line-height-base + $spacing-medium) !default;
 
+// Grid
+$grid-gutter: $spacing-base !default;
+
 // Menu
 $menu-box-padding: $spacing-small !default;
 $menu-item-height: ($spacing-base * 2) !default;

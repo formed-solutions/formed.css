@@ -19,7 +19,8 @@
   display: flex; /* 1 */
   flex-flow: row wrap; /* 2 */
 
-  margin: 0 #{-($spacing-medium)}; /* 3 */
+  box-sizing: border-box;
+  margin: 0 #{-0.5 * $grid-gutter}; /* 3 */
   padding: 0; /* 4 */
 }
 
@@ -79,7 +80,6 @@
   align-items: flex-end;
 }
 
-
 /* Grid cell
    ------------------------------------------------------------------------- */
 
@@ -94,5 +94,7 @@
 .Grid-cell {
   flex: 0 0 100%;
 
-  padding: 0 $spacing-medium;
+  box-sizing: inherit;
+  min-width: 0;
+  padding: 0 #{0.5 * $grid-gutter};
 }
