@@ -35,6 +35,14 @@ html
       (function(window) {
         window.onload = function onload() {
           formed.default.layout(document.querySelector('.Layout'));
+
+          var buttons = document.querySelectorAll('.js-button');
+
+          if (buttons.length) {
+            [].forEach.call(buttons, function (button) {
+              formed.default.button(button);
+            });
+          }
         };
       })(window);
     block scripts
