@@ -48,10 +48,22 @@
       <title>point-up</title>
       <path class="path1" d="M960 608v-160c0-52.934-43.066-96-96-96-17.104 0-33.176 4.494-47.098 12.368-17.076-26.664-46.958-44.368-80.902-44.368-24.564 0-47.004 9.274-64 24.504-16.996-15.23-39.436-24.504-64-24.504-11.214 0-21.986 1.934-32 5.484v-229.484c0-52.934-43.066-96-96-96s-96 43.066-96 96v394.676l-176.018-93.836c-14.536-8.4-31.126-12.84-47.982-12.84-52.934 0-96 43.066-96 96 0 26.368 10.472 50.954 29.49 69.226 0.248 0.238 0.496 0.47 0.75 0.7l239.17 218.074h-45.41c-17.672 0-32 14.326-32 32v192c0 17.674 14.328 32 32 32h640c17.674 0 32-14.326 32-32v-192c0-17.674-14.326-32-32-32h-44.222l72.844-145.69c2.222-4.442 3.378-9.342 3.378-14.31zM896 864c0 17.674-14.326 32-32 32s-32-14.326-32-32 14.326-32 32-32 32 14.326 32 32zM896 600.446l-83.776 167.554h-383.826l-290.818-265.166c-6.18-6.070-9.58-14.164-9.58-22.834 0-17.644 14.356-32 32-32 5.46 0 10.612 1.31 15.324 3.894 0.53 0.324 1.070 0.632 1.622 0.926l224 119.416c9.92 5.288 21.884 4.986 31.52-0.8 9.638-5.782 15.534-16.196 15.534-27.436v-448c0-17.644 14.356-32 32-32s32 14.356 32 32v320c0 17.672 14.326 32 32 32s32-14.328 32-32c0-17.644 14.356-32 32-32s32 14.356 32 32c0 17.672 14.326 32 32 32s32-14.328 32-32c0-17.644 14.356-32 32-32s32 14.356 32 32v32c0 17.672 14.326 32 32 32s32-14.328 32-32c0-17.644 14.356-32 32-32s32 14.356 32 32v152.446z"></path>
     </symbol>
+    <symbol id="icon-share-alt" viewBox="0 0 14 16">
+      <title>share-alt</title>
+      <path d="M10.857 9.143c1.58 0 2.857 1.277 2.857 2.857s-1.277 2.857-2.857 2.857-2.857-1.277-2.857-2.857c0-0.098 0.009-0.205 0.018-0.304l-3.214-1.607c-0.509 0.473-1.196 0.768-1.946 0.768-1.58 0-2.857-1.277-2.857-2.857s1.277-2.857 2.857-2.857c0.75 0 1.438 0.295 1.946 0.768l3.214-1.607c-0.009-0.098-0.018-0.205-0.018-0.304 0-1.58 1.277-2.857 2.857-2.857s2.857 1.277 2.857 2.857-1.277 2.857-2.857 2.857c-0.75 0-1.438-0.295-1.946-0.768l-3.214 1.607c0.009 0.098 0.018 0.205 0.018 0.304s-0.009 0.205-0.018 0.304l3.214 1.607c0.509-0.473 1.196-0.768 1.946-0.768z"></path>
+      </symbol>
   </defs>
 </svg>
 <div class="Layout Layout--drawerFixed"><div class="Layout-drawer"><h1 class="Layout-title phl">Formed.css</h1><ul class="listNoStyle"><li><a class="display-block pvm phl" href="base.html">Base styles</a></li><li><a class="display-block pvm phl" href="card.html">Components</a></li></ul></div><header class="Layout-header background-primary"><div class="Layout-header-inner"><button class="Layout-header-menu" type="button"><svg class="Icon Icon--lg text-baseline"><use xlink:href="#icon-menu"></use></svg></button><h1 class="Layout-title text-capitalize">Base style</h1></div></header><main class="Layout-main"><div class="Layout-container mtl"><section><h2>Sectioning Elements</h2><section><h3>Headings</h3><div><h1 class="mbm">Header 1<small>&nbsp;small text</small></h1><h2 class="mbm">Header 2<small>&nbsp;small text</small></h2><h3 class="mbm">Header 3<small>&nbsp;small text</small></h3><h4 class="mbm">Header 4<small>&nbsp;small text</small></h4><h5 class="mbm">Header 5</h5><h6 class="mbm">Header</h6></div></section></section></div></main></div><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script><script src="dist/js/formed.min.js"></script><script>(function(window) {
   window.onload = function onload() {
     formed.default.layout(document.querySelector('.Layout'));
+
+    var buttons = document.querySelectorAll('.js-button');
+
+    if (buttons.length) {
+      [].forEach.call(buttons, function (button) {
+        formed.default.button(button);
+      });
+    }
   };
 })(window);</script></body></html>
