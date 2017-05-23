@@ -19,6 +19,7 @@ module.exports = [
       checkbox: `${COMPONENTS}/checkbox`,
       editor: `${COMPONENTS}/editor`,
       layout: `${COMPONENTS}/layout`,
+      menu: `${COMPONENTS}/menu`,
       radio: `${COMPONENTS}/radio`
     },
     output: {
