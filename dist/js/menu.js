@@ -328,7 +328,11 @@ var menu = function () {
     var frameCb = function frameCb() {
       _this2.element.classList.add(classNames.IS_ANIMATING);
       _this2.wrapper.classList.add(classNames.IS_ACTIVE);
-      _this2.trigger.setAttribute('aria-expanded', true);
+
+      if (_this2.trigger) {
+        _this2.trigger.setAttribute('aria-expanded', true);
+      }
+
       window.cancelAnimationFrame(frameCb);
     };
 
