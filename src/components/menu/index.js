@@ -256,7 +256,11 @@ const menu = (() => {
     const frameCb = () => {
       this.element.classList.add(classNames.IS_ANIMATING);
       this.wrapper.classList.add(classNames.IS_ACTIVE);
-      this.trigger.setAttribute('aria-expanded', true);
+
+      if (this.trigger) {
+        this.trigger.setAttribute('aria-expanded', true);
+      }
+
       window.cancelAnimationFrame(frameCb);
     };
 
