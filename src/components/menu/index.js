@@ -219,7 +219,10 @@ const menu = (() => {
 
     this.element.classList.add(classNames.IS_ANIMATING);
     this.wrapper.classList.remove(classNames.IS_ACTIVE);
-    this.trigger.setAttribute('aria-expanded', false);
+
+    if (this.trigger) {
+      this.trigger.setAttribute('aria-expanded', false);
+    }
 
     transitionEndListeners.call(this);
   }
