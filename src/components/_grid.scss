@@ -76,7 +76,7 @@
 // NOTE: Use sizing helpers to alter `width` of individual cells
 
 .Grid-cell {
-  flex: 0 0 100%; // 1
+  flex-basis: 100%; // 1
 
   box-sizing: inherit;
   min-width: 0; // 2
