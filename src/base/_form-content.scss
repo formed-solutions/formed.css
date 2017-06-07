@@ -9,6 +9,7 @@
 // Dependences
 @import "../config";
 @import "../_mixins/borders";
+@import '../_mixins/placeholder';
 
 /**
  * 1. Change font properties to `inherit` in all browsers (opinionated).
@@ -192,7 +193,7 @@ textarea {
  * Correct the text style of placeholders in Chrome, Edge, and Safari.
  */
 
-::-webkit-input-placeholder {
+@include placeholder {
   opacity: 0.54;
 
   color: $color-grey-500;

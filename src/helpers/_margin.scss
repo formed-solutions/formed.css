@@ -28,3 +28,6 @@
 // NOTE: To reduce verbosity of selector name, abbreviated 'margin' to 'm'.
 
 @include spacing((margin: 'm'), $spacings);
+
+.mla, .mha { margin-left: auto; }
+.mra, .mha { margin-right: auto; }

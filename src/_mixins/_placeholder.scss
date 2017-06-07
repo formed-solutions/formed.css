@@ -1,0 +1,22 @@
+// ----------------------------------------------------------------------------
+// Placeholder mixin
+// ----------------------------------------------------------------------------
+
+/// Provides support for cross-browser form input placeholder styles
+///
+/// @access public
+/// @content Any declarations to style placeholders
+/// @example
+///   .foo {
+///     @include placeholder {
+///       color: $gray-light;
+///       opacity: 1;
+///     };
+///   }
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}

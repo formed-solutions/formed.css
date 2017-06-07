@@ -8,6 +8,7 @@
 @import '../../config';
 @import "../../_mixins/borders";
 @import "../../_mixins/transitions";
+@import "../../_mixins/placeholder";
 @import "../../_functions/rem";
 
 // Main container component
@@ -89,7 +90,7 @@
 
   will-change: transform;
 
-  &::placeholder {
+  @include placeholder {
     opacity: 0.54;
 
     font-weight: 200;
