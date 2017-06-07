@@ -2,40 +2,55 @@
 // layout.
 
 // Dependencies
+
+@import "../config";
 @import "../_mixins/visually-hide";
+@import "../_mixins/breakpoints";
 
-.display-block {
-  display: block !important;
+@mixin display-helpers($modifier: "") {
+  .display-block#{$modifier} {
+    display: block !important;
+  }
+
+  .display-inline#{$modifier} {
+    display: inline !important;
+  }
+
+  .display-hidden#{$modifier} {
+    display: none !important;
+  }
+
+  // 1. Address Firefox issue where images set to max-width 100%, break out of
+  //    parent container, if parent container `display` property has a value of
+  //    `inline-block.`
+
+  .display-inlineBlock#{$modifier} {
+    display: inline-block !important;
+
+    max-width: 100% !important; // 1
+  }
+
+  .display-table#{$modifier} {
+    display: table !important;
+  }
+
+  .display-tableCell#{$modifier} {
+    display: table-cell !important;
+  }
+
+  // Hide text visually but leave available for screenreaders.
+
+  .display-visuallyHidden#{$modifier} {
+    @include visually-hide;
+  }
 }
 
-.display-inline {
-  display: inline !important;
-}
+@include display-helpers();
 
-.display-hidden {
-  display: none !important;
-}
-
-// 1. Address Firefox issue where images set to max-width 100%, break out of
-//    parent container, if parent container `display` property has a value of
-//    `inline-block.`
-
-.display-inlineBlock {
-  display: inline-block !important;
-
-  max-width: 100% !important; // 1
-}
-
-.display-table {
-  display: table !important;
-}
-
-.display-tableCell {
-  display: table-cell !important;
-}
-
-// Hide text visually but leave available for screenreaders.
-
-.display-visuallyHidden {
-  @include visually-hide;
+@if $has-display-media {
+  @each $vp in ("xs", "sm", "md", "lg", "xl") {
+    @include breakpoint-media-min(#{$vp}) {
+      @include display-helpers("--#{$vp}");
+    }
+  }
 }
