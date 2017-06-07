@@ -29,5 +29,7 @@
 
 @include spacing((margin: 'm'), $spacings);
 
-.mla, .mha { margin-left: auto; }
-.mra, .mha { margin-right: auto; }
+.mta, .mva, .maa { margin-top: auto !important; }
+.mra, .mha, .maa { margin-right: auto !important; }
+.mba, .mva, .maa { margin-bottom: auto !important; }
+.mla, .mha, .maa { margin-left: auto !important; }
