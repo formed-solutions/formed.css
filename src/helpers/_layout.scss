@@ -2,77 +2,91 @@
 
 // Dependencies
 
+@import "../config";
 @import "../_mixins/clearfix";
+@import "../_mixins/visually-hide";
 
 // Absolute position a box w/in its non static containing box.
 
-.layout-absolute,
-.layout-absoluteViewport,
-.layout-absoluteCenter {
-  position: absolute !important;
+@mixin layout-helpers($modifier: "") {
+  .layout-absolute#{$modifier},
+  .layout-absoluteViewport#{$modifier},
+  .layout-absoluteCenter#{$modifier} {
+    position: absolute !important;
+  }
+
+  // Remove node from document flow to center to it's closest non-static parent.
+
+  .layout-fixedCenter#{$modifier},
+  .layout-absoluteCenter#{$modifier} {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translateX(-50%) translateY(-50%) !important;
+  }
+
+  // Fix a box to the body.
+
+  .layout-fixed#{$modifier},
+  .layout-fixedViewport#{$modifier},
+  .layout-fixedCenter#{$modifier} {
+    backface-visibility: hidden !important;
+    position: fixed !important;
+  }
+
+  // Have an element occupy the entire height and with of the viewport.
+
+  .layout-fixedViewport#{$modifier},
+  .layout-absoluteViewport#{$modifier} {
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+
+    margin: auto !important;
+  }
+
+  // Center a box relative to its containing box.
+
+  .layout-center#{$modifier} {
+    display: block !important;
+    float: none !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  // Contain flaots.
+
+  .layout-clear#{$modifier} {
+    @include clearfix;
+  }
+
+  // Floats
+  // Position a box at the beginning or end of the current line.
+
+  .layout-pull#{$modifier} { float: left !important; }
+  .layout-push#{$modifier} { float: right !important; }
+
+  .layout-relative#{$modifier} {
+    position: relative !important;
+  }
+
+  // Overflow: clip content
+  // Render a new block formatting context.  Will prevent wrapping under
+  // floated nodes.  Can contain floats and prevent overlapping of succeeding
+  // nodes that are floated.
+
+  .layout-clip#{$modifier} {
+    overflow: hidden !important;
+  }
 }
 
-// Remove node from document flow to center to it's closest non-static parent.
+@include layout-helpers();
 
-.layout-fixedCenter,
-.layout-absoluteCenter {
-  left: 50% !important;
-  top: 50% !important;
-  transform: translateX(-50%) translateY(-50%) !important;
-}
-
-// Fix a box to the body.
-
-.layout-fixed,
-.layout-fixedViewport,
-.layout-fixedCenter {
-  backface-visibility: hidden !important;
-  position: fixed !important;
-}
-
-// Have an element occupy the entire height and with of the viewport.
-
-.layout-fixedViewport,
-.layout-absoluteViewport {
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  top: 0 !important;
-
-  margin: auto !important;
-}
-
-// Center a box relative to its containing box.
-
-.layout-center {
-  display: block !important;
-  float: none !important;
-
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-// Contain flaots.
-
-.layout-clear {
-  @include clearfix;
-}
-
-// Floats
-// Position a box at the beginning or end of the current line.
-
-.layout-pull { float: left !important; }
-.layout-push { float: right !important; }
-
-.layout-relative {
-  position: relative !important;
-}
-
-// Overflow: clip content
-// Render a new block formatting context.  Will prevent wrapping under
-// floated nodes.  Can contain floats and prevent overlapping of succeeding
-// nodes that are floated.
-
-.layout-clip {
-  overflow: hidden !important;
+@if $has-layout-media {
+  @each $vp in ("xs", "sm", "md", "lg", "xl") {
+    @include breakpoint-media-min(#{$vp}) {
+      @include layout-helpers("--#{$vp}");
+    }
+  }
 }
