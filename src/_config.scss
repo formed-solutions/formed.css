@@ -39,9 +39,9 @@ $gray-lighter:  #eee !default;
 @import "color-config";
 
 // Theming
-$theme-primary: $color-secondary-500 !default;
-$theme-primary-light: $color-secondary-100 !default;
-$theme-primary-dark: $color-secondary-700 !default;
+$theme-primary: $color-darkBlue-500 !default;
+$theme-primary-light: $color-darkBlue-100 !default;
+$theme-primary-dark: $color-darkBlue-700 !default;
 $theme-accent: $color-turquoise-a700 !default;
 
 $theme-primary-contrast: $color-contrast-light !default;
