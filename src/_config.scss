@@ -233,20 +233,19 @@ $editor-vertical-spacing:  $spacing-base !default;
 $editor-font-size:         $font-size-base !default;
 $editor-width:             300px !default;
 $editor-placeholder-color: $color-grey-500 !default;
-$editor-color: #333 !default;
-$editor-color-focus: #666 !default;
+$editor-color: $color-grey-100 !default;
+$editor-color-focus: $color-grey-500 !default;
 $editor-color-disable-light: #e5e5e5 !default;
 $editor-color-disable-dark: #c4c4c4 !default;
 
 $editor-invalid-color: $color-red-400 !default;
 
 $editor-control-border-radius: $border-radius-medium !default;
-$editor-control-border-color: #333 !default;
+$editor-control-border-color: $color-grey-100 !default;
 $editor-control-font-size:    $font-size-base !default;
 $editor-control-padding:      7px !default;
 $editor-control-width:        100% !default;
 
-$editor-label-color: #333 !default;
 $editor-label-top:               $spacing-base !default;
 $editor-label-after-bottom:      $spacing-base !default;
 $editor-label-hanging-font-size: $font-size-medium !default;
