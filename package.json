@@ -1,6 +1,6 @@
 {
   "name": "formed.css",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "Formed solutions visual style and component-based library.",
   "style": "dist/css/formed.css",
   "sass": "src/formed.scss",
