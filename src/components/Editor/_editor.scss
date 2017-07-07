@@ -119,7 +119,7 @@
   // Context
 
   .Editor.has-icon & {
-    padding-right: rem(22 + 7);
+    padding-right: rem($spacing-base + $spacing-small);
   }
 }
 
@@ -184,27 +184,28 @@ textarea.Editor-control {
 // ----------------------------------------------------------------------------
 
 .Editor-icon.Editor-icon {
-  @include transition-default(color, transform);
+  @include transition-default(color);
 
   display: inline-block;
   position: absolute;
-  right: rem(5);
+  right: rem($spacing-small);
   top: 50%;
-  transform: translateY(-50%) scaleX(0.72) scaleY(0.72);
+  transform: translateY(-50%);
 
+  color: $editor-color;
   text-align: center;
 
   will-change: transform;
 
   &,
   & > * {
-    height: rem(22);
-    width: rem(22);
+    height: rem($font-size-base);
+    width: rem($font-size-base);
+
+    vertical-align: baseline;
   }
 
   .Editor.is-focused & {
-    transform: translateY(-50%) scaleX(1) scaleY(1);
-
     color: $editor-color-focus;
   }
 }
