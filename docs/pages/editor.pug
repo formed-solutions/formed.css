@@ -164,6 +164,32 @@ block main
           <label class="Editor-label" for="input-8">Name</label>
         </div>
 
+  div.Layout-container.mvl
+    h4 Editor API
+    p Creating a <code>editor</code> returns an object where a small API is exposed to manipulate the state of a editor.
+
+  div
+    pre.language-markup
+      code
+        :markdown
+          <div class="Editor js-editor">...</editor>
+
+          <script>
+            var editor = formed.default.editor(document.querySelector('.js-editor'));
+
+            // Disable a editor.
+            editor.disable();
+
+            // Enable a editor.
+            editor.enable();
+
+            // Refresh the state of editor.
+            editor.refreshState();
+
+            // Remove event listeners from editor.
+            editor.destroy();
+          </script>
+
 block scripts
   script.
     [].forEach.call(document.querySelectorAll('.Editor'), function (editor) {
