@@ -81,6 +81,7 @@ $font-family-code:    $consolas !default
 $font-family-headers: inherit !default
 
 $line-height-base:    ($font-size-root * 1.5) !default;
+$line-height-base-unitless: 1.5 !default;
 $line-height-headers: 1.1 !default;
 
 // Borders
@@ -161,6 +162,7 @@ $layout-left-offset:  $layout-drawer-width !default;
 $layout-nav-color: $theme-primary-contrast !default;
 
 // Button
+$button-height: 40px !default;
 $button-radius: $border-radius-medium !default;
 $button-padding-vertical: $spacing-medium !default;
 $button-padding-horizontal: $spacing-base !default;
@@ -237,17 +239,19 @@ $editor-color: $color-grey-100 !default;
 $editor-color-focus: $color-grey-500 !default;
 $editor-color-disable-light: #e5e5e5 !default;
 $editor-color-disable-dark: #c4c4c4 !default;
+$editor-control-height: 32px !default;
 
 $editor-invalid-color: $color-red-400 !default;
 
 $editor-control-border-radius: $border-radius-medium !default;
 $editor-control-border-color: $color-grey-000 !default;
-$editor-control-font-size:    $font-size-base !default;
-$editor-control-padding:      7px !default;
-$editor-control-width:        100% !default;
+$editor-control-font-size: $font-size-base !default;
+$editor-control-padding: 7px !default;
+$editor-control-width: 100% !default;
 
-$editor-label-top:               $spacing-base !default;
-$editor-label-after-bottom:      $spacing-base !default;
+$editor-label-height: 24px !default;
+$editor-label-top: $spacing-base !default;
+$editor-label-after-bottom: $spacing-base !default;
 $editor-label-hanging-font-size: $font-size-medium !default;
 
 $editor-help-color: $color-grey-800 !default;

@@ -7,6 +7,10 @@
 @import "../config";
 @import "../_mixins/background-mod";
 
+.background-transparent {
+  background-color: transparent !important;
+}
+
 @include background-mod('.background-primary', $theme-primary);
 @include background-mod('.background-dark', $theme-primary-dark);
 @include background-mod('.background-accent', $theme-accent);
