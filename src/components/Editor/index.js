@@ -43,7 +43,10 @@ const editor = (() => {
 
     bindings.call(editor);
 
-    editor.refreshState();
+    checkDirtyState.call(editor);
+    checkDisabledState.call(editor);
+    checkFocusState.call(editor);
+    checkReadonlyState.call(editor);
 
     if (editor.controlEl.hasAttribute('autofocus')) {
       editor.editorEl.focus();
@@ -120,6 +123,7 @@ const editor = (() => {
 
   function blurHandler() {
     this.editorEl.classList.remove(cssInterface.IS_FOCUSED);
+    checkValidState.call(this);
   }
 
   function focusHandler() {
