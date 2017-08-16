@@ -1,11 +1,10 @@
-/**
- * Button component
- * Best applied to anchor and button elements.
- *
- * Stability: unstable (1)
- */
+// Button component
+// Best applied to anchor and button elements.
+//
+// Stability: unstable (1)
 
 // Dependencies
+
 @import "../../config";
 @import "../../_mixins/button-mods";
 @import "../../_mixins/borders";
@@ -14,17 +13,14 @@
 @import "../../_mixins/transitions";
 @import "../../_functions/rem";
 
-/* Main component
-   ------------------------------------------------------------------------- */
+// Main component
+// ----------------------------------------------------------------------------
 
-/**
- * 1. Ensure `box-sizing` is consistent amongst all instances.
- * 2. Prevent button text from being selected.
- * 3. Remove underlines from text on state.
- */
+// 1. Ensure `box-sizing` is consistent amongst all instances.
+// 2. Prevent button text from being selected.
+// 3. Remove underlines from text on state.
 
 .Button {
-  $pv: rem($button-padding-vertical);
   $ph: rem($button-padding-horizontal);
   @include border-radius($button-radius);
   @include transition(
@@ -37,8 +33,8 @@
   position: relative;
 
   border: none;
-  box-sizing: border-box; /* 1 */
-  height: rem(40);
+  box-sizing: border-box; // 1
+  height: rem($button-height);
   margin: 0;
   padding: 0 #{$ph};
 
@@ -50,13 +46,20 @@
   text-decoration: none;
 
   cursor: pointer;
-  user-select: none; /* 2 */
+  user-select: none; // 2
   vertical-align: middle;
 
   will-change: box-shadow;
 
   &:-moz-focus-innner {
     border: 0;
+  }
+
+  // For anchors that appear as buttons.
+  &:not(button) {
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
   // State
@@ -67,7 +70,7 @@
   }
 
   @include hover-focus-active {
-    text-decoration: none; /* 3 */
+    text-decoration: none; // 3
   }
 
   &:focus:not(:active) {
@@ -90,25 +93,19 @@
   }
 }
 
-/**
- * Modifier: primary button.
- */
+// Modifier: primary button.
 
 .Button--primary {
   color: $button-primary-color;
 }
 
-/**
- * Modifier: secondary buttons.
- */
+ // Modifier: secondary buttons.
 
 .Button--accent {
   color: $theme-accent;
 }
 
-/**
- * Modifier: call to action buttons.
- */
+// Modifier: call to action buttons.
 
 .Button--ctab {
   @include shadow-level(1);
@@ -166,10 +163,8 @@
   }
 }
 
-/**
- * Modifier: icon button.
- * Buttons represented by a icon.
- */
+// Modifier: icon button.
+// Buttons represented by a icon.
 
 %button-icon {
   @include border-radius(50%);
