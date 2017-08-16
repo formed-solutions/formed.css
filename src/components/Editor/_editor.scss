@@ -9,6 +9,7 @@
 @import "../../_mixins/borders";
 @import "../../_mixins/transitions";
 @import "../../_mixins/placeholder";
+@import "../../_functions/strip-unit";
 @import "../../_functions/rem";
 
 // Main container component
@@ -17,13 +18,11 @@
 .Editor {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   position: relative;
 
-  height: rem(82);
   margin: 0;
   max-width: 100%;
-  padding: 0;
+  padding: #{rem($editor-label-height)} 0 0;
   width: rem($editor-width);
 
   font-size: rem($editor-font-size);
@@ -36,11 +35,11 @@
 
     display: inline-block;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%) scaleY(0.80);
+    top: rem($editor-label-height);
+    transform: scaleY(1);
 
     border: 2px solid $editor-control-border-color;
-    height: rem(40);
+    height: rem($editor-control-height);
     width: 100%;
 
     content: "";
@@ -48,7 +47,7 @@
   }
 
   &.is-focused:before {
-    transform: translateY(-50%) scaleY(1);
+    transform: scaleY(1.2) perspective(1px) translateZ(0);
 
     border-color: $editor-color-focus;
   }
@@ -73,9 +72,11 @@
   @include transition-default(border-color color);
 
   display: block;
+  position: relative;
+  z-index: 1;
 
   border: none;
-  height: rem(32);
+  height: rem($editor-control-height);
   margin: 0;
   padding: rem($editor-control-padding);
   width: $editor-control-width;
@@ -87,8 +88,6 @@
   font-size: rem($editor-control-font-size);
   line-height: normal;
   text-align: left;
-
-  will-change: transform;
 
   @include placeholder {
     opacity: 0.54;
@@ -133,19 +132,19 @@ textarea.Editor-control {
 // Child: add a label to an editor.
 
 .Editor-label {
-  @include transition-default(color, font-size, transform);
+  @include transition-default(color, transform);
 
   display: block;
   left: rem($editor-control-padding);
   overflow: hidden;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  transform-origin: top left;
 
   padding: 0;
 
   color: $editor-color;
-  line-height: 1.5;
+  line-height: strip-unit($editor-label-height / $font-size-base);
   text-align: left;
   white-space: nowrap;
 
@@ -154,11 +153,8 @@ textarea.Editor-control {
 
   // State
 
-  .Editor.is-dirty &,
   .Editor.is-focused & {
-    transform: translateY(-200%);
-
-    font-size: $font-size-medium;
+    transform: scale(0.8) perspective(1px) translateZ(0);
   }
 
   .Editor.is-focused & {
@@ -172,25 +168,19 @@ textarea.Editor-control {
   .Editor.is-invalid & {
     color: $editor-invalid-color;
   }
-
-  // Context
-
-  .Editor.has-placeholder & {
-    visibility: hidden;
-  }
 }
 
 // Editor icons
 // ----------------------------------------------------------------------------
 
 .Editor-icon.Editor-icon {
+  $pos: ($editor-control-height * 0.25 + $editor-label-height);
   @include transition-default(color);
 
   display: inline-block;
   position: absolute;
   right: rem($spacing-small);
-  top: 50%;
-  transform: translateY(-50%);
+  top: rem($pos);
 
   color: $editor-color;
   text-align: center;
@@ -216,10 +206,9 @@ textarea.Editor-control {
 // Child: provide valdidation messages.
 
 .Editor-feedback {
-  bottom: 0;
-  display: block;
-  left: 0;
-  position: absolute;
+  $height: ($font-size-medium + 8) / $font-size-medium;
+
+  display: none;
   visibility: hidden;
 
   padding: 0 #{rem($editor-control-padding)};
@@ -227,9 +216,10 @@ textarea.Editor-control {
 
   color: $editor-invalid-color;
   font-size: rem($font-size-medium);
-  line-height: 1.5;
+  line-height: strip-unit($height);
 
   .Editor.is-invalid & {
+    display: block;
     visibility: visible;
   }
 }

@@ -8,7 +8,6 @@ const editor = (() => {
     LABEL: 'Editor-label',
     ICON: 'Editor-icon',
     HAS_ICON: 'has-icon',
-    HAS_PLACEHOLDER: 'has-placeholder',
     IS_DIRTY: 'is-dirty',
     IS_DISABLED: 'is-disabled',
     IS_FOCUSED: 'is-focused',
@@ -43,7 +42,6 @@ const editor = (() => {
     editor.labelEl = editor.editorEl.querySelector(`.${cssInterface.LABEL}`);
 
     bindings.call(editor);
-    setContextClasses.call(editor);
 
     editor.refreshState();
 
@@ -115,14 +113,6 @@ const editor = (() => {
       const method = isValid ? 'remove' : 'add';
 
       this.editorEl.classList[method](cssInterface.IS_INVALID);
-    }
-  }
-
-  function setContextClasses() {
-    if (this.controlEl) {
-      if (this.controlEl.hasAttribute('placeholder')) {
-        this.editorEl.classList.add(cssInterface.HAS_PLACEHOLDER);
-      }
     }
   }
 
