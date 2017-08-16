@@ -92,12 +92,11 @@ Object.defineProperty(exports, "__esModule", {
  */
 
 var editor = function () {
-  var cssInterface = {
+  var classNames = {
     CONTROL: 'Editor-control',
     LABEL: 'Editor-label',
     ICON: 'Editor-icon',
     HAS_ICON: 'has-icon',
-    HAS_PLACEHOLDER: 'has-placeholder',
     IS_DIRTY: 'is-dirty',
     IS_DISABLED: 'is-disabled',
     IS_FOCUSED: 'is-focused',
@@ -126,14 +125,16 @@ var editor = function () {
     }
 
     editor.editorEl = element;
-    editor.controlEl = editor.editorEl.querySelector('.' + cssInterface.CONTROL);
-    editor.iconEl = editor.editorEl.querySelector('.' + cssInterface.ICON);
-    editor.labelEl = editor.editorEl.querySelector('.' + cssInterface.LABEL);
+    editor.controlEl = editor.editorEl.querySelector('.' + classNames.CONTROL);
+    editor.iconEl = editor.editorEl.querySelector('.' + classNames.ICON);
+    editor.labelEl = editor.editorEl.querySelector('.' + classNames.LABEL);
 
     bindings.call(editor);
-    setContextClasses.call(editor);
 
-    editor.refreshState();
+    checkDirtyState.call(editor);
+    checkDisabledState.call(editor);
+    checkFocusState.call(editor);
+    checkReadonlyState.call(editor);
 
     if (editor.controlEl.hasAttribute('autofocus')) {
       editor.editorEl.focus();
@@ -173,28 +174,28 @@ var editor = function () {
     var isDisabled = this.controlEl.hasAttribute('disabled');
     var method = isDisabled ? 'add' : 'remove';
 
-    this.editorEl.classList[method](cssInterface.IS_DISABLED);
+    this.editorEl.classList[method](classNames.IS_DISABLED);
   }
 
   function checkFocusState() {
     var isFocused = !!this.editorEl.querySelector(':focus');
     var method = isFocused ? 'add' : 'remove';
 
-    this.editorEl.classList[method](cssInterface.IS_FOCUSED);
+    this.editorEl.classList[method](classNames.IS_FOCUSED);
   }
 
   function checkDirtyState() {
     var isDirty = this.controlEl.value && this.controlEl.value.length > 0;
     var method = isDirty ? 'add' : 'remove';
 
-    this.editorEl.classList[method](cssInterface.IS_DIRTY);
+    this.editorEl.classList[method](classNames.IS_DIRTY);
   }
 
   function checkReadonlyState() {
     var isReadonly = this.controlEl.hasAttribute('readonly');
     var method = isReadonly ? 'add' : 'remove';
 
-    this.editorEl.classList[method](cssInterface.IS_READONLY);
+    this.editorEl.classList[method](classNames.IS_READONLY);
   }
 
   function checkValidState() {
@@ -202,26 +203,19 @@ var editor = function () {
       var isValid = this.controlEl.validity.valid;
       var method = isValid ? 'remove' : 'add';
 
-      this.editorEl.classList[method](cssInterface.IS_INVALID);
-    }
-  }
-
-  function setContextClasses() {
-    if (this.controlEl) {
-      if (this.controlEl.hasAttribute('placeholder')) {
-        this.editorEl.classList.add(cssInterface.HAS_PLACEHOLDER);
-      }
+      this.editorEl.classList[method](classNames.IS_INVALID);
     }
   }
 
   // Handlers
 
   function blurHandler() {
-    this.editorEl.classList.remove(cssInterface.IS_FOCUSED);
+    this.editorEl.classList.remove(classNames.IS_FOCUSED);
+    checkValidState.call(this);
   }
 
   function focusHandler() {
-    this.editorEl.classList.add(cssInterface.IS_FOCUSED);
+    this.editorEl.classList.add(classNames.IS_FOCUSED);
   }
 
   function inputHandler() {
