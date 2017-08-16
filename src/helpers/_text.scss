@@ -76,7 +76,7 @@
 @include text-mod('.text-accent', $theme-accent);
 @include text-mod('.text-danger', $theme-danger);
 @include text-mod('.text-dark', $theme-primary-dark);
-@include text-mod('.text-faded', $theme-primary-dark);
+@include text-mod('.text-faded', $color-concrete-000);
 @include text-mod('.text-light', $theme-primary-light);
 @include text-mod('.text-primary', $theme-primary);
 @include text-mod('.text-success', $theme-success);
